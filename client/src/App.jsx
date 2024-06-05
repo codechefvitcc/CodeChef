@@ -1,12 +1,23 @@
-import { Footer } from "./Components";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './Pages/Layout';
+import Home from './Pages/Home';
 
-const App = () => {
+
+function App() {
   return (
-  <div>
-    Hello world
-    <Footer />
-  </div>
-);
-};
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;
