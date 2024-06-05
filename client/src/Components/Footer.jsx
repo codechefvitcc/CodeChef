@@ -1,87 +1,91 @@
-import React from 'react';
-
-//CSS for instagram and linkedin icons
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import React from "react";
+import { IoLogoInstagram } from "react-icons/io";
+import { CiLinkedin } from "react-icons/ci";
+import "../Styles/Footer.css";
 
 const Footer = () => {
-    return (
-        <footer className="bg-gray-800 text-white py-8">
-            <div className="container mx-auto px-4 flex flex-wrap justify-between">
-
-                {/* Events Section */}
-                <div className="w-full md:w-1/4 mb-6 md:mb-0">
-                    <h3 className="text-lg font-semibold mb-4">
-                        Events
-                    </h3>
-                    <ul>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                CodeQuest
-                            </a>
-                        </li>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                Cook-off 2024
-                            </a>
-                        </li>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                Decode DSA
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Links for Blogs */}
-                <div className="w-full md:w-1/4 mb-6 md:mb-0">
-                    <h3 className="text-lg font-semibold mb-4">
-                        Blogs
-                    </h3>
-                    <ul>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                Blog 1
-                            </a>
-                        </li>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                Blog 2
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Links for Team Leads showcase*/}
-                <div className="w-full md:w-1/4 mb-6 md:mb-0">
-                    <h3 className="text-lg font-semibold mb-4">
-                        Our Team
-                    </h3>
-                    <ul>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                2024-2025
-                            </a>
-                        </li>
-                        <li className="mb-2">
-                            <a className="hover:underline">
-                                2023-2024
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Icons for Socials */}
-                <div className="w-full md:w-1/4 mb-6 md:mb-0">
-                    <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-                    <ul className="flex space-x-4">
-                        <li><a href="https://www.instagram.com/codechef.vitc/" className="hover:underline"><i className="fab fa-instagram"></i></a></li>
-                        <li><a href="https://www.linkedin.com/company/codechef-vitc/mycompany/" className="hover:underline"><i className="fab fa-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-                
+  return (
+    <>
+      <footer>
+        <div className="row l-footer">
+          <div className="col-sm-3 col-md-3 my-2">
+            <div className="l_footer_col">
+              <p className="l_footer_head">Events</p>
             </div>
-        </footer>
-    );
-}
+            <div className="l_footer_list">
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Code Quest
+                </a>
+              </div>
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Cook-Off 2024
+                </a>
+              </div>
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Decode DSA
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-3 col-md-3 my-2">
+            <div className="l_footer_col">
+              <p className="l_footer_head">Blogs</p>
+            </div>
+            <div className="l_footer_list">
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Blog 1
+                </a>
+              </div>
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Blog 2
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-3 col-md-3 my-2">
+            <div className="l_footer_col">
+              <p className="l_footer_head">Our Team</p>
+            </div>
+            <div className="l_footer_list">
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Batch 2024-25
+                </a>
+              </div>
+              <div className="l_footer_link">
+                <a href="/" className="footer_link">
+                  Batch 2023-24
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-3 col-md-3 my-2">
+            <div className="l_footer_col">
+              <p className="l_footer_head">Follow Us</p>
+            </div>
+            <div className="l_footer_list">
+              <a href="/" className="footer_link footer-icons">
+                <IoLogoInstagram />
+              </a>
+              <a href="/" className="footer_link footer-icons">
+                <CiLinkedin />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div className="copy-right">
+        <p className="copy-right-para">
+          &copy; {new Date().getFullYear()} Copyright All Rights Reserved
+        </p>
+      </div>
+    </>
+  );
+};
 
 export default Footer;
