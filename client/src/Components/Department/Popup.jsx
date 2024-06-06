@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../../Styles/Department section/Popup.css'; // Retain for overflow styling and any specific adjustments
+import '../../Styles/Department/Popup.css'; // Retain for overflow styling and any specific adjustments
+import { RxCross1 } from "react-icons/rx";
 
 // Variants for the backdrop animation
 const backdropVariants = {
@@ -38,7 +39,7 @@ function Popup({ name, members, onClose }) {
       >
         <h2 className="text-2xl font-bold mb-4">{name} Members</h2> {/* Added Tailwind classes for heading */}
         <span className="close-icon absolute top-2 right-2 text-2xl cursor-pointer" onClick={onClose}>
-          <i className="fas fa-times"></i>
+          <RxCross1 />
         </span>
         <table className="members-display table-auto w-full border-collapse mt-5">
           <thead>

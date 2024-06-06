@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Popup from './Popup';
-import '../../Styles/Department section/DeptCard.css';
+import '../../Styles/Department/Department-Card.css';
 
 function DeptCard({ name, image: Icon, description, members, lead1, lead2 }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

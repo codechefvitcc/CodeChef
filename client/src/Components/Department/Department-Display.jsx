@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import DeptCard from './DeptCard.jsx';
-import '../../Styles/Department section/DeptDisplay.css'
+import DeptCard from './Department-Card.jsx';
+import '../../Styles/Department/Department-Display.css'
 
 import { FaTrophy } from 'react-icons/fa6';
 import { IoMdBrush } from 'react-icons/io';
