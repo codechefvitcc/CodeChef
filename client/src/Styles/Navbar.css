@@ -1,0 +1,40 @@
+/* Dropdown hover effect */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+    
+/* Dropdown item hover effect */
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* Ensure mobile dropdowns are hidden by default */
+.dropdown-menu {
+  display: none;
+}
+
+/* Mobile header visibility */
+@media screen and (max-width: 991px) {
+  .md-header {
+    display: flex !important;
+  }
+
+  .main-header {
+    display: none !important;
+  }
+}
+
+/* Adjust padding for smaller screens */
+@media screen and (max-width: 600px) {
+  .main-header {
+    padding: 0 30px;
+  }
+
+  .laptop-logo {
+    display: none !important;
+  }
+
+  .mobile-logo {
+    display: inline-block !important;
+  }
+}
