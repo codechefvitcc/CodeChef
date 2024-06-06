@@ -87,21 +87,21 @@
 .member-count-button{
   text-decoration: none;
   background: #fff;
-  border: 1px solid #4079da;
+  border: 1px solid #2E3444;
   border-radius: 4px;
   padding: 9px 16px;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: #4079da;
+  color: #2E3444;
   height: fit-content;
   margin-top: auto;
   cursor: pointer;
 }
 .member-count-button:hover{
   border: 1px solid #fff;
-  background: #4079da;
+  background: #2E3444;
   color: #fff;
   transition: 0.25s ease-in-out;
 }
