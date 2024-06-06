@@ -18,7 +18,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="main py-20 px-5 md:px-14 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99] md:px-8">
+    <div className="py-20 px-5 md:px-14 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99] md:px-8">
       <div className="flex flex-wrap main-row">
         <div className="w-full sm:w-1/2 text-col p-2 lg:py-6 md:px-3">
           <h1 className="main-heading text-center md:text-left text-4xl leading-[3rem] sm:text-4xl font-semibold leading-[3rem] mb-6 md:text-5xl md:leading-[4.5rem] lg:text-6xl lg:leading-[5rem] md:mb-5">
