@@ -1,20 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import { vishalpfp, defaultpfp } from '../assets';
-import { RiDoubleQuotesL } from 'react-icons/ri';
+import styled from "styled-components";
+import { vishalpfp, defaultpfp } from "../assets";
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 const Hero = () => {
   const testimonialData = [
     {
-      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
-      fname: 'Vishal Kumar Yadav',
-      position: 'Design Lead (2023-24)',
+      msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?",
+      fname: "Vishal Kumar Yadav",
+      position: "Design Lead (2023-24)",
       profileImg: vishalpfp,
     },
     {
-      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
-      fname: 'Sidhhart Tiwari',
-      position: 'President (2023-24)',
+      msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?",
+      fname: "Sidhhart Tiwari",
+      position: "President (2023-24)",
     },
   ];
 
@@ -101,9 +100,9 @@ const Hero = () => {
                           }
                           className="rounded-full mb-2"
                           style={{
-                            height: '50px',
-                            width: '50px',
-                            objectFit: 'cover',
+                            height: "50px",
+                            width: "50px",
+                            objectFit: "cover",
                           }}
                           alt={index}
                         />
@@ -131,9 +130,9 @@ const Hero = () => {
                           }
                           className="rounded-full mb-2"
                           style={{
-                            height: '50px',
-                            width: '50px',
-                            objectFit: 'cover',
+                            height: "50px",
+                            width: "50px",
+                            objectFit: "cover",
                           }}
                           alt={index}
                         />

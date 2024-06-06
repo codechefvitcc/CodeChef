@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import Popup from './Popup';
 import '../../Styles/Department/Department-Card.css';
+import PropTypes from "prop-types";
 
-function DeptCard({ name, image: Icon, description, members, lead1, lead2 }) {
+function DeptCard({ name, icon, description, members, lead }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const handleLeadClick = (e) => {
+  /*const handleLeadClick = (e) => {
     // Prevent propagation to parent elements
     e.stopPropagation();
-  };
+  };*/
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
@@ -20,39 +21,83 @@ function DeptCard({ name, image: Icon, description, members, lead1, lead2 }) {
       <div className="department-card">
         <div className="card-top">
           <h3>{name}</h3>
-          {Icon && (
+          {icon && (
             <span className="icon">
-              <Icon size="38px" />
+              {React.createElement(icon, { size: "38px" })}
             </span>
           )}
-        </ div>
+        </div>
         <p>{description}</p>
-        <div className="leads-container">
-          {/* Lead 1 */}
-          <div className="lead">
-            <img src={lead1.image} alt={lead1.name} className="lead-image" />
-            <a href={lead1.linkedIn} target="_blank" rel="noopener noreferrer" className="lead-name" onClick={handleLeadClick}>
-              {lead1.name}
-            </a>
-          </div>
-          {/* Lead 2 (if exists) */}
-          {lead2 && (
-            <div className="lead">
-              <img src={lead2.image} alt={lead2.name} className="lead-image" />
-              <a href={lead2.linkedIn} target="_blank" rel="noopener noreferrer" className="lead-name" onClick={handleLeadClick}>
-                {lead2.name}
-              </a>
+        <div className="lead-section flex justify-between">
+          {lead.map((ele, index) => (
+            <div className="flex items-center" key={index}>
+              <img
+                src={ele.leadImg}
+                className="rounded-full mx-1"
+                style={{
+                  height: "38px",
+                  width: "50px",
+                  objectFit: "cover",
+                }}
+                alt={ele.leadName}
+              />
+              <div>
+                <p
+                  className="card-subtitle"
+                  style={{
+                    fontWeight: "500",
+                    fontSize: "14px !important",
+                    color: "#546e7a !important",
+                  }}
+                >
+                  <a
+                    target="_blank"
+                    href={ele.leadLinkedIn}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    {ele.leadName}
+                  </a>
+                </p>
+              </div>
             </div>
-          )}
+          ))}
         </div>
         <button className="member-count-button" onClick={handleButtonClick}>
           {members.length} Members
         </button>
       </div>
 
-      {isPopupOpen && <Popup name={name} members={members} onClose={() => setIsPopupOpen(false)} />}
+      {isPopupOpen && (
+        <Popup
+          name={name}
+          members={members}
+          onClose={() => setIsPopupOpen(false)}
+        />
+      )}
     </div>
   );
 }
+
+// prop type is defined here to overcome the issue one get the try to use "map" function on an array of data (no need to pay much attention to it)
+DeptCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.elementType,
+  description: PropTypes.string.isRequired,
+  members: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      regNo: PropTypes.string.isRequired,
+      linkedIn: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  lead: PropTypes.arrayOf(
+    PropTypes.shape({
+      leadName: PropTypes.string.isRequired,
+      leadImg: PropTypes.string.isRequired,
+      leadLinkedIn: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
 
 export default DeptCard;

@@ -1,32 +1,102 @@
-/* Dropdown hover effect */
-.nav-item:hover .dropdown-menu {
-    display: block;
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1490196078);
+  background: #fff;
+
+  margin: 0 auto;
+  padding: 0 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 72px;
 }
-    
-/* Dropdown item hover effect */
+
+.md-header {
+  display: none !important;
+  width: 100%;
+  position: absolute;
+  background: #fff;
+
+  margin-top: 72px;
+  padding: 0 60px;
+
+  height: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-logo {
+  display: none !important;
+}
+
+.headerLogo {
+  width: 150px;
+}
+
+.headerLogo img {
+  display: block;
+  width: 100%;
+}
+
+.rightHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightHeader .headerBtn a {
+  line-height: 32px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #2a67b1;
+  padding: 0 28px;
+  border-radius: 2px;
+  color: #2a67b1;
+  font-weight: 600;
+  background: initial;
+  white-space: nowrap;
+  margin: 0;
+  background: rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  padding: 0.7em 1em 0.7em 1em;
+  text-decoration: none;
+}
+
+.rightHeader .headerBtn a:hover {
+  background-color: #2a67b1;
+  color: white;
+}
+
+.nav-item {
+  border-radius: 5%;
+  padding: 2px 4px !important;
+  transition-duration: 0.5s;
+}
+
+.dropdown-item {
+  transition-duration: 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #2a67b11e;
+}
+
 .dropdown-item:hover {
-  background-color: #f3f4f6;
+  background-color: #2a67b11e;
 }
 
-/* Ensure mobile dropdowns are hidden by default */
-.dropdown-menu {
-  display: none;
-}
-
-/* Mobile header visibility */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 965px) {
   .md-header {
     display: flex !important;
   }
-
-  .main-header {
-    display: none !important;
-  }
 }
 
-/* Adjust padding for smaller screens */
 @media screen and (max-width: 600px) {
-  .main-header {
+  header {
     padding: 0 30px;
   }
 
