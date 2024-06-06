@@ -1,71 +1,97 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence, delay } from 'framer-motion';
+import PropTypes from "prop-types";
+
 import Popup from './Popup';
 import '../../Styles/Department/Department-Card.css';
-import PropTypes from "prop-types";
 
 function DeptCard({ name, icon, description, members, lead }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  /*const handleLeadClick = (e) => {
-    // Prevent propagation to parent elements
-    e.stopPropagation();
-  };*/
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
     setIsPopupOpen(true);
   };
 
+  const cardVariants = {
+    hidden: { 
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+    },
+  };
+
+  const transition = {
+    duration: 0.75,
+  }
+
   return (
     <div>
-      <div className="department-card">
-        <div className="card-top">
-          <h3>{name}</h3>
-          {icon && (
-            <span className="icon">
-              {React.createElement(icon, { size: "38px" })}
-            </span>
-          )}
-        </div>
-        <p>{description}</p>
-        <div className="lead-section flex justify-between">
-          {lead.map((ele, index) => (
-            <div className="flex items-center" key={index}>
-              <img
-                src={ele.leadImg}
-                className="rounded-full mx-1"
-                style={{
-                  height: "38px",
-                  width: "50px",
-                  objectFit: "cover",
-                }}
-                alt={ele.leadName}
-              />
-              <div>
-                <p
-                  className="card-subtitle"
+      <AnimatePresence>
+        <motion.div 
+          className="department-card"
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: false }}  // Trigger animation more than once
+          variants={cardVariants}
+          transition={transition}
+        >
+          <div className="card-top">
+            <h3>{name}</h3>
+            {icon && (
+              <span className="icon">
+                {React.createElement(icon, { size: "38px" })}
+              </span>
+            )}
+          </div>
+          <p>{description}</p>
+          <div className="lead-section flex justify-between">
+            {lead.map((ele, index) => (
+              <div className="flex items-center" key={index}>
+                <img
+                  src={ele.leadImg}
+                  className="rounded-full mx-1"
                   style={{
-                    fontWeight: "500",
-                    fontSize: "14px !important",
-                    color: "#546e7a !important",
+                    height: "38px",
+                    width: "50px",
+                    objectFit: "cover",
                   }}
-                >
-                  <a
-                    target="_blank"
-                    href={ele.leadLinkedIn}
-                    style={{ textDecoration: "none", color: "inherit" }}
+                  alt={ele.leadName}
+                />
+                <div>
+                  <p
+                    className="card-subtitle"
+                    style={{
+                      fontWeight: "500",
+                      fontSize: "14px !important",
+                      color: "#546e7a !important",
+                    }}
                   >
-                    {ele.leadName}
-                  </a>
-                </p>
+                    <a
+                      target="_blank"
+                      href={ele.leadLinkedIn}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      {ele.leadName}
+                    </a>
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <button className="member-count-button" onClick={handleButtonClick}>
-          {members.length} Members
-        </button>
-      </div>
+            ))}
+          </div>
+          <button className="member-count-button" onClick={handleButtonClick}>
+            {members.length} Members
+          </button>
+        </motion.div>
+      </AnimatePresence>
 
       {isPopupOpen && (
         <Popup

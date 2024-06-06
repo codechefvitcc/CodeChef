@@ -37,7 +37,7 @@ function Popup({ name, members, onClose }) {
         variants={modalVariants}
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
       >
-        <h2 className="text-2xl font-bold mb-4">{name} Members</h2> {/* Added Tailwind classes for heading */}
+        <h2 className="text-2xl font-bold mb-4">{name} Members</h2>
         <span className="close-icon absolute top-2 right-2 text-2xl cursor-pointer" onClick={onClose}>
           <RxCross1 />
         </span>
