@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, delay } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from "prop-types";
 
 import Popup from './Popup';
@@ -92,14 +92,16 @@ function DeptCard({ name, icon, description, members, lead }) {
           </button>
         </motion.div>
       </AnimatePresence>
-
-      {isPopupOpen && (
-        <Popup
-          name={name}
-          members={members}
-          onClose={() => setIsPopupOpen(false)}
-        />
-      )}
+      
+      <AnimatePresence>
+        {isPopupOpen && (
+          <Popup
+            name={name}
+            members={members}
+            onClose={() => setIsPopupOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

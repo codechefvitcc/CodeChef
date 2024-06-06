@@ -5,8 +5,9 @@ import { RxCross1 } from "react-icons/rx";
 
 // Variants for the backdrop animation
 const backdropVariants = {
-  visible: { opacity: 1 },
   hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0, transition: { delay: 0.6 } },
 };
 
 // Variants for the modal animation
@@ -20,6 +21,11 @@ const modalVariants = {
     y: '0',
     transition: { delay: 0.5 }
   },
+  exit: {
+    opacity: 0,
+    y: "-100vh",
+    transition: { ease: "easeOut" }
+  }
 };
 
 function Popup({ name, members, onClose }) {
@@ -29,7 +35,7 @@ function Popup({ name, members, onClose }) {
       variants={backdropVariants} 
       initial="hidden" 
       animate="visible" 
-      exit="hidden"
+      exit="exit"
       onClick={onClose}
     >
       <motion.div 
