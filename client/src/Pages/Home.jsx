@@ -1,9 +1,12 @@
-import React from 'react'
+import { Gallery, Hero } from "../Components";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <Hero />
+      <Gallery />
+    </>
+  );
+};
 
-export default Home
+export default Home;
