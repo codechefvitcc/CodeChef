@@ -1,25 +1,29 @@
-import styled from "styled-components";
-import { vishalpfp, defaultpfp } from "../assets";
-import { RiDoubleQuotesL } from "react-icons/ri";
+import styled from 'styled-components';
+
+// Importing profile picture and quote symbol assets
+import { vishalpfp, defaultpfp } from '../assets';
+import { RiDoubleQuotesL } from 'react-icons/ri';
 
 const Hero = () => {
+  // Data to be written in testimonials
   const testimonialData = [
     {
-      msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?",
-      fname: "Vishal Kumar Yadav",
-      position: "Design Lead (2023-24)",
+      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
+      fname: 'Vishal Kumar Yadav',
+      position: 'Design Lead (2023-24)',
       profileImg: vishalpfp,
     },
     {
-      msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?",
-      fname: "Sidhhart Tiwari",
-      position: "President (2023-24)",
+      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
+      fname: 'Sidhhart Tiwari',
+      position: 'President (2023-24)',
     },
   ];
 
   return (
     <div className="py-20 px-5 md:px-14 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99] md:px-8">
       <div className="flex flex-wrap main-row">
+        {/* Website title area */}
         <div className="w-full sm:w-1/2 text-col p-2 lg:py-6 md:px-3">
           <h1 className="main-heading text-center md:text-left text-4xl leading-[3rem] sm:text-4xl font-semibold leading-[3rem] mb-6 md:text-5xl md:leading-[4.5rem] lg:text-6xl lg:leading-[5rem] md:mb-5">
             Start your club
@@ -29,6 +33,8 @@ const Hero = () => {
             Join us to craft your college journey: hone skills, forge
             friendships and create cherished memories.
           </p>
+
+          {/* Join club input */}
           <div className="main-input flex justify-center md:justify-start items-center mt-2">
             <input
               className="input-box w-full max-w-[150px] md:max-w-[150px] lg:max-w-[200px] gap-4 border border-[#d2d9e7] rounded-l-md border-r-0 text-gray-500 font-normal text-lg leading-[23px] p-1 sm:p-2 placeholder-[#b3bdd2]"
@@ -42,6 +48,8 @@ const Hero = () => {
               Join Us Today
             </a>
           </div>
+
+          {/* Connect section */}
           <div className="connect-with-us md:justify-start justify-center my-3 flex items-center gap-4">
             <div className="connect-msg text-sm font-medium">
               connect with us on
@@ -82,6 +90,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
+        {/* Testimonial carousel */}
         <div className="w-full sm:w-1/2">
           <CarouselStyle>
             <div className="logos">
@@ -100,9 +110,9 @@ const Hero = () => {
                           }
                           className="rounded-full mb-2"
                           style={{
-                            height: "50px",
-                            width: "50px",
-                            objectFit: "cover",
+                            height: '50px',
+                            width: '50px',
+                            objectFit: 'cover',
                           }}
                           alt={index}
                         />
@@ -130,9 +140,9 @@ const Hero = () => {
                           }
                           className="rounded-full mb-2"
                           style={{
-                            height: "50px",
-                            width: "50px",
-                            objectFit: "cover",
+                            height: '50px',
+                            width: '50px',
+                            objectFit: 'cover',
                           }}
                           alt={index}
                         />
@@ -153,6 +163,7 @@ const Hero = () => {
   );
 };
 
+// Style for the testimonial carousel
 const CarouselStyle = styled.section`
   min-height: 0;
   @keyframes slide {
