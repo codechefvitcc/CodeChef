@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div>
       {/* Navbar that appears for laptop screens */}
-      <nav className='w-full bg-white flex border-b border-gray-400 text-gray-500 justify-between items-center h-[10vh]'>
+      <nav className='w-full bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]'>
         <Link to="/" className="ml-4">
           <img
             className='collapse absolute sm:w-[150px] sm:visible'
