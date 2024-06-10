@@ -81,7 +81,7 @@ const Navbar = () => {
       {/* Navbar that appears for mobile screens */}
       <div className={isScrolled?'top-0 items-center fixed bg-white  w-full z-50 md:hidden block':' items-center fixed bg-white  w-full z-50 md:hidden block'}>
           {/* Drop down menus start here */}
-          <div className='flex items-center justify-center p-2'>
+          <div className='flex items-center shadow justify-center p-2'>
               <div className='mx-4 block'>
                 <div onClick={()=>{setEventsClicked(!eventsClicked)}} className={eventsClicked?'fill-white flex justify-center items-center px-4 py-2 rounded text-white bg-gray-300':"hover:fill-white flex items-center px-4 py-2 rounded  hover:bg-gray-300 hover:text-white"}>
                   <h2 className='mr-2' >Events</h2>
