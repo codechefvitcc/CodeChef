@@ -77,7 +77,7 @@ function Presidents() {
           key={currentIndex}
           initial={{ opacity: 0, x: 70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5, type: 'spring', stiffness: 600, damping: 100 }}
+          transition={{ delay: 0.25, type: 'spring', stiffness: 600, damping: 100 }}
         >
           <PresidentCard
             name={mockData[currentIndex].name}

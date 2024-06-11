@@ -20,9 +20,10 @@ function Faculty() {
         px-[10px] xl:px-[20px] lg:px-[20px] md:px-[10px] sm:px-[40px]
         rounded-[10px] bg-white flex items-center shadow-lg overflow-hidden" 
         style={{boxShadow:'2px 2px 6px 0px #00000040, -1px 0px 6px 0px #00000040'}} 
-        initial={{ opacity: 0, x: -70 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, type: 'spring', stiffness: 600, damping: 100 }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.75 }}
       >
         <div className="w-1/2 p-4 sm:p-8 flex flex-col justify-center relative">
           {/* quotes image */}

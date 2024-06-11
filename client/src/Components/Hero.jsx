@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 // Importing profile picture and quote symbol assets
 import { vishalpfp, defaultpfp } from '../assets';
@@ -24,7 +25,12 @@ const Hero = () => {
     <div className="py-20 px-5 md:px-14 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99] md:px-8">
       <div className="flex flex-wrap main-row">
         {/* Website title area */}
-        <div className="w-full sm:w-1/2 text-col p-2 lg:py-6 md:px-3">
+        <motion.div 
+          className="w-full sm:w-1/2 text-col p-2 lg:py-6 md:px-3" 
+          initial={{ opacity: 0.5, x: -150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.75 }}
+        >
           <h1 className="main-heading text-center md:text-left text-4xl leading-[3rem] sm:text-4xl font-semibold leading-[3rem] mb-6 md:text-5xl md:leading-[4.5rem] lg:text-6xl lg:leading-[5rem] md:mb-5">
             Start your club
             <br /> journey with us!
@@ -89,7 +95,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Testimonial carousel */}
         <div className="w-full sm:w-1/2">
