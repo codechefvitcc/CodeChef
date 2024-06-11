@@ -43,8 +43,8 @@ function Popup({ name, members, onClose }) {
         variants={modalVariants}
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
       >
-        <h2 className="text-2xl font-bold mb-4">{name} Members</h2>
-        <span className="close-icon absolute top-1 right-1 text-2xl cursor-pointer" onClick={onClose}>
+        <h2 className="text-md sm:text-2xl font-bold whitespace-normal">{name} Members</h2>
+        <span className="close-icon absolute top-1 right-1 text-lg sm:text-2xl cursor-pointer" onClick={onClose}>
           <RxCross1 />
         </span>
         <table className="members-display table-auto w-full border-collapse mt-5">
@@ -52,7 +52,7 @@ function Popup({ name, members, onClose }) {
             <tr className="bg-gray-200">
               <th className="px-4 py-2 border">#</th>
               <th className="px-4 py-2 border">Name</th>
-              <th className="px-4 py-2 border">Registration no.</th>
+              {/* <th className="px-4 py-2 border">Registration no.</th> */}
               <th className="px-4 py-2 border">LinkedIn link</th>
             </tr>
           </thead>
@@ -61,11 +61,20 @@ function Popup({ name, members, onClose }) {
               <tr key={index} className="border-b">
                 <td className="px-4 py-2 border">{index + 1}</td>
                 <td className="px-4 py-2 border">{member.name}</td>
-                <td className="px-4 py-2 border">{member.regNo}</td>
-                <td className="px-4 py-2 border">
-                  <a href={member.linkedIn} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                    LinkedIn
-                  </a>
+                {/* <td className="px-4 py-2 border">{member.regNo}</td> */}
+                <td className="px-4 py-2 border flex justify-center items-center">
+                  <button 
+                    className='flex items-center gap-2'
+                    onClick={() => window.open(member.linkedIn, '_blank')}
+                  >
+                    <img
+                      width="20px"
+                      height="20px"
+                      src="https://img.icons8.com/color/48/linkedin.png"
+                      alt="linkedin"
+                    />
+                    <span className='hidden sm:block font-semibold'>Connect</span>
+                  </button>
                 </td>
               </tr>
             ))}
