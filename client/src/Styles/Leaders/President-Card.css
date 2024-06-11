@@ -1,3 +1,4 @@
 .president-card{
-    box-shadow: 0px 0px 6px 0px #00000040;
+    box-shadow: 2px 2px 6px 0px #00000040,
+                -1px 0px 6px 0px #00000040;
 }

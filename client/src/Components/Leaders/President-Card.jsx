@@ -72,12 +72,13 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
                         px-2 xl:px-4 lg:px-2 md:px-2 sm:px-3 
                         text-[14px] xl:text-sm lg:text-sm md:text-[10px] sm:text-[15px] 
                         lg:w-[100px] md:w-[50px] sm:w-[100px] w-[80px] 
-                        bg-[#062c68] 
-                        text-white rounded-full cursor-pointer
+                        border border-[#131313] 
+                        bg-white 
+                        rounded-full cursor-pointer
                         rounded-3xl"
                         onClick={() => window.open(`mailto:${mail}`, '_blank')}
                     >
-                        <MdEmail size={20} color="white" />
+                        <MdEmail size={20} color="#062c68" />
                         <span className='lg:block md:hidden block'>Email</span>
                     </button>
 
@@ -111,4 +112,4 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
   )
 }
 
-export default PresidentCard
+export default PresidentCard;
