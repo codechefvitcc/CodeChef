@@ -4,5 +4,6 @@ import DeptDisplay from './Department/Department-Display';
 import Hero from './Hero';
 import Gallery from './Gallery';
 import Leaders from './Leaders/Leaders';
+import ScrollToTop from './ScrollToTop';
 
-export { Footer, Navbar, DeptDisplay, Hero, Gallery, Leaders };
+export { Footer, Navbar, DeptDisplay, Hero, Gallery, Leaders, ScrollToTop };
