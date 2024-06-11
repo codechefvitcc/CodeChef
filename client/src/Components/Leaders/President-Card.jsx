@@ -2,18 +2,17 @@ import React from 'react'
 import { FaQuoteLeft, FaQuoteRight, FaLinkedinIn } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
-import '../../Styles/Leaders/President-Card.css'
-
 function PresidentCard({name, photo, year, vision, mail, linkedin}) {
 
   return (
     <div 
-        className='president-card 
+        className='
         w-[350px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px]
         h-[280px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
         gap-[10px] xl:gap-[30px] lg:gap-[20px] md:gap-[10px] sm:gap-[30px]
         px-[10px] xl:px-[40px] lg:px-[40px] md:px-[20px] sm:px-[40px]
-        rounded-[40px] bg-white flex items-center'
+        rounded-[40px] bg-white flex items-center overflow-hidden' 
+        style={{boxShadow:'2px 2px 6px 0px #00000040, -1px 0px 6px 0px #00000040'}}
     >
         <div 
             className='w-[160px] xl:w-[190px] lg:w-[150px] md:w-[110px] sm:w-[170px]
@@ -23,15 +22,16 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
             w-[130px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
             rounded-full' />
 
-            <div className='flex flex-col items-center'>
+            <div className='flex flex-col items-center uppercase'>
                 <h3 className="mt-[15px] text-center 
-                text-[13px] xl:text-m lg:text-[13px] md:text-[9.5px] sm:text-[15px]
-                uppercase font-bold">
+                text-[11px] xl:text-m lg:text-[13px] md:text-[9.5px] sm:text-[15px]
+                font-bold">
                     {name}
                 </h3>
 
                 <h4 className="mt-[10px] 
-                text-[12px] xl:text-[15px] lg:text-[13px] md:text-[10px] sm:text-[14px]">
+                text-[12px] xl:text-[15px] lg:text-[13px] md:text-[10px] sm:text-[14px] 
+                text-gray-500 font-semibold">
                     Batch {year}
                 </h4>
             </div>
@@ -102,8 +102,7 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
 
             <div className="absolute 
                 right-[-7px] xl:right-[-25px] lg:right-[-30px] md:right-[-10px] sm:right-[0px] 
-                bottom-[60px] 
-                bottom-[50px] xl:bottom-[55px] lg:bottom-[40px] md:bottom-[25px] sm:bottom-[45px]"
+                bottom-[40px] xl:bottom-[55px] lg:bottom-[40px] md:bottom-[25px] sm:bottom-[45px]"
             >
                 <FaQuoteRight size={25} />
             </div>

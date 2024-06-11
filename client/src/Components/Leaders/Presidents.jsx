@@ -67,10 +67,10 @@ function Presidents() {
 
   return (
     <div className="w-full md:w-1/2 min-w-[384px] 
-    xl:min-h-[250px] lg:min-h-[250px] md:min-h-[250px] sm:min-h-[400px] min-h-[450px] 
+    md:min-h-[250px] sm:min-h-[400px] min-h-[400px] 
     h-[35vw] px-5 flex flex-col items-center">
       <h2 className='mb-[15px] text-center font-bold 
-      text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-3xl'>Presidents</h2>
+      text-2xl xl:text-3xl lg:text-2xl md:text-xl sm:text-3xl'>Presidents</h2>
 
       <div className='flex flex-col items-center'>
         <motion.div
