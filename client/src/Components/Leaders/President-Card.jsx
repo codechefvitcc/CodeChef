@@ -11,7 +11,7 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
         h-[280px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
         gap-[10px] xl:gap-[30px] lg:gap-[20px] md:gap-[10px] sm:gap-[30px]
         px-[10px] xl:px-[40px] lg:px-[40px] md:px-[20px] sm:px-[40px]
-        rounded-[40px] bg-white flex items-center overflow-hidden' 
+        rounded-[10px] bg-white flex items-center overflow-hidden' 
         style={{boxShadow:'2px 2px 6px 0px #00000040, -1px 0px 6px 0px #00000040'}}
     >
         <div 
