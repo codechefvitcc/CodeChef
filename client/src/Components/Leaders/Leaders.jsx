@@ -9,10 +9,10 @@ function Leaders() {
         Our Leaders
       </h2>
       <div className="w-full md:w-1/2 lg:w-1/2">
-        <Presidents />
+        <Faculty />
       </div>
       <div className="w-full md:w-1/2 lg:w-1/2">
-        <Faculty />
+        <Presidents />
       </div>
     </div>
   );

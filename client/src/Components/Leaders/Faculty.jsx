@@ -5,7 +5,7 @@ import { faculty, quotes } from '../../assets/leaders';
 
 function Faculty() {
   return (
-    <div className="bg-blue-600 w-full h-full p-4 flex items-center justify-center">
+    <div className="w-full h-full p-4 flex items-center justify-center">
       <div className="flex flex-row bg-white shadow-lg rounded-lg overflow-hidden max-w-xl w-full">
         <div className="w-1/2 p-4 sm:p-8 flex flex-col justify-center">
           {/* quotes image */}
