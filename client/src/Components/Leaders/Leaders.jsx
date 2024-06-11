@@ -8,8 +8,8 @@ function Leaders() {
       <h2 className="w-screen text-center p-2 text-4xl font-bold text-black-800 mb-4">
         Our leaders
       </h2>
-      <Presidents />
       <Faculty />
+      <Presidents />
     </div>
   );
 }
