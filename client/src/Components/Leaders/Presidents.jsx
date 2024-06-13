@@ -66,9 +66,14 @@ function Presidents() {
   };
 
   return (
-    <div className="w-full md:w-1/2 min-w-[384px] 
-    md:min-h-[250px] sm:min-h-[400px] min-h-[400px] 
-    h-[35vw] px-5 flex flex-col items-center">
+    <motion.div className="w-full md:w-1/2 min-w-[384px] 
+      md:min-h-[250px] sm:min-h-[400px] min-h-[400px] 
+      h-[35vw] px-5 flex flex-col items-center" 
+      initial={{ scale: 0.7 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ once: false }}
+      transition={{ delay: 0.2, duration: 1 }} 
+    >
       <h2 className='mb-[15px] text-center font-bold 
       text-2xl xl:text-3xl lg:text-2xl md:text-xl sm:text-3xl'>Presidents</h2>
 
@@ -130,7 +135,7 @@ function Presidents() {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
