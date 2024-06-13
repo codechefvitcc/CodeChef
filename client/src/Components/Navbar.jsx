@@ -44,7 +44,7 @@ const Navbar = () => {
           <div className='mr-4 items-center hidden md:block'>
             {/* Drop down menus start here */}
               <div className='flex'>
-                <div className='mx-2 block' onMouseOut={()=>{setTimeout(()=>{setEventsClicked(false)},3000)}}>
+                <div className='mx-2 block'>
                   <div onClick={()=>{setEventsClicked(!eventsClicked)}}  className={eventsClicked?'bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded':"duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "}>
                     <h2 className='mr-2' >Events</h2>
                     <svg xmlns="http://www.w3.org/2000/svg" className={eventsClicked?"rotate-180 duration-300":"duration-300"} height="20" width="12.5" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <div className='mx-2 block'>
                   <h2 className='block px-4 py-2 rounded hover:bg-[#2a67b11e]' onClick={()=>{setBlogsClicked(!blogsClicked)}}>Blogs</h2>
                 </div>
-                <div className='mx-2 block' onMouseOut={()=>{setTimeout(()=>{setTeamClicked(false)},3000)}}>
+                <div className='mx-2 block'>
                   <div onClick={()=>{setTeamClicked(!teamClicked)}} className={teamClicked?'bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded':"duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "}>
                     <h2 className='mr-2' >Our Team</h2>
                     <svg xmlns="http://www.w3.org/2000/svg" className={teamClicked?"rotate-180 duration-300":"duration-300"} height="20" width="12.5" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
