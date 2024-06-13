@@ -22,11 +22,13 @@ const Gallery = () => {
   };
 
   return (
-    <div className="text-center bg-codechef-blue lg:my-10 my-5 px-4">
-      <h2 className="text-white font-bold text-4xl my-4 py-[1%]">Gallery</h2>
+    <div className="text-center lg:mt-10 mt-5 px-4"
+      style={{ background: 'linear-gradient(to bottom, #fff 20%, #d8e6ff99 50%)' }}
+    >
+      <h2 className="text-black font-bold text-4xl my-4 py-[1%]">Gallery</h2>
 
       {/* Image Banner */}
-      <div className="relative lg:w-4/6 mx-auto overflow-hidden xl:w-4/6 h-80 sm:h-52 md:h-64 lg:h-[31.5rem] xl:h-[34rem] rounded-xl shadow-lg" style={{ boxShadow: '0 4px 10px rgba(255, 255, 255, 0.5)' }}>
+      <div className="relative lg:w-4/6 mx-auto overflow-hidden xl:w-4/6 h-80 sm:h-52 md:h-64 lg:h-[31.5rem] xl:h-[34rem] rounded-xl shadow-lg border-[2px] border-black-400" style={{ boxShadow: '0 4px 10px rgba(255, 255, 255, 0.5)' }}>
         {images.map((img, index) => (
           <div
             key={index}

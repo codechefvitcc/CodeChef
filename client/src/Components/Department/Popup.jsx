@@ -63,9 +63,11 @@ function Popup({ name, members, onClose }) {
                 <td className="px-4 py-2 border">{member.name}</td>
                 {/* <td className="px-4 py-2 border">{member.regNo}</td> */}
                 <td className="px-4 py-2 border flex justify-center items-center">
-                  <button 
+                  <motion.button 
                     className='flex items-center gap-2'
-                    onClick={() => window.open(member.linkedIn, '_blank')}
+                    onClick={() => window.open(member.linkedIn, '_blank')} 
+                    initial={{ scale: 0.8 }}
+                    whileHover={{ scale: 1.1 }}
                   >
                     <img
                       width="20px"
@@ -74,7 +76,7 @@ function Popup({ name, members, onClose }) {
                       alt="linkedin"
                     />
                     <span className='hidden sm:block font-semibold'>Connect</span>
-                  </button>
+                  </motion.button>
                 </td>
               </tr>
             ))}

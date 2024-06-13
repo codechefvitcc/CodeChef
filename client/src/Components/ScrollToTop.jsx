@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const ScrollToTop = () => {
   const [backToTop, setBackToTop] = useState(false);
@@ -30,12 +31,14 @@ const ScrollToTop = () => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {backToTop && (
-        <button
+        <motion.button
           className="bg-gray-800 p-2 rounded-full"
-          onClick={scrollUp}
+          onClick={scrollUp} 
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.2 }}
         >
           <FaArrowUp className="text-white w-6 h-6" />
-        </button>
+        </motion.button>
       )}
     </div>
   );

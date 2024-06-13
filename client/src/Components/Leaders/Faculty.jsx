@@ -6,9 +6,13 @@ import { faculty, quotes } from '../../assets/leaders';
 
 function Faculty() {
   return (
-    <div className="w-full md:w-1/2 min-w-[384px] 
+    <motion.div className="w-full md:w-1/2 min-w-[384px] 
       xl:min-h-[250px] lg:min-h-[250px] md:min-h-[250px] sm:min-h-[400px] min-h-[350px] 
       h-[35vw] px-5 flex flex-col items-center" 
+      initial={{ scale: 0.7 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ once: false }}
+      transition={{ delay: 0.2, duration: 1 }}  
     >
       <h2 className='mb-[15px] text-center font-bold
       text-2xl xl:text-3xl lg:text-2xl md:text-xl sm:text-3xl'>Faculty-in-charge</h2>
@@ -20,10 +24,6 @@ function Faculty() {
         px-[10px] xl:px-[20px] lg:px-[20px] md:px-[10px] sm:px-[40px]
         rounded-[10px] bg-white flex items-center shadow-lg overflow-hidden" 
         style={{boxShadow:'2px 2px 6px 0px #00000040, -1px 0px 6px 0px #00000040'}} 
-        // initial={{ opacity: 0, scale: 0.8 }}
-        // whileInView={{ opacity: 1, scale: 1 }}
-        // viewport={{ once: false }}
-        // transition={{ duration: 0.75 }}
       >
         <div className="w-1/2 p-4 sm:p-8 flex flex-col justify-center relative">
           {/* quotes image */}
@@ -49,10 +49,10 @@ function Faculty() {
           </div>
           {/* faculty details */}
           <div className="text-gray-800 
-          text-[11px] xl:text-m lg:text-[13px] md:text-[9.5px] sm:text-[15px]
           uppercase font-bold">
-            <p>Shridevi</p>
-            <p className="text-gray-500">Faculty coordinator</p>
+            <p className='text-[11px] xl:text-[18px] lg:text-[13px] md:text-[10px] sm:text-[15px]'>Shridevi</p>
+            <p className="text-gray-500 
+            text-[9px] xl:text-[14px] lg:text-[11px] md:text-[8px] sm:text-[13px]">Faculty coordinator</p>
           </div>
         </div>
         {/* faculty image */}
@@ -67,7 +67,7 @@ function Faculty() {
           />
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 

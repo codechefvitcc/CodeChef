@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaQuoteLeft, FaQuoteRight, FaLinkedinIn } from 'react-icons/fa';
+import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 function PresidentCard({name, photo, year, vision, mail, linkedin}) {
@@ -8,7 +8,7 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
     <div 
         className='
         w-[350px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px]
-        h-[280px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
+        h-[260px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
         gap-[10px] xl:gap-[30px] lg:gap-[20px] md:gap-[10px] sm:gap-[30px]
         px-[10px] xl:px-[40px] lg:px-[40px] md:px-[20px] sm:px-[40px]
         rounded-[10px] bg-white flex items-center overflow-hidden' 
@@ -22,16 +22,16 @@ function PresidentCard({name, photo, year, vision, mail, linkedin}) {
             w-[130px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
             rounded-full' />
 
-            <div className='flex flex-col items-center uppercase'>
-                <h3 className="mt-[15px] text-center 
-                text-[11px] xl:text-m lg:text-[13px] md:text-[9.5px] sm:text-[15px]
+            <div className='mt-[15px] flex flex-col items-center gap-[5px] uppercase'>
+                <h3 className="text-center 
+                text-[11px] xl:text-[17px] lg:text-[13px] md:text-[9.5px] sm:text-[15px]
                 font-bold">
                     {name}
                 </h3>
 
-                <h4 className="mt-[10px] 
-                text-[12px] xl:text-[15px] lg:text-[13px] md:text-[10px] sm:text-[14px] 
-                text-gray-500 font-semibold">
+                <h4 className="
+                text-[9px] xl:text-[13px] lg:text-[9px] md:text-[7px] sm:text-[12px] 
+                text-gray-500 font-bold">
                     Batch {year}
                 </h4>
             </div>
