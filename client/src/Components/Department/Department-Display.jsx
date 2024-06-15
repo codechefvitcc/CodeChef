@@ -11,63 +11,6 @@ import { defaultpfp, vishalpfp } from "../../assets/index.js";
 function DeptDisplay() {
   const mockData = [
     {
-      name: "Design and Content",
-      icon: IoMdBrush,
-      description:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorum cupiditate nam omnis eius, alias id qui eaque molestias harum in aut neque. Minima quae voluptas rerum harum qui similique!",
-      members: [
-        { name: "qwe", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "asd", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "zxc", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "rty", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "ghf", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "vbn", regNo: "22BCE1234", linkedIn: "https://example.com" },
-      ],
-      lead: [
-        {
-          leadName: "Vishal Kumar Yadav",
-          leadImg: vishalpfp,
-          leadLinkedIn: "https://google.com",
-        },
-        {
-          leadName: "Vishal Kumar Yadav",
-          leadImg: defaultpfp,
-          leadLinkedIn: "https://google.com",
-        },
-      ],
-    },
-
-    {
-      name: "Competetive Programming",
-      icon: FaTrophy,
-      description:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorum cupiditate nam omnis eius, alias id qui eaque molestias harum in aut neque. Minima quae voluptas rerum harum qui similique!",
-      members: [
-        { name: "qwe", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "asd", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "asd", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "zxc", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "zxc", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "rty", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "ghf", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "ghf", regNo: "22BCE1234", linkedIn: "https://example.com" },
-        { name: "vbn", regNo: "22BCE1234", linkedIn: "https://example.com" },
-      ],
-      lead: [
-        {
-          leadName: "Akkilesh",
-          leadImg: defaultpfp,
-          leadLinkedIn: "https://google.com",
-        },
-        {
-          leadName: "Akkilesh",
-          leadImg: defaultpfp,
-          leadLinkedIn: "https://google.com",
-        },
-      ],
-    },
-
-    {
       name: "Event Management",
       icon: GiTie,
       description:
@@ -151,7 +94,7 @@ function DeptDisplay() {
           leadName: "Aaditya Prabhu",
           leadImg: defaultpfp,
           leadLinkedIn: "https://google.com",
-        }
+        },
       ],
     },
 

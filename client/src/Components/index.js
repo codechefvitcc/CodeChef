@@ -1,9 +1,9 @@
-import Footer from './Footer';
-import Navbar from './Navbar';
-import DeptDisplay from './Department/Department-Display';
-import Hero from './Hero';
-import Gallery from './Gallery';
-import Leaders from './Leaders/Leaders';
-import ScrollToTop from './ScrollToTop';
+import DeptDisplay from "./Department/Department-Display";
+import Hero from "./HomeComponents/Hero";
+import Gallery from "./HomeComponents/Gallery";
+import Leaders from "./Leaders/Leaders";
+import ScrollToTop from "./ScrollToTop";
+import Navbar from "./Navigations/Navbar";
+import Footer from "./Navigations/Footer";
 
 export { Footer, Navbar, DeptDisplay, Hero, Gallery, Leaders, ScrollToTop };
