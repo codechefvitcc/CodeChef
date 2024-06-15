@@ -167,7 +167,7 @@ const AllBlogsCard = ({ title, image, date, about }) => {
 function Blogs() {
   return (
     <div style={{ backgroundImage: `url(${BlogsBackgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="flex flex-col gap-[30px] items-center mb-16 mt-[65px] sm:mt-[0px]">
+      <div className="flex flex-col gap-[30px] items-center pb-16 pt-[65px] sm:pt-[0px]">
         <div>
           <h1 className="text-[60px] text-center font-bold uppercase text-gray-700">Blogs</h1>
         </div>
