@@ -1,6 +1,9 @@
 import { MdArrowOutward } from "react-icons/md";
+import { motion } from 'framer-motion';
+import { useState } from "react";
 
 import image from "../assets/HomeGalley/image1.jpg";
+import { BlogsBackgroundImage } from "../Constants/images";
 
 const mockDataLatestBlog = {
   image: image,
@@ -58,102 +61,121 @@ const mockDataAllBlogs = [
     details:
       "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
   },
-  {
-    image: image,
-    title: "Some event that happened asdiuadsgi",
-    date: "Sunday, 6 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
 ];
 
 const LatestBlogCard = ({ title, image, date, about, details }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const cardStyle = {
+    transition: 'box-shadow 0.25s ease-in-out',
+    boxShadow: isHovered ? '8px 8px 10px rgba(0, 0, 0, 0.2), -8px -8px 10px rgba(0, 0, 0, 0.2)' : '0px 0px 0px rgba(0, 0, 0, 0)',
+  };
+
   const shortDetail =
-    details.length > 300 ? `${details.substring(0, 300)}...` : details;
+    details.length > 350 ? `${details.substring(0, 350)}...` : details;
   const shortTitle = title.length > 25 ? `${title.substring(0, 25)}...` : title;
 
   return (
-    <div className="bg-white border-[2px] border-gray-300 p-[10px] rounded-[16px] grid grid-cols-2 gap-[30px] max-w-[800px]">
+    <motion.div 
+      className="bg-white border-[2px] border-gray-300 p-[16px] rounded-[16px] grid grid-cols-2 gap-[30px] max-w-[800px]"
+      style={cardStyle}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)} 
+      initial={{ scale: 0.95 }}
+      whileHover={{ scale: 1.005 }}
+      transition={{ duration: 0.25 }}
+    >
       <div className="flex flex-col justify-between">
         <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
           <img src={image} alt={title} className="h-[250px] w-[400px]" />
         </div>
 
         <div className="flex flex-col gap-[10px]">
-          <p className="mt-4 mb-1.5 text-[#8a4af3] text-[15px] font-semibold">
+          <p className="mt-4 mb-1.5 text-[#333333] text-[13px] font-semibold">
             {date}
           </p>
 
           <div className="flex justify-between items-center">
-            <h3 className="mb-1.5 font-semibold text-[24px] capitalize">
+            <h3 className="mb-1.5 font-bold text-[20px] capitalize text-gray-700">
               {shortTitle}
             </h3>
 
-            <MdArrowOutward size={30} />
+            {details.length <= 350 && <MdArrowOutward size={27} />}
           </div>
         </div>
       </div>
 
       <div className="flex flex-col justify-between text-gray-600">
-        <p className="font-bold mb-4">{about}</p>
-        <p>{shortDetail}</p>
+        <p className="font-bold text-[14px]">{about}</p>
+        <p className="text-[14px]">{shortDetail}</p>
 
-        {details.length > 300 && (
-          <div className="font-semibold text-gray-500 text-[18px]">
+        {details.length > 350 && (
+          <div className="font-semibold text-gray-500 text-[18px] cursor-pointer">
             Read more...
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const AllBlogsCard = ({ title, image, date, about }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const cardStyle = {
+    transition: 'box-shadow 0.25s ease-in-out',
+    boxShadow: isHovered ? '3px 3px 8px rgba(0, 0, 0, 0.2),-3px -3px 8px rgba(0, 0, 0, 0.2)' : '0px 0px 0px rgba(0, 0, 0, 0)',
+  };
+
   const shortAbout =
     about.length > 180 ? `${about.substring(0, 180)}...` : about;
   const shortTitle = title.length > 20 ? `${title.substring(0, 20)}...` : title;
 
   return (
-    <div className="bg-white border-[2px] border-gray-300 p-[10px] pb-[16px] rounded-[16px] min-w-[300px] max-w-[350px]">
+    <motion.div 
+      className="bg-white border-[2px] border-gray-300 p-[10px] pb-[16px] rounded-[16px] min-w-[300px] max-w-[350px]" 
+      style={cardStyle}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      initial={{ scale: 0.95 }}
+      whileHover={{ scale: 1 }}
+      transition={{ duration: 0.25 }}
+    >
       <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
-        <img src={image} alt={title} className="h-[170px] w-[330px]" />
+        <img src={image} alt={title} className="h-[250px] w-[330px]" />
       </div>
 
       <div className="mt-6">
-        <p className="mt-4 mb-1.5 text-[#8a4af3] text-[15px] font-semibold">
+        <p className="mt-4 mb-1.5 text-[#333333] text-[13px] font-semibold">
           {date}
         </p>
 
-        <div className="flex justify-between items-center">
-          <h3 className="mb-1.5 font-semibold text-[24px] capitalize">
+        <div className="flex justify-between items-center cursor-pointer">
+          <h3 className="mb-1.5 font-bold text-[20px] capitalize text-gray-700">
             {shortTitle}
           </h3>
 
-          <MdArrowOutward size={30} />
+          <MdArrowOutward size={27} />
         </div>
 
-        <p className="text-gray-700">{shortAbout}</p>
+        <p className="text-[14px] text-gray-700">{shortAbout}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 function Blogs() {
   return (
-    <div>
-      <div className="flex flex-col gap-[50px] md:items-center mb-16">
+    <div >
+      <div className="flex flex-col gap-[30px] items-center mb-16 mt-[65px] sm:mt-[0px]">
         <div>
-          <h1 className="text-[40px] text-center font-bold uppercase">Blogs</h1>
-
-          <hr className="border-t-2 border-gray-300 w-[100vw]" />
+          <h1 className="text-[60px] text-center font-bold uppercase text-gray-700">Blogs</h1>
         </div>
 
-        <div className="px-[20px] flex flex-col gap-[20px]">
-          <h2 className="text-[30px] font-semibold">Latest blog</h2>
+        <div className="px-[40px] flex flex-col gap-[20px]">
+          <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px]">Latest blog</h2>
 
-          <div className="block sm:hidden">
+          <div className="block sm:hidden rounded-[16px]">
             <AllBlogsCard
               title={mockDataLatestBlog.title}
               image={mockDataLatestBlog.image}
@@ -161,7 +183,7 @@ function Blogs() {
               about={mockDataLatestBlog.about}
             />
           </div>
-          <div className="hidden sm:block">
+          <div className="hidden sm:block rounded-[16px]">
             <LatestBlogCard
               title={mockDataLatestBlog.title}
               image={mockDataLatestBlog.image}
@@ -172,10 +194,10 @@ function Blogs() {
           </div>
         </div>
 
-        <div className="px-[20px] flex flex-col gap-[30px] mt-[30px]">
-          <h2 className="text-[30px] font-semibold">All blog posts</h2>
+        <div className="px-[30px] flex flex-col gap-[30px] mt-[30px]">
+          <h2 className="text-[36px] font-bold capitalize text-gray-700">All blogs</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[20px] rounded-[16px]">
             {mockDataAllBlogs.map((blog, index) => (
               <AllBlogsCard
                 key={index}
