@@ -84,14 +84,14 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="mx-2 block">
-                <h2
+                <button
                   className="block px-4 py-2 rounded hover:bg-[#2a67b11e]"
                   onClick={() => {
                     setBlogsClicked(!blogsClicked);
                   }}
                 >
-                  Blogs
-                </h2>
+                  <Link to="/blogs">Blogs</Link>
+                </button>
               </div>
               <div className="mx-2 block">
                 <div
