@@ -50,7 +50,7 @@ const Navbar = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" className={eventsClicked?"rotate-180 duration-300":"duration-300"} height="20" width="12.5" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
                   </div>
                   <div className={eventsClicked?"flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2":"hidden"}>
-                    <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"><Link to="/CookOff" >Cook-Off 2024</Link></button>
+                    <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"><Link to="/CookOff2024" >Cook-Off 2024</Link></button>
                     <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"><Link to="/decode-dsa" >Decode DSA</Link></button>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" className={eventsClicked?"rotate-180 duration-300":"duration-300"} height="20" width="12.5" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
                   </div>
                   <div className={eventsClicked?"flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2":"hidden"}>
-                    <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"><Link to="/CookOff" >Cook-Off 2024</Link></button>
+                    <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"><Link to="/CookOff2024" >Cook-Off 2024</Link></button>
                     <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"><Link to="/decode-dsa" >Decode DSA</Link></button>
                   </div>
                 </div>
