@@ -11,6 +11,11 @@ import image5 from "../assets/HomeGalley/image5.jpg";
 import image6 from "../assets/HomeGalley/image6.jpg";
 // **************************************************
 
+// Blogs background image import ********************
+import BlogsBackground from '../assets/Background/BlogsBackground.svg';
+// **************************************************
+
+
 // import other images here and export accordingly
 
 // exporting Home Page Gallery Images
@@ -22,3 +27,6 @@ export const HomeGalleryImages = [
   { url: image5, hashCode: "LZI5PhIU-;RP?bbIozs:~qofR*oz" },
   { url: image6, hashCode: "LYF$V2Myt3V[_NIVafofx]RjaetR" },
 ];
+
+// exporting blogs background image
+export const BlogsBackgroundImage = BlogsBackground;
