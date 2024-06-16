@@ -76,7 +76,7 @@ const Navbar = () => {
                   }
                 >
                   <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                    <Link to="/CookOff">Cook-Off 2024</Link>
+                    <Link to="/events/Cookoff2024">Cook-Off 2024</Link>
                   </button>
                   <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
                     <Link to="/decode-dsa">Decode DSA</Link>
@@ -180,7 +180,7 @@ const Navbar = () => {
               }
             >
               <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                <Link to="/CookOff">Cook-Off 2024</Link>
+                <Link to="/events/Cookoff2024">Cook-Off 2024</Link>
               </button>
               <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
                 <Link to="/decode-dsa">Decode DSA</Link>
