@@ -15,7 +15,13 @@ const ImageLoaderComponent = ({ url, hashCode, alt, className }) => {
   return (
     <>
       {!imageLoaded && (
-        <Blurhash hash={hashCode} resolutionX={32} resolutionY={32} punch={1} />
+        <Blurhash
+          hash={hashCode}
+          resolutionX={32}
+          resolutionY={32}
+          punch={1}
+          className={className}
+        />
       )}
 
       {imageLoaded && <img src={url} alt={alt} className={className} />}
