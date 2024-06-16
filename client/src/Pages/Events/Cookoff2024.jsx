@@ -4,7 +4,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 //image components imports
-import { HomeGalleryImages } from "../../Constants/images";
+import {
+  BlogsBackgroundImage,
+  HomeGalleryImages,
+} from "../../Constants/images";
 import { ImageLoaderComponent } from "../../Utility";
 
 const CookOff2024 = () => {
@@ -34,7 +37,13 @@ const CookOff2024 = () => {
   };
 
   return (
-    <div className="App">
+    <div
+      style={{
+        backgroundImage: `url(${BlogsBackgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="overflow-hidden container mx-auto mt-16 sm:mt-0 p-4 lg:p-32 lg:pt-4">
         {/* Main Image */}
         <div className="flex items-center justify-center">
