@@ -1,4 +1,7 @@
 import Home from "./Home";
 import Blogs from "./Blogs";
 
-export { Home, Blogs };
+// Events
+import CookOff2024 from "./Events/Cookoff2024";
+
+export { Home, Blogs, CookOff2024};

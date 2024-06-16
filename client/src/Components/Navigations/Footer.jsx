@@ -19,7 +19,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="l_footer_link">
-                <a href="/" className="footer_link">
+                <a href="/events/Cookoff2024" className="footer_link">
                   Cook-Off 2024
                 </a>
               </div>
