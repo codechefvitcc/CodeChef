@@ -196,7 +196,7 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <a href="/events/Cookoff2024" onClick={()=>alert("lol")}>
+              <a href="/events/Cookoff2024">
                 <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
                   Cook-Off 2024
                 </button>
