@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 
-const ImageLoaderComponent = ({ url, hashCode, alt, className }) => {
+const ImageLoaderComponent = ({ url, hashCode, alt, className, blurWidth, blurHeight }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,6 +17,8 @@ const ImageLoaderComponent = ({ url, hashCode, alt, className }) => {
       {!imageLoaded && (
         <Blurhash
           hash={hashCode}
+          width={blurWidth}
+          height={blurHeight}
           resolutionX={32}
           resolutionY={32}
           punch={1}

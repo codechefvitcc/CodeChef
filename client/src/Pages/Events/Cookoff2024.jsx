@@ -10,6 +10,8 @@ import {
 } from "../../Constants/images";
 import { ImageLoaderComponent } from "../../Utility";
 
+import { useBreakpoint } from "../../Utility/useBreakpoint";
+
 const CookOff2024 = () => {
   // Carousel Component settings for the images
   const settings = {
@@ -54,6 +56,8 @@ const CookOff2024 = () => {
             hashCode={HomeGalleryImages[2].hashCode}
             alt="mainimage"
             className="w-full h-[40vh] lg:h-[80vh] mb-4 rounded-xl"
+            blurWidth={'100%'} //100% since we used w-full
+            blurHeight={useBreakpoint('lg').isLg ? '80vh' : '40vh'}
           />
         </div>
         {/* Heading */}
@@ -87,6 +91,8 @@ const CookOff2024 = () => {
                 hashCode={ele.hashCode}
                 alt={`carousel${index}`}
                 className="w-full h-[250px] px-1 rounded-xl object-cover"
+                blurWidth={'100%'}
+                blurHeight={250}
               />
             </div>
           ))}
