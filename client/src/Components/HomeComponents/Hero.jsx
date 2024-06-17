@@ -1,23 +1,23 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 // Importing profile picture and quote symbol assets
-import { vishalpfp, defaultpfp } from "../../assets";
-import { RiDoubleQuotesL } from "react-icons/ri";
+import { vishalpfp, defaultpfp } from '../../assets';
+import { RiDoubleQuotesL } from 'react-icons/ri';
 
 const Hero = () => {
   // Data to be written in testimonials
   const testimonialData = [
     {
-      msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?",
-      fname: "Vishal Kumar Yadav",
-      position: "Design Lead (2023-24)",
+      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
+      fname: 'Vishal Kumar Yadav',
+      position: 'Design Lead (2023-24)',
       profileImg: vishalpfp,
     },
     {
-      msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?",
-      fname: "Sidhhart Tiwari",
-      position: "President (2023-24)",
+      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
+      fname: 'Sidhhart Tiwari',
+      position: 'President (2023-24)',
     },
   ];
 
@@ -43,13 +43,13 @@ const Hero = () => {
           {/* Join club input */}
           <div className="main-input flex justify-center md:justify-start items-center mt-2">
             <input
-              className="input-box w-full max-w-[150px] md:max-w-[150px] lg:max-w-[200px] gap-4 border border-[#d2d9e7] rounded-l-md border-r-0 text-gray-500 font-normal text-lg leading-[23px] p-1 sm:p-2 placeholder-[#b3bdd2]"
+              className="input-box w-full py-2 px-2 max-w-[200px] lg:max-w-[280px] gap-4 border border-[#d2d9e7] rounded-l-md border-r-0 text-gray-500 font-normal text-xl leading-[23px] placeholder-[#b3bdd2] lg:py-4 focus:outline-none focus:ring-0 border-0 outline-none box-border"
               type="email"
               placeholder="Enter email"
             />
             <a
               href="/joinus"
-              className="btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[6rem] text-xs text-center sm:w-[14rem] sm:text-base leading-[23px] p-1 sm:p-2 max-w-[150px] rounded-r-md hover:bg-[#2e5aa5]"
+              className="btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5]"
             >
               Join Us Today
             </a>
@@ -116,9 +116,9 @@ const Hero = () => {
                           }
                           className="rounded-full mb-2"
                           style={{
-                            height: "50px",
-                            width: "50px",
-                            objectFit: "cover",
+                            height: '50px',
+                            width: '50px',
+                            objectFit: 'cover',
                           }}
                           alt={index}
                         />
@@ -146,9 +146,9 @@ const Hero = () => {
                           }
                           className="rounded-full mb-2"
                           style={{
-                            height: "50px",
-                            width: "50px",
-                            objectFit: "cover",
+                            height: '50px',
+                            width: '50px',
+                            objectFit: 'cover',
                           }}
                           alt={index}
                         />
