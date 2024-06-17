@@ -42,9 +42,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div ref={navRef}>
       {/* Navbar that appears for laptop screens */}
-      <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]" ref={navRef}>
+      <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]">
         <Link to="/" className="ml-4">
           <img
             className="collapse absolute sm:w-[150px] sm:visible"
@@ -196,12 +196,16 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                <Link to="/events/Cookoff2024">Cook-Off 2024</Link>
-              </button>
-              <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                <Link to="/decode-dsa">Decode DSA</Link>
-              </button>
+              <Link to="/events/Cookoff2024">
+                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                  Cook-Off 2024
+                </button>
+              </Link>
+              <Link to="/decode-dsa">
+                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                  Decode DSA
+                </button>
+              </Link>
             </div>
           </div>
           <div className="mx-2 block">
@@ -211,7 +215,7 @@ const Navbar = () => {
                 setBlogsClicked(!blogsClicked);
               }}
             >
-              Blogs
+              <Link to="/blogs">Blogs</Link>
             </h2>
           </div>
           <div className="mx-2 block">
