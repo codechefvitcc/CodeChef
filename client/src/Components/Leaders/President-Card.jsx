@@ -1,4 +1,4 @@
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { quotes } from "../../assets/leaders";
 import { MdEmail } from "react-icons/md";
 
 function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
@@ -55,17 +55,21 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
                 left-[-10px] xl:left-[-25px] lg:left-[-20px] md:left-[-15px] 
                 top-0 xl:top-[-5px] lg:top-[-15px] md:top-[-15px] sm:top-[-10px]"
         >
-          <FaQuoteLeft size={20} />
+          <img
+              className="w-7 h-7"
+              src={quotes}
+              alt="Quotes"
+            />
         </div>
 
         <div
           className="texts 
-                h-[240px] xl:h-[250px] lg:h-[200px] md:h-[165px] sm:h-[250px] 
+                h-[230px] xl:h-[250px] lg:h-[200px] md:h-[165px] sm:h-[250px] 
                 text-center flex flex-col items-center justify-between"
         >
           <div
             className="vision 
-                    h-[190px] xl:h-[180px] lg:h-[140px] md:h-[120px] sm:h-[170px] 
+                    h-[210px] xl:h-[180px] lg:h-[140px] md:h-[120px] sm:h-[170px] 
                     w-[180px] xl:w-[290px] lg:w-[240px] md:w-[190px] sm:w-[270px] 
                     text-[10px] xl:text-[13px] lg:text-[11px] md:text-[9px] sm:text-[13px] 
                     flex items-center justify-center"
@@ -106,14 +110,6 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
               <span className="lg:block md:hidden block">LinkedIn</span>
             </button>
           </div>
-        </div>
-
-        <div
-          className="absolute 
-                right-[-7px] xl:right-[-25px] lg:right-[-30px] md:right-[-10px] sm:right-[0px] 
-                bottom-[40px] xl:bottom-[55px] lg:bottom-[40px] md:bottom-[25px] sm:bottom-[45px]"
-        >
-          <FaQuoteRight size={20} />
         </div>
       </div>
     </div>
