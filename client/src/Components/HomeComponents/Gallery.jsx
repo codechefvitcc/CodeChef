@@ -69,7 +69,7 @@ const Gallery = () => {
         {HomeGalleryImages.map((ele, index) => (
           <div
             key={index}
-            className={`w-20 h-30 md:w-20 md:h-20 object-cover cursor-pointer transition-transform duration-300 rounded-md ${
+            className={`w-20 h-30 md:w-20 md:h-30 object-cover cursor-pointer transition-transform duration-300 rounded-md ${
               index === currentIndex ? "border-2 border-blue-500" : ""
             }`}
             onClick={() => handleThumbnailClick(index)}
