@@ -169,7 +169,6 @@ const Navbar = () => {
             <div
               onClick={() => {
                 setEventsClicked(!eventsClicked);
-                alert("lol")
               }}
               className={
                 eventsClicked
