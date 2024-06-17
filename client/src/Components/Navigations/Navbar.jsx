@@ -169,6 +169,7 @@ const Navbar = () => {
             <div
               onClick={() => {
                 setEventsClicked(!eventsClicked);
+                alert("lol")
               }}
               className={
                 eventsClicked
@@ -211,7 +212,7 @@ const Navbar = () => {
                 setBlogsClicked(!blogsClicked);
               }}
             >
-              Blogs
+              <Link to="/blogs">Blogs</Link>
             </h2>
           </div>
           <div className="mx-2 block">

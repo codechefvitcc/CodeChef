@@ -25,6 +25,7 @@ const Gallery = () => {
     <div className='flex flex-col justify-center items-center p-4' style={{
         background:
           "linear-gradient(to bottom, #fff 20%, rgba(220, 234, 255, 0.7) 50%)",
+newGallery
       }}>
 
     <h2 className="box-border tracking-normal text-gray-700 outline-none block text-[36px] font-bold mx-auto mb-5 w-full">
@@ -49,7 +50,9 @@ const Gallery = () => {
                 )
             })}
         </div>
-    </div>
+      }}
+    >
+     
   )
 }
 

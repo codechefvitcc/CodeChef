@@ -68,7 +68,7 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
 
   const cardStyle = {
     transition: 'box-shadow 0.25s ease-in-out',
-    boxShadow: isHovered ? '8px 8px 10px rgba(0, 0, 0, 0.2), -8px -8px 10px rgba(0, 0, 0, 0.2)' : '0px 0px 0px rgba(0, 0, 0, 0)',
+    boxShadow: isHovered ? '0 4px 8px rgba(0, 0, 0, 0.2)' : '0 4px 12px rgba(207, 216, 220, 0.4)',
   };
 
   const shortDetail =
@@ -77,13 +77,17 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
 
   return (
     <motion.div 
-      className="bg-white border-[2px] border-gray-300 p-[16px] rounded-[16px] grid grid-cols-2 gap-[30px] max-w-[800px]"
+      className="bg-white p-[16px] rounded-[16px] grid grid-cols-2 gap-[30px] max-w-[800px]"
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)} 
-      initial={{ scale: 0.95 }}
-      whileHover={{ scale: 1.005 }}
-      transition={{ duration: 0.25 }}
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1 }}
+      whileHover={{ scale: 1 }}
+      transition={{ 
+        scale: { duration: 0.25 }, 
+        opacity: { duration: 2 }, 
+      }}
     >
       <div className="flex flex-col justify-between">
         <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
@@ -100,7 +104,15 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
               {shortTitle}
             </h3>
 
-            {details.length <= 350 && <MdArrowOutward size={27} />}
+            {details.length <= 350 && 
+              <motion.div 
+                className="cursor-pointer"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.3 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <MdArrowOutward size={27} />
+              </motion.div>}
           </div>
         </div>
       </div>
@@ -110,9 +122,20 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
         <p className="text-[14px]">{shortDetail}</p>
 
         {details.length > 350 && (
-          <div className="font-semibold text-gray-500 text-[18px] cursor-pointer">
-            Read more...
-          </div>
+          <motion.div 
+            className="font-semibold text-gray-500 text-[18px] cursor-pointer"
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <motion.span
+              initial={{ letterSpacing: "1px" }}
+              whileHover={{ letterSpacing: "3px" }}
+              transition={{ duration: 0.3 }}
+            >
+              Read more...
+            </motion.span>
+          </motion.div>
         )}
       </div>
     </motion.div>
@@ -124,7 +147,7 @@ const AllBlogsCard = ({ title, image, date, about }) => {
 
   const cardStyle = {
     transition: 'box-shadow 0.25s ease-in-out',
-    boxShadow: isHovered ? '3px 3px 8px rgba(0, 0, 0, 0.2),-3px -3px 8px rgba(0, 0, 0, 0.2)' : '0px 0px 0px rgba(0, 0, 0, 0)',
+    boxShadow: isHovered ? '0 4px 8px rgba(0, 0, 0, 0.2)' : '0 4px 12px rgba(207, 216, 220, 0.4)',
   };
 
   const shortAbout =
@@ -133,13 +156,17 @@ const AllBlogsCard = ({ title, image, date, about }) => {
 
   return (
     <motion.div 
-      className="bg-white border-[2px] border-gray-300 p-[10px] pb-[16px] rounded-[16px] min-w-[300px] max-w-[350px]" 
+      className="bg-white p-[10px] pb-[16px] rounded-[16px] min-w-[300px] max-w-[350px]" 
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      initial={{ scale: 0.95 }}
+      initial={{ opacity: 0, scale: 0.97 }}
+      animate={{ opacity: 1 }}
       whileHover={{ scale: 1 }}
-      transition={{ duration: 0.25 }}
+      transition={{ 
+        scale: { duration: 0.25 }, 
+        opacity: { duration: 2 }, 
+      }}
     >
       <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
         <img src={image} alt={title} className="h-[250px] w-[330px]" />
@@ -150,12 +177,19 @@ const AllBlogsCard = ({ title, image, date, about }) => {
           {date}
         </p>
 
-        <div className="flex justify-between items-center cursor-pointer">
+        <div className="flex justify-between items-center">
           <h3 className="mb-1.5 font-bold text-[20px] capitalize text-gray-700">
             {shortTitle}
           </h3>
 
-          <MdArrowOutward size={27} />
+          <motion.div 
+            className="cursor-pointer"
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.4 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <MdArrowOutward size={27} />
+          </motion.div>
         </div>
 
         <p className="text-[14px] text-gray-700">{shortAbout}</p>
@@ -175,7 +209,7 @@ function Blogs() {
         <div className="px-[40px] flex flex-col gap-[20px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px]">Latest blog</h2>
 
-          <div className="block sm:hidden rounded-[16px]">
+          <div className="block sm:hidden rounded-[16px]" >
             <AllBlogsCard
               title={mockDataLatestBlog.title}
               image={mockDataLatestBlog.image}
@@ -183,7 +217,7 @@ function Blogs() {
               about={mockDataLatestBlog.about}
             />
           </div>
-          <div className="hidden sm:block rounded-[16px]">
+          <div className="hidden sm:block rounded-[16px]" >
             <LatestBlogCard
               title={mockDataLatestBlog.title}
               image={mockDataLatestBlog.image}
@@ -195,9 +229,10 @@ function Blogs() {
         </div>
 
         <div className="px-[30px] flex flex-col gap-[30px] mt-[30px]">
-          <h2 className="text-[36px] font-bold capitalize text-gray-700">All blogs</h2>
+          <h2 className="text-[36px] font-bold capitalize text-gray-700 md:ml-[10px] lg:ml-[90px] xl:ml-[150px]">All blogs</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[20px] rounded-[16px]">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[20px] rounded-[16px]"> */}
+          <div className="flex flex-wrap justify-center gap-[20px] rounded-[16px]">
             {mockDataAllBlogs.map((blog, index) => (
               <AllBlogsCard
                 key={index}
