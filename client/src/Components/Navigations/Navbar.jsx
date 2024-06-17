@@ -42,9 +42,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div ref={navRef}>
       {/* Navbar that appears for laptop screens */}
-      <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]" ref={navRef}>
+      <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]">
         <Link to="/" className="ml-4">
           <img
             className="collapse absolute sm:w-[150px] sm:visible"
@@ -196,7 +196,7 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <a href="/events/Cookoff2024">
+              <a href="/events/Cookoff2024" onClick={()=>alert("lol")}>
                 <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
                   Cook-Off 2024
                 </button>
