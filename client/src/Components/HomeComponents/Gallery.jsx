@@ -27,7 +27,7 @@ const Gallery = () => {
           "linear-gradient(to bottom, #fff 20%, rgba(220, 234, 255, 0.7) 50%)",
       }}>
 
-    <h2 className="box-border tracking-normal text-gray-700 outline-none block text-[36px] font-bold mx-auto mb-5 w-full">
+    <h2 className="text-center box-border tracking-normal text-gray-700 outline-none block text-[36px] font-bold mx-auto mb-5 w-full">
             Gallery
           </h2>
         
