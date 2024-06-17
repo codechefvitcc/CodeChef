@@ -13,6 +13,7 @@ import { ImageLoaderComponent } from "../../Utility";
 const CookOff2024 = () => {
   // Carousel Component settings for the images
   const settings = {
+    lazyLoad: 'ondemand',
     dots: true,
     infinite: true,
     arrows: false,
