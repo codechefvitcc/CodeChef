@@ -40,7 +40,6 @@ function Faculty() {
           >
             <img
               className="w-7 h-7"
-              // sm:w-8 sm:h-8"
               src={quotes}
               alt="Quotes"
             />
