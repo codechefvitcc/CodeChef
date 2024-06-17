@@ -196,12 +196,16 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                <Link to="/events/Cookoff2024">Cook-Off 2024</Link>
-              </button>
-              <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                <Link to="/decode-dsa">Decode DSA</Link>
-              </button>
+              <Link to="/events/Cookoff2024">
+                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                  Cook-Off 2024
+                </button>
+              </Link>
+              <Link to="/decode-dsa">
+                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                  Decode DSA
+                </button>
+              </Link>
             </div>
           </div>
           <div className="mx-2 block">
