@@ -55,7 +55,7 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
                 left-[-10px] xl:left-[-25px] lg:left-[-20px] md:left-[-15px] 
                 top-0 xl:top-[-5px] lg:top-[-15px] md:top-[-15px] sm:top-[-10px]"
         >
-          <FaQuoteLeft size={25} />
+          <FaQuoteLeft size={20} />
         </div>
 
         <div
@@ -113,7 +113,7 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
                 right-[-7px] xl:right-[-25px] lg:right-[-30px] md:right-[-10px] sm:right-[0px] 
                 bottom-[40px] xl:bottom-[55px] lg:bottom-[40px] md:bottom-[25px] sm:bottom-[45px]"
         >
-          <FaQuoteRight size={25} />
+          <FaQuoteRight size={20} />
         </div>
       </div>
     </div>
