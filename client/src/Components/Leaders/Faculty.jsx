@@ -35,11 +35,11 @@ function Faculty() {
           {/* quotes image */}
           <div
             className="absolute 
-          md:top-[10px] top-[15px] 
-          md:left-[15px] left-[10px]"
+            md:top-[10px] top-[15px] 
+            md:left-[15px] left-[10px]"
           >
             <img
-              className="w-8 h-8"
+              className="w-7 h-7"
               // sm:w-8 sm:h-8"
               src={quotes}
               alt="Quotes"
