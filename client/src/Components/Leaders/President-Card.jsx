@@ -5,7 +5,7 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
   return (
     <div
       className="
-        w-[350px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px]
+        w-[320px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px]
         h-[260px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
         gap-[10px] xl:gap-[30px] lg:gap-[20px] md:gap-[10px] sm:gap-[30px]
         px-[10px] xl:px-[40px] lg:px-[40px] md:px-[20px] sm:px-[40px]
@@ -21,19 +21,23 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
         <img
           src={photo}
           alt="Profile pic"
-          className="h-[130px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
-            w-[130px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
+          className="h-[110px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
+            w-[110px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
             rounded-full"
         />
 
         <div className="mt-[15px] flex flex-col items-center gap-[5px] uppercase">
-          <h3 className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block text-base font-bold">
+          <h3 className="box-border m-0 bg-transparent tracking-normal text-gray-700 text-center outline-none block 
+          text-[11px] xl:text-[17px] lg:text-[13px] md:text-[9.5px] sm:text-[15px] 
+          font-bold">
             {name}
           </h3>
 
           <h4
             className="
-                box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block text-[12px] font-semibold"
+                box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
+                text-[9px] xl:text-[13px] lg:text-[9px] md:text-[7px] sm:text-[12px] 
+                font-semibold"
           >
             Batch {year}
           </h4>
