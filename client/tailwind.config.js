@@ -1,5 +1,6 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -7,6 +8,16 @@ export default {
         'codechef-blue': '#2e3444',
       },
     },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
   },
   plugins: [],
 };
+
+export const theme = config.theme;
+export default config;
