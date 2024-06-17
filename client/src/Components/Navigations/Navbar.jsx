@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -7,6 +7,8 @@ const Navbar = () => {
   const [teamClicked, setTeamClicked] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  let navRef = useRef()
 
   // function to handle scroll
   useEffect(() => {
@@ -24,10 +26,25 @@ const Navbar = () => {
     };
   }, []);
 
+  //function to handle out of navbar clicks
+  useEffect(() => {
+    const handleClick = (e) => {
+      if(!navRef.current.contains(e.target)){
+        setEventsClicked(false);
+        setBlogsClicked(false);
+        setTeamClicked(false);
+      }
+    };
+    window.addEventListener("mousedown", handleClick);
+    return () => {
+      window.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
   return (
     <div>
       {/* Navbar that appears for laptop screens */}
-      <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]">
+      <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]" ref={navRef}>
         <Link to="/" className="ml-4">
           <img
             className="collapse absolute sm:w-[150px] sm:visible"
