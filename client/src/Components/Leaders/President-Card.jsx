@@ -5,7 +5,7 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
   return (
     <div
       className="
-        w-[320px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px]
+        w-[330px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px]
         h-[260px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
         gap-[10px] xl:gap-[30px] lg:gap-[20px] md:gap-[10px] sm:gap-[30px]
         px-[10px] xl:px-[40px] lg:px-[40px] md:px-[20px] sm:px-[40px]
@@ -92,9 +92,9 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
 
             <button
               className="flex items-center justify-around space-x-2 bg-white border border-[#131313] rounded-3xl text-black font-normal p-2 
-                        text-[14px] xl:text-sm lg:text-sm md:text-xs 
-                        h-[20px] xl:h-[40px] lg:h-[30px] md:h-[20px] sm:h-[40px] h-[25px] 
-                        lg:w-[100px] md:w-[50px] sm:w-[100px] w-[90px]"
+              text-[13px] xl:text-sm lg:text-sm md:text-xs 
+              h-[20px] xl:h-[40px] lg:h-[30px] md:h-[20px] sm:h-[40px] h-[25px] 
+              lg:w-[100px] md:w-[50px] sm:w-[100px] w-[90px]"
               onClick={() => window.open(linkedin, "_blank")}
             >
               <img
