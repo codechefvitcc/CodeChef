@@ -68,7 +68,7 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
                 text-center flex flex-col items-center justify-between"
         >
           <div
-            className="vision 
+            className="vision mt-[10px] 
                     h-[210px] xl:h-[180px] lg:h-[140px] md:h-[120px] sm:h-[170px] 
                     w-[180px] xl:w-[290px] lg:w-[240px] md:w-[190px] sm:w-[270px] 
                     text-[10px] xl:text-[13px] lg:text-[11px] md:text-[9px] sm:text-[13px] 
