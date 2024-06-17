@@ -10,7 +10,7 @@ import {
 } from "../../Constants/images";
 import { ImageLoaderComponent } from "../../Utility";
 
-import { useBreakpoint } from "../../Utility/useBreakpoint";
+import { useBreakpoint } from "../../Utility";
 
 const CookOff2024 = () => {
   // Carousel Component settings for the images
