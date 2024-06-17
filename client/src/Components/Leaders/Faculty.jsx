@@ -14,15 +14,17 @@ function Faculty() {
       viewport={{ once: false }}
       transition={{ delay: 0.2, duration: 1 }}
     >
-      <h2 className="box-border tracking-normal text-gray-700 outline-none block text-[30px] font-bold mx-auto mb-5 w-full text-center">
+      <h2 className="box-border tracking-normal text-gray-700 outline-none block 
+      text-2xl xl:text-3xl lg:text-2xl md:text-xl 
+      font-bold mx-auto mb-5 w-full text-center">
         Faculty-in-charge
       </h2>
 
       <motion.div
         className="
-        w-[350px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px] 
+        w-[320px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px] 
         h-[250px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
-        gap-[10px] xl:gap-[30px] lg:gap-[20px] md:gap-[20px] sm:gap-[30px]
+        gap-[30px] xl:gap-[30px] lg:gap-[20px] md:gap-[20px] sm:gap-[30px]
         px-[10px] xl:px-[20px] lg:px-[20px] md:px-[10px] sm:px-[40px]
         rounded-[10px] bg-white flex items-center shadow-lg overflow-hidden"
         style={{
@@ -64,10 +66,14 @@ function Faculty() {
             className="text-gray-800 
           uppercase font-bold"
           >
-            <p className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block text-[17px] font-bold">
+            <p className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
+            text-[11px] xl:text-[18px] lg:text-[13px] md:text-[10px] sm:text-[15px] 
+            font-bold">
               Shridevi
             </p>
-            <p className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block text-[11px] font-semibold">
+            <p className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
+            text-[9px] xl:text-[14px] lg:text-[11px] md:text-[8px] sm:text-[13px] 
+            font-semibold">
               Faculty coordinator
             </p>
           </div>
@@ -76,8 +82,8 @@ function Faculty() {
         <div className="w-1/2 flex justify-center items-center p-4 sm:p-8">
           <img
             className="
-              h-[130px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
-              w-[130px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
+              h-[100px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
+              w-[100px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
               rounded-full border border-black-400"
             src={faculty}
             alt="Group"

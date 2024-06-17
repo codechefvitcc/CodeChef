@@ -66,7 +66,9 @@ function Presidents() {
       viewport={{ once: false }}
       transition={{ delay: 0.2, duration: 1 }}
     >
-      <h2 className="box-border tracking-normal text-gray-700 outline-none block text-[30px] font-bold mx-auto mb-5 w-full text-center">
+      <h2 className="box-border tracking-normal text-gray-700 outline-none block text-2xl 
+      xl:text-3xl lg:text-2xl md:text-xl 
+      font-bold mx-auto mb-5 w-full text-center">
         Presidents
       </h2>
 

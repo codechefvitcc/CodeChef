@@ -224,7 +224,7 @@ function DeptDisplay() {
 
   return (
     <div className="main">
-      <div className="display">
+      <div className="display text-center md:text-left">
         <h2>Our Departments</h2>
         {mockData.map((dept, index) => (
           <DeptCard

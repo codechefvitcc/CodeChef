@@ -123,14 +123,14 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
 
         {details.length > 350 && (
           <motion.div 
-            className="font-semibold text-gray-500 text-[18px] cursor-pointer"
+            className="font-semibold text-[18px] cursor-pointer"
             initial={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <motion.span
-              initial={{ letterSpacing: "1px" }}
-              whileHover={{ letterSpacing: "3px" }}
+              initial={{ letterSpacing: "1px", color: "darkgray" }}
+              whileHover={{ letterSpacing: "3px", color: "gray" }}
               transition={{ duration: 0.3 }}
             >
               Read more...
@@ -201,12 +201,12 @@ const AllBlogsCard = ({ title, image, date, about }) => {
 function Blogs() {
   return (
     <div style={{ backgroundImage: `url(${BlogsBackgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="flex flex-col gap-[30px] items-center pb-16 pt-[65px] sm:pt-[0px]">
+      <div className="flex flex-col gap-[10px] sm:gap-[30px] items-center pb-16 pt-[65px] sm:pt-[0px]">
         <div>
           <h1 className="text-[60px] text-center font-bold uppercase text-gray-700">Blogs</h1>
         </div>
 
-        <div className="px-[40px] flex flex-col gap-[20px]">
+        <div className="px-[40px] flex flex-col sm:gap-[20px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px]">Latest blog</h2>
 
           <div className="block sm:hidden rounded-[16px]" >
@@ -228,7 +228,7 @@ function Blogs() {
           </div>
         </div>
 
-        <div className="px-[30px] flex flex-col gap-[30px] mt-[30px]">
+        <div className="px-[30px] flex flex-col gap-[10px] sm:gap-[30px] mt-[30px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 md:ml-[10px] lg:ml-[90px] xl:ml-[150px]">All blogs</h2>
 
           {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[20px] rounded-[16px]"> */}
