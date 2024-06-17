@@ -22,7 +22,7 @@ function Faculty() {
 
       <motion.div
         className="
-        w-[320px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px] 
+        w-[330px] xl:w-[590px] lg:w-[500px] md:w-[370px] sm:w-[570px] 
         h-[250px] xl:h-[300px] lg:h-[230px] md:h-[190px] sm:h-[280px]
         gap-[30px] xl:gap-[30px] lg:gap-[20px] md:gap-[20px] sm:gap-[30px]
         px-[10px] xl:px-[20px] lg:px-[20px] md:px-[10px] sm:px-[40px]
