@@ -1,11 +1,12 @@
-import { DeptDisplay, Gallery, Hero, Leaders } from '../Components';
+import { DeptDisplay, Hero, IntroVideo, Leaders } from '../Components';
 
 const Home = () => {
   return (
     <>
       <Hero />
       <DeptDisplay />
-      <Gallery />
+      {/* <Gallery /> */}
+      <IntroVideo />
       <Leaders />
     </>
   );
