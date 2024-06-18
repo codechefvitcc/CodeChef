@@ -1,14 +1,14 @@
 // default imports
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 //image components imports
 import {
-  BlogsBackgroundImage,
+  EventsBackgroundImage,
   HomeGalleryImages,
-} from "../../Constants/images";
-import { ImageLoaderComponent } from "../../Utility";
+} from '../../Constants/images';
+import { ImageLoaderComponent } from '../../Utility';
 
 import { useBreakpoint } from "../../Utility";
 
@@ -43,9 +43,9 @@ const CookOff2024 = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${BlogsBackgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundImage: `url(${EventsBackgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <div className="overflow-hidden container mx-auto mt-16 sm:mt-0 p-4 lg:p-32 lg:pt-4">
