@@ -26,7 +26,7 @@ const IntroVideo = () => {
   };
 
   return (
-    <div className='flex justify-center items-center introvideobg h-[50vh] md:h-[60vh] lg:h-[75vh]'>
+    <div className='flex justify-center items-center introvideobg h-[50vh] md:h-[60vh] lg:h-[85vh]'>
       <AnimatePresence>
         <motion.div 
           initial="hidden"
@@ -36,7 +36,7 @@ const IntroVideo = () => {
           variants={cardVariants}
           transition={transition}
         >
-          <div className="h-[30vh] w-[95vw] md:h-[50vh] md:w-[70vw] lg:h-[60vh] lg:w-[50vw]">
+          <div className="rounded-xl h-[40vh] w-[95vw] md:h-[70vh] md:w-[70vw] lg:h-[85vh] lg:w-[80vw] xl:w-[80vw]">
             <video
               src={introvideo}
               className='w-full h-full'
