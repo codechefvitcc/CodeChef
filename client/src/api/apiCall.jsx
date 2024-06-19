@@ -5,7 +5,7 @@ export const getAllTestimonials = async () => {
   const query = '*[_type == "testimonials"]';
   try {
     const response = await client.fetch(query);
-    //console.log(response);
+    console.log(response);
     return response;
   } catch (error) {
     console.log("Error fetching testimonials: ", error);

@@ -16,7 +16,7 @@ import { getAllTestimonials } from "../../api/apiCall";
 const Hero = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true); // State to manage loading
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -110,14 +110,18 @@ const Hero = () => {
         </motion.div>
 
         {/* Testimonial carousel */}
-        <div className={`w-full sm:w-1/2 h-fit ${error? "flex justify-center items-center": ""} `}>
+        <div
+          className={`w-full sm:w-1/2 h-fit ${
+            error ? "flex justify-center items-center" : ""
+          } `}
+        >
           {loading ? (
             <div className="flex justify-center items-center">
               <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
             </div>
           ) : error ? (
             <div className="flex">
-              <ErrorBox/>
+              <ErrorBox />
             </div>
           ) : (
             <CarouselStyle>
