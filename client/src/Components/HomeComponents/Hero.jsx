@@ -1,25 +1,37 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
-// Importing profile picture and quote symbol assets
-import { vishalpfp, defaultpfp } from '../../assets';
-import { RiDoubleQuotesL } from 'react-icons/ri';
+// importing icons
+import { FaSpinner } from "react-icons/fa";
+import { RiDoubleQuotesL } from "react-icons/ri";
+
+// Importing default profile pic and blure hash util function
+import { defaultpfp } from "../../assets";
+import { ImageLoaderComponent } from "../../Utility";
+
+// API call
+import { getAllTestimonials } from "../../api/apiCall";
 
 const Hero = () => {
-  // Data to be written in testimonials
-  const testimonialData = [
-    {
-      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
-      fname: 'Vishal Kumar Yadav',
-      position: 'Design Lead (2023-24)',
-      profileImg: vishalpfp,
-    },
-    {
-      msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe, error iste, impedit veniam modi neque obcaecati, laborum ullam aperiam delectus autem eveniet. Ullam deserunt, ab nesciunt quis doloremque eaque?',
-      fname: 'Sidhhart Tiwari',
-      position: 'President (2023-24)',
-    },
-  ];
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      setLoading(true);
+      const data = await getAllTestimonials();
+      if (data.error) {
+        setError(true);
+      } else {
+        setTestimonials(data);
+      }
+      setLoading(false);
+    };
+
+    fetchTestimonials();
+  }, []);
 
   return (
     <div className="py-20 !px-14 sm:!px-20 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99]">
@@ -98,71 +110,51 @@ const Hero = () => {
         </motion.div>
 
         {/* Testimonial carousel */}
-        <div className="w-full sm:w-1/2">
-          <CarouselStyle>
-            <div className="logos">
-              <div className="logos-slide">
-                {testimonialData?.map((message, index) => (
-                  <div className="custom-box" key={index}>
-                    <div className="card-body flex justify-between flex-col h-full">
-                      <div className="card-text">
-                        <RiDoubleQuotesL className="doubleQuotes" />
-                        <p className="text-m text-gray-700">{message.msg}</p>
-                      </div>
-                      <div>
-                        <img
-                          src={
-                            message.profileImg ? message.profileImg : defaultpfp
-                          }
-                          className="rounded-full mb-2"
-                          style={{
-                            height: '50px',
-                            width: '50px',
-                            objectFit: 'cover',
-                          }}
-                          alt={index}
-                        />
-                        <p className="font-semibold text-m text-gray-700">
-                          {message.fname}
-                        </p>
-                        <p className="font-light">{message.position}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="logos-slide">
-                {testimonialData?.map((message, index) => (
-                  <div className="custom-box" key={index}>
-                    <div className="card-body flex justify-between flex-col h-full">
-                      <div className="card-text">
-                        <RiDoubleQuotesL className="doubleQuotes" />
-                        <p className="text-m text-gray-700">{message.msg}</p>
-                      </div>
-                      <div>
-                        <img
-                          src={
-                            message.profileImg ? message.profileImg : defaultpfp
-                          }
-                          className="rounded-full mb-2"
-                          style={{
-                            height: '50px',
-                            width: '50px',
-                            objectFit: 'cover',
-                          }}
-                          alt={index}
-                        />
-                        <p className="font-semibold text-m text-gray-700">
-                          {message.fname}
-                        </p>
-                        <p className="font-light">{message.position}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <div className="w-full sm:w-1/2 h-fit">
+          {loading ? (
+            <div className="flex justify-center items-center">
+              <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
             </div>
-          </CarouselStyle>
+          ) : error ? (
+            <div>Some error occured while fetching the testimonials</div>
+          ) : (
+            <CarouselStyle>
+              <div className="logos">
+                {Array.from({ length: 2 }).map((i) => {
+                  return (
+                    <div className="logos-slide" key={i}>
+                      {testimonials?.map((element, index) => (
+                        <div className="custom-box" key={index}>
+                          <div className="card-body flex justify-between flex-col h-full">
+                            <div className="card-text">
+                              <RiDoubleQuotesL className="doubleQuotes" />
+                              <p className="text-m text-gray-700">
+                                {element.testimonial}
+                              </p>
+                            </div>
+                            <div>
+                              <ImageLoaderComponent
+                                url={element.imageUrl || defaultpfp}
+                                hashCode={element.imageHashCode}
+                                alt="mainimage"
+                                className="rounded-full mb-2 h-[50px] w-[50px] object-cover"
+                                blurWidth={"50px"}
+                                blurHeight={"50px"}
+                              />
+                              <p className="font-semibold text-m text-gray-700">
+                                {element.name}
+                              </p>
+                              <p className="font-light">{element.position}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            </CarouselStyle>
+          )}
         </div>
       </div>
     </div>
