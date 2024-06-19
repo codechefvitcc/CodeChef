@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import {
   EventsBackgroundImage,
   HomeGalleryImages,
+  CookOff2024MainImage
 } from '../../Constants/images';
 import { ImageLoaderComponent } from '../../Utility';
 
@@ -45,15 +46,15 @@ const CookOff2024 = () => {
       style={{
         backgroundImage: `url(${EventsBackgroundImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center'
       }}
     >
       <div className="overflow-hidden container mx-auto mt-16 sm:mt-0 p-4 lg:p-32 lg:pt-4">
         {/* Main Image */}
         <div className="flex items-center justify-center">
           <ImageLoaderComponent
-            url={HomeGalleryImages[2].url}
-            hashCode={HomeGalleryImages[2].hashCode}
+            url={CookOff2024MainImage.url}
+            hashCode={CookOff2024MainImage.hashCode}
             alt="mainimage"
             className="w-full h-[40vh] lg:h-[80vh] mb-4 rounded-xl"
             blurWidth={'100%'} //100% since we used w-full
