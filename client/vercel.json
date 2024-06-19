@@ -1,10 +1,5 @@
 {
     "rewrites": [
         {"source": "/(.*)", "destination": "/"}
-    ],
-    "images": {
-        "dangerouslyAllowSVG": true,
-        "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
-        "contentDispositionType": "inline"
-    }
+    ]
 }
