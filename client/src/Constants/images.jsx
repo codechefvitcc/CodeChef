@@ -19,6 +19,10 @@ import BlogsBackground from '../assets/Background/BlogsBackground.svg';
 import EventsBackground from '../assets/Background/EventsBackground.svg';
 // **************************************************
 
+// Cookoff2024 image import ********************
+import CookOff2024Main from '../assets/Events/CookOff2024/Cookoff2024main.png';
+// **************************************************
+
 // import other images here and export accordingly
 
 // exporting Home Page Gallery Images
@@ -36,3 +40,6 @@ export const BlogsBackgroundImage = BlogsBackground;
 
 // exporting events background image
 export const EventsBackgroundImage = EventsBackground;
+
+// exporting Cookoff2024 main image
+export const CookOff2024MainImage = { url: CookOff2024Main, hashCode: 'LBIgv94n2,tSg400tSXU2WI9{+Sh' };
