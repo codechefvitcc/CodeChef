@@ -16,7 +16,7 @@ import { getAllTestimonials } from "../../api/apiCall";
 const Hero = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true); // State to manage loading
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
