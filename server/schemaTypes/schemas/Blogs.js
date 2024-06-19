@@ -20,8 +20,8 @@ export default{
             of: [{type: 'block'}]
         },
         {
-            name : 'imageId',
-            title : 'Image Id',
+            name : 'imageUrl',
+            title : 'Image URL',
             type : 'string'
         }
     ]
