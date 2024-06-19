@@ -46,7 +46,7 @@ const CookOff2024 = () => {
       style={{
         backgroundImage: `url(${EventsBackgroundImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center'
       }}
     >
       <div className="overflow-hidden container mx-auto mt-16 sm:mt-0 p-4 lg:p-32 lg:pt-4">
