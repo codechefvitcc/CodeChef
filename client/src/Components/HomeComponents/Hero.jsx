@@ -8,7 +8,7 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 
 // Importing default profile pic and blure hash util function
 import { defaultpfp } from "../../assets";
-import { ImageLoaderComponent } from "../../Utility";
+import { ErrorBox, ImageLoaderComponent } from "../../Utility";
 
 // API call
 import { getAllTestimonials } from "../../api/apiCall";
@@ -110,13 +110,15 @@ const Hero = () => {
         </motion.div>
 
         {/* Testimonial carousel */}
-        <div className="w-full sm:w-1/2 h-fit">
+        <div className={`w-full sm:w-1/2 h-fit ${error? "flex justify-center items-center": ""} `}>
           {loading ? (
             <div className="flex justify-center items-center">
               <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
             </div>
           ) : error ? (
-            <div>Some error occured while fetching the testimonials</div>
+            <div className="flex">
+              <ErrorBox/>
+            </div>
           ) : (
             <CarouselStyle>
               <div className="logos">
