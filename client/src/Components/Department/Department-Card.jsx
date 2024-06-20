@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Popup from './Popup';
 import '../../Styles/Department/Department-Card.css';
 
-function DeptCard({ name, icon, description, members, lead }) {
+function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleButtonClick = (e) => {
@@ -48,7 +48,7 @@ function DeptCard({ name, icon, description, members, lead }) {
             <h3>{name}</h3>
             {icon && (
               <span className="icon">
-                {React.createElement(icon, { size: "38px" })}
+                <img src={icon} alt="Icon" height={"38px"} width={"38px"} />
               </span>
             )}
           </div>
@@ -88,7 +88,7 @@ function DeptCard({ name, icon, description, members, lead }) {
             ))}
           </div>
           <button className="member-count-button" onClick={handleButtonClick}>
-            {members.length} Members
+            {memberCount === 1 ? `${memberCount} Member` : `${memberCount} Members`}
           </button>
         </motion.div>
       </AnimatePresence>
@@ -97,7 +97,7 @@ function DeptCard({ name, icon, description, members, lead }) {
         {isPopupOpen && (
           <Popup
             name={name}
-            members={members}
+            members={allMembers}
             onClose={() => setIsPopupOpen(false)}
           />
         )}
@@ -111,20 +111,20 @@ DeptCard.propTypes = {
   name: PropTypes.string.isRequired,
   icon: PropTypes.elementType,
   description: PropTypes.string.isRequired,
-  members: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      regNo: PropTypes.string.isRequired,
-      linkedIn: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  lead: PropTypes.arrayOf(
-    PropTypes.shape({
-      leadName: PropTypes.string.isRequired,
-      leadImg: PropTypes.string.isRequired,
-      leadLinkedIn: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  // members: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     name: PropTypes.string.isRequired,
+  //     regNo: PropTypes.string.isRequired,
+  //     linkedIn: PropTypes.string.isRequired,
+  //   })
+  // ).isRequired,
+  // lead: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     leadName: PropTypes.string.isRequired,
+  //     leadImg: PropTypes.string.isRequired,
+  //     leadLinkedIn: PropTypes.string.isRequired,
+  //   })
+  // ).isRequired,
 };
 
 

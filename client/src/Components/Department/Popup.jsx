@@ -29,6 +29,10 @@ const modalVariants = {
 };
 
 function Popup({ name, members, onClose }) {
+
+  const department = members.find(dept => dept.departmentName === name);
+  const departmentMembers = department.members;
+
   return (
     <motion.div 
       className="backdrop fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-10"
@@ -57,7 +61,7 @@ function Popup({ name, members, onClose }) {
             </tr>
           </thead>
           <tbody>
-            {members.map((member, index) => (
+            {departmentMembers.map((member, index) => (
               <tr key={index} className="border-b">
                 <td className="px-4 py-2 border">{index + 1}</td>
                 <td className="px-4 py-2 border">{member.name}</td>
@@ -65,7 +69,7 @@ function Popup({ name, members, onClose }) {
                 <td className="px-4 py-2 border flex justify-center items-center">
                   <motion.button 
                     className='flex items-center gap-2'
-                    onClick={() => window.open(member.linkedIn, '_blank')} 
+                    onClick={() => window.open(member.linkedin, '_blank')} 
                     initial={{ scale: 0.8 }}
                     whileHover={{ scale: 1.1 }}
                   >

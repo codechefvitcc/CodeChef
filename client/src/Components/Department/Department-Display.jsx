@@ -1,12 +1,19 @@
+import { useEffect, useState } from "react";
+
 import DeptCard from "./Department-Card.jsx";
 import "../../Styles/Department/Department-Display.css";
 
+// importing icons
 import { FaTrophy } from "react-icons/fa6";
 import { IoMdBrush } from "react-icons/io";
 import { TbWorld } from "react-icons/tb";
 import { GiTie } from 'react-icons/gi';
 import { FaHandshake } from "react-icons/fa6";
+import { FaSpinner } from "react-icons/fa";
 import { defaultpfp, vishalpfp } from "../../assets/index.js";
+
+// API call
+import { getAllDepartments, getAllMembers } from "../../api/apiCall";
 
 function DeptDisplay() {
   const mockData = [
@@ -222,20 +229,82 @@ function DeptDisplay() {
     },
   ];
 
+  const lead = [
+                {
+                  leadName: "Vishal Kumar Yadav",
+                  leadImg: vishalpfp,
+                  leadLinkedIn: "https://google.com",
+                },
+                {
+                  leadName: "Shashank Sharma",
+                  leadImg: defaultpfp,
+                  leadLinkedIn: "https://google.com",
+                },
+              ]
+
+  const [departments, setDepartments] = useState([]);
+  const [allMembers, setAllMembers] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      setLoading(true);
+      const data = await getAllDepartments();
+      if (data.error) {
+        setError(true);
+      } else {
+        setDepartments(data);
+      }
+      setLoading(false);
+    };
+
+    const fetchMembers = async () => {
+      setLoading(true);
+      const data = await getAllMembers();
+      if (data.error) {
+        setError(true);
+      } else {
+
+        setAllMembers(data);
+      }
+      setLoading(false);
+    };
+
+    fetchDepartments();
+    fetchMembers();
+  }, []);
+
+  const renderDeptCards = (data) => {
+    return data.map((dept, index) => (
+      <DeptCard
+        key={index}
+        name={dept.name}
+        icon={dept.icon}
+        description={dept.description}
+        memberCount={dept.members}
+        allMembers={allMembers}
+        lead={lead}
+      />
+    ));
+  };
+
   return (
     <div className="main">
       <div className="display text-center md:text-left">
         <h2>Our Departments</h2>
-        {mockData.map((dept, index) => (
-          <DeptCard
-            key={index}
-            name={dept.name}
-            icon={dept.icon}
-            description={dept.description}
-            members={dept.members}
-            lead={dept.lead}
-          />
-        ))}
+
+        {loading ? (
+          <div className="flex justify-center items-center">
+            <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-500">Failed to load departments. Please try again later.</div>
+        ) : departments.length ? (
+          renderDeptCards(departments)
+        ) : (
+          renderDeptCards(mockData)
+        )}
       </div>
     </div>
   );

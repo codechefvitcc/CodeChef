@@ -1,3 +1,3 @@
-import {Departments, Blogs, ClubLeads, Testimonials} from './schemas'
+import {Departments, Blogs, ClubLeads, Testimonials, Members} from './schemas'
 
-export const schemaTypes = [Blogs, ClubLeads, Departments, Testimonials]
+export const schemaTypes = [Blogs, ClubLeads, Departments, Testimonials, Members]
