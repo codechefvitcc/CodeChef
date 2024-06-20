@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 
-import Popup from './Popup';
-import '../../Styles/Department/Department-Card.css';
+import Popup from "./Popup";
+import "../../Styles/Department/Department-Card.css";
 
 function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -14,7 +14,7 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
   };
 
   const cardVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       scale: 0.8,
     },
@@ -30,17 +30,17 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
 
   const transition = {
     duration: 0.75,
-  }
+  };
 
   return (
     <div>
       <AnimatePresence>
-        <motion.div 
+        <motion.div
           className="department-card"
           initial="hidden"
           whileInView="visible"
           exit="exit"
-          viewport={{ once: false }}  // Trigger animation more than once
+          viewport={{ once: false }} // Trigger animation more than once
           variants={cardVariants}
           transition={transition}
         >
@@ -54,7 +54,7 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
           </div>
           <p>{description}</p>
           <div className="lead-section flex justify-between">
-            {lead.map((ele, index) => (
+            {lead?.map((ele, index) => (
               <div className="flex items-center" key={index}>
                 <img
                   src={ele.leadImg}
@@ -88,11 +88,13 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
             ))}
           </div>
           <button className="member-count-button" onClick={handleButtonClick}>
-            {memberCount === 1 ? `${memberCount} Member` : `${memberCount} Members`}
+            {memberCount === 1
+              ? `${memberCount} Member`
+              : `${memberCount} Members`}
           </button>
         </motion.div>
       </AnimatePresence>
-      
+
       <AnimatePresence>
         {isPopupOpen && (
           <Popup
@@ -111,21 +113,20 @@ DeptCard.propTypes = {
   name: PropTypes.string.isRequired,
   icon: PropTypes.elementType,
   description: PropTypes.string.isRequired,
-  // members: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     name: PropTypes.string.isRequired,
-  //     regNo: PropTypes.string.isRequired,
-  //     linkedIn: PropTypes.string.isRequired,
-  //   })
-  // ).isRequired,
-  // lead: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     leadName: PropTypes.string.isRequired,
-  //     leadImg: PropTypes.string.isRequired,
-  //     leadLinkedIn: PropTypes.string.isRequired,
-  //   })
-  // ).isRequired,
+  members: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      regNo: PropTypes.string.isRequired,
+      linkedIn: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  lead: PropTypes.arrayOf(
+    PropTypes.shape({
+      leadName: PropTypes.string.isRequired,
+      leadImg: PropTypes.string.isRequired,
+      leadLinkedIn: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
-
 
 export default DeptCard;

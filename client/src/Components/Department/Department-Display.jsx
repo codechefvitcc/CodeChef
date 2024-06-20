@@ -14,6 +14,7 @@ import { defaultpfp, vishalpfp } from "../../assets/index.js";
 
 // API call
 import { getAllDepartments, getAllMembers } from "../../api/apiCall";
+import ErrorBox from "../../Utility/ErrorBox.jsx";
 
 function DeptDisplay() {
   const mockData = [
@@ -230,17 +231,17 @@ function DeptDisplay() {
   ];
 
   const lead = [
-                {
-                  leadName: "Vishal Kumar Yadav",
-                  leadImg: vishalpfp,
-                  leadLinkedIn: "https://google.com",
-                },
-                {
-                  leadName: "Shashank Sharma",
-                  leadImg: defaultpfp,
-                  leadLinkedIn: "https://google.com",
-                },
-              ]
+    {
+      leadName: "Vishal Kumar Yadav",
+      leadImg: vishalpfp,
+      leadLinkedIn: "https://google.com",
+    },
+    {
+      leadName: "Shashank Sharma",
+      leadImg: defaultpfp,
+      leadLinkedIn: "https://google.com",
+    },
+  ];
 
   const [departments, setDepartments] = useState([]);
   const [allMembers, setAllMembers] = useState([]);
@@ -265,7 +266,6 @@ function DeptDisplay() {
       if (data.error) {
         setError(true);
       } else {
-
         setAllMembers(data);
       }
       setLoading(false);
@@ -299,7 +299,9 @@ function DeptDisplay() {
             <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
           </div>
         ) : error ? (
-          <div className="text-center text-red-500">Failed to load departments. Please try again later.</div>
+          <div className="flex">
+            <ErrorBox />
+          </div>
         ) : departments.length ? (
           renderDeptCards(departments)
         ) : (

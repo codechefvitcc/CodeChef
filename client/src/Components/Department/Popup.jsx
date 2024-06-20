@@ -29,26 +29,30 @@ const modalVariants = {
 };
 
 function Popup({ name, members, onClose }) {
-
-  const department = members.find(dept => dept.departmentName === name);
+  const department = members.find((dept) => dept.departmentName === name);
   const departmentMembers = department.members;
 
   return (
-    <motion.div 
+    <motion.div
       className="backdrop fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-10"
-      variants={backdropVariants} 
-      initial="hidden" 
-      animate="visible" 
+      variants={backdropVariants}
+      initial="hidden"
+      animate="visible"
       exit="exit"
       onClick={onClose}
     >
-      <motion.div 
+      <motion.div
         className="modal relative bg-white p-5 rounded-lg text-center w-full z-20"
         variants={modalVariants}
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
       >
-        <h2 className="text-md sm:text-2xl font-bold whitespace-normal">{name} Members</h2>
-        <span className="close-icon absolute top-1 right-1 text-lg sm:text-2xl cursor-pointer" onClick={onClose}>
+        <h2 className="text-md sm:text-2xl font-bold whitespace-normal">
+          {name} Members
+        </h2>
+        <span
+          className="close-icon absolute top-1 right-1 text-lg sm:text-2xl cursor-pointer"
+          onClick={onClose}
+        >
           <RxCross1 />
         </span>
         <table className="members-display table-auto w-full border-collapse mt-5">
@@ -67,9 +71,9 @@ function Popup({ name, members, onClose }) {
                 <td className="px-4 py-2 border">{member.name}</td>
                 {/* <td className="px-4 py-2 border">{member.regNo}</td> */}
                 <td className="px-4 py-2 border flex justify-center items-center">
-                  <motion.button 
-                    className='flex items-center gap-2'
-                    onClick={() => window.open(member.linkedin, '_blank')} 
+                  <motion.button
+                    className="flex items-center gap-2"
+                    onClick={() => window.open(member.linkedin, "_blank")}
                     initial={{ scale: 0.8 }}
                     whileHover={{ scale: 1.1 }}
                   >
@@ -79,7 +83,9 @@ function Popup({ name, members, onClose }) {
                       src="https://img.icons8.com/color/48/linkedin.png"
                       alt="linkedin"
                     />
-                    <span className='hidden sm:block font-semibold'>Connect</span>
+                    <span className="hidden sm:block font-semibold">
+                      Connect
+                    </span>
                   </motion.button>
                 </td>
               </tr>
@@ -89,6 +95,6 @@ function Popup({ name, members, onClose }) {
       </motion.div>
     </motion.div>
   );
-};
+}
 
 export default Popup;
