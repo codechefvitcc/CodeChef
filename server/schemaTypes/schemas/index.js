@@ -4,8 +4,9 @@ import Blogs from './Blogs'
 import ClubLeads from './ClubLeads'
 import Testimonials from './Testimonials'
 import Members from './Members'
+import JoinUs from './JoinUs'
 
 //Exporting all Schemas
-export {Departments, Blogs, ClubLeads, Testimonials, Members}
+export {Departments, Blogs, ClubLeads, Testimonials, Members, JoinUs}
 
 //This is file is meant for imports only
