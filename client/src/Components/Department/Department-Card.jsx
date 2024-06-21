@@ -48,7 +48,7 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
             <h3>{name}</h3>
             {icon && (
               <span className="icon">
-                <img src={icon} alt="Icon" height={"38px"} width={"38px"} />
+                <img src={icon} alt="Icon" height={"50px"} width={"50px"} />
               </span>
             )}
           </div>

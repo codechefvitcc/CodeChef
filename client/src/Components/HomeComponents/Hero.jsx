@@ -34,7 +34,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="py-20 !px-14 sm:!px-20 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99]">
+    <div className="pt-20 pb-15 sm:pb-20 !px-5 sm:!px-20 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99]">
       <div className="flex flex-wrap main-row">
         {/* Website title area */}
         <motion.div

@@ -122,20 +122,16 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
         <p className="text-[14px]">{shortDetail}</p>
 
         {details.length > 350 && (
-          <motion.div 
-            className="font-semibold text-[18px] cursor-pointer"
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <motion.span
+          <div>
+            <motion.span 
+              className="font-semibold text-[18px] cursor-pointer"
               initial={{ letterSpacing: "1px", color: "darkgray" }}
-              whileHover={{ letterSpacing: "3px", color: "gray" }}
+              whileHover={{ letterSpacing: "2px", color: "#BCD5FF" }}
               transition={{ duration: 0.3 }}
             >
               Read more...
             </motion.span>
-          </motion.div>
+          </div>
         )}
       </div>
     </motion.div>
@@ -184,8 +180,8 @@ const AllBlogsCard = ({ title, image, date, about }) => {
 
           <motion.div 
             className="cursor-pointer"
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.4 }}
+            initial={{ scale: 1, color: "darkgray" }}
+            whileHover={{ scale: 1.4, color: "#BCD5FF" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <MdArrowOutward size={27} />
