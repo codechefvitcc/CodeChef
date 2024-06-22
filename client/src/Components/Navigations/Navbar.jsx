@@ -92,23 +92,33 @@ const Navbar = () => {
                       : "hidden"
                   }
                 >
-                  <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                    <Link to="/events/Cookoff2024">Cook-Off 2024</Link>
-                  </button>
-                  <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                    <Link to="/decode-dsa">Decode DSA</Link>
-                  </button>
+                  <Link
+                    to="/events/Cookoff2024"
+                    className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"
+                  >
+                    <button>Cook-Off 2024</button>
+                  </Link>
+                  <Link
+                    to="/decode-dsa"
+                    className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"
+                  >
+                    <button>Decode DSA</button>
+                  </Link>
                 </div>
               </div>
               <div className="mx-2 block">
-                <button
+                <Link
+                  to="/blogs"
                   className="block px-4 py-2 rounded hover:bg-[#2a67b11e]"
-                  onClick={() => {
-                    setBlogsClicked(!blogsClicked);
-                  }}
                 >
-                  <Link to="/blogs">Blogs</Link>
-                </button>
+                  <button
+                    onClick={() => {
+                      setBlogsClicked(!blogsClicked);
+                    }}
+                  >
+                    Blogs
+                  </button>
+                </Link>
               </div>
               <div className="mx-2 block">
                 <div
@@ -141,18 +151,23 @@ const Navbar = () => {
                       : "hidden"
                   }
                 >
-                  <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                    <Link to="/CookOff">2023-24 Team</Link>
-                  </button>
+                  <Link to="/CookOff">
+                    <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                      2023-24 Team
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
             {/* Drop down menus end here */}
           </div>
           {/* Join Us button */}
-          <div className="mr-4 text-[#2a67b1] border border-[#2a67b1]  p-2 font-semibold rounded">
-            <Link to="/joinus">Join Us!</Link>
-          </div>
+          <Link
+            to="/join-us"
+            className="mr-4 text-[#2a67b1] border border-[#2a67b1] p-2 font-semibold rounded transition-all duration-300 hover:text-white hover:bg-[#2a67b1]"
+          >
+            <button>Join Us!</button>
+          </Link>
         </div>
       </nav>
       {/* Navbar that appears for mobile screens */}

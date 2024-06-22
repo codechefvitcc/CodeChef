@@ -38,3 +38,16 @@ export const getAllMembers = async () => {
     return { error: "Failed to fetch members" };
   }
 };
+
+// Checking our Recuritement status
+export const areWeRecuriting = async () => {
+  const query = '*[_type == "joinus"]';
+  try {
+    const response = await client.fetch(query);
+    // console.log(response);
+    return response;
+  } catch (error) {
+    console.log("Error fetching members: ", error);
+    return { error: "Failed to fetch members" };
+  }
+};
