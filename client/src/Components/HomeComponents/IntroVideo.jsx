@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { introvideo } from '../../assets';
+import { introvideo, HomePageVideo } from '../../assets';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
@@ -46,10 +46,10 @@ const IntroVideo = () => {
           variants={cardVariants}
           transition={transition}
         >
-          <div className="relative rounded-xl h-[40vh] w-[95vw] md:h-[70vh] md:w-[70vw] lg:h-[85vh] lg:w-[80vw] xl:w-[80vw]">
+          <div className="relative rounded-xl h-[40vh] w-[95vw] md:h-[70vh] md:w-[70vw] py-8 lg:h-[85vh] lg:w-[80vw] xl:w-[80vw]">
             <video
               ref={videoRef}
-              src={introvideo}
+              src={HomePageVideo}
               className='w-full h-full rounded-xl'
               autoPlay
               loop
