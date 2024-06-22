@@ -19,6 +19,14 @@ import BlogsBackground from '../assets/Background/BlogsBackground.svg';
 import EventsBackground from '../assets/Background/EventsBackground.svg';
 // **************************************************
 
+// Leads background image import ********************
+import LeadsBackground from '../assets/Background/LeadsBackground.svg';
+// **************************************************
+
+// Leads background image import ********************
+import vishalpfp from '../assets/vishalKrYadav.jpg';
+// **************************************************
+
 // Cookoff2024 image import ********************
 import CookOff2024Main from '../assets/Events/CookOff2024/Cookoff2024main.png';
 // **************************************************
@@ -41,5 +49,17 @@ export const BlogsBackgroundImage = BlogsBackground;
 // exporting events background image
 export const EventsBackgroundImage = EventsBackground;
 
+// exporting Leads background image
+export const LeadsBackgroundImage = LeadsBackground;
+
 // exporting Cookoff2024 main image
-export const CookOff2024MainImage = { url: CookOff2024Main, hashCode: 'LBIgv94n2,tSg400tSXU2WI9{+Sh' };
+export const VishalPfp = {
+  url: vishalpfp,
+  hashCode: 'LLE|i9x|yE?vDg.9W;WAtoV]r;RP',
+};
+
+// exporting Cookoff2024 main image
+export const CookOff2024MainImage = {
+  url: CookOff2024Main,
+  hashCode: 'LBIgv94n2,tSg400tSXU2WI9{+Sh',
+};

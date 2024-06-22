@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [eventsClicked, setEventsClicked] = useState(false);
@@ -7,8 +7,8 @@ const Navbar = () => {
   const [teamClicked, setTeamClicked] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
-  
-  let navRef = useRef()
+
+  let navRef = useRef();
 
   // function to handle scroll
   useEffect(() => {
@@ -20,24 +20,24 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   //function to handle out of navbar clicks
   useEffect(() => {
     const handleClick = (e) => {
-      if(!navRef.current.contains(e.target)){
+      if (!navRef.current.contains(e.target)) {
         setEventsClicked(false);
         setBlogsClicked(false);
         setTeamClicked(false);
       }
     };
-    window.addEventListener("mousedown", handleClick);
+    window.addEventListener('mousedown', handleClick);
     return () => {
-      window.removeEventListener("mousedown", handleClick);
+      window.removeEventListener('mousedown', handleClick);
     };
   }, []);
 
@@ -68,15 +68,15 @@ const Navbar = () => {
                   }}
                   className={
                     eventsClicked
-                      ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded"
-                      : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
+                      ? 'bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded'
+                      : 'duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded '
                   }
                 >
                   <h2 className="mr-2">Events</h2>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={
-                      eventsClicked ? "rotate-180 duration-300" : "duration-300"
+                      eventsClicked ? 'rotate-180 duration-300' : 'duration-300'
                     }
                     height="20"
                     width="12.5"
@@ -88,8 +88,8 @@ const Navbar = () => {
                 <div
                   className={
                     eventsClicked
-                      ? "flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2"
-                      : "hidden"
+                      ? 'flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2'
+                      : 'hidden'
                   }
                 >
                   <Link
@@ -127,15 +127,15 @@ const Navbar = () => {
                   }}
                   className={
                     teamClicked
-                      ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded"
-                      : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
+                      ? 'bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded'
+                      : 'duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded '
                   }
                 >
                   <h2 className="mr-2">Our Team</h2>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={
-                      teamClicked ? "rotate-180 duration-300" : "duration-300"
+                      teamClicked ? 'rotate-180 duration-300' : 'duration-300'
                     }
                     height="20"
                     width="12.5"
@@ -147,11 +147,11 @@ const Navbar = () => {
                 <div
                   className={
                     teamClicked
-                      ? "flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2"
-                      : "hidden"
+                      ? 'flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2'
+                      : 'hidden'
                   }
                 >
-                  <Link to="/CookOff">
+                  <Link to="/leads">
                     <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
                       2023-24 Team
                     </button>
@@ -174,8 +174,8 @@ const Navbar = () => {
       <div
         className={
           isScrolled
-            ? "top-0 items-center fixed bg-white  w-full z-50 md:hidden block"
-            : " items-center fixed bg-white  w-full z-50 md:hidden block"
+            ? 'top-0 items-center fixed bg-white  w-full z-50 md:hidden block'
+            : ' items-center fixed bg-white  w-full z-50 md:hidden block'
         }
       >
         {/* Drop down menus start here */}
@@ -187,15 +187,15 @@ const Navbar = () => {
               }}
               className={
                 eventsClicked
-                  ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded"
-                  : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
+                  ? 'bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded'
+                  : 'duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded '
               }
             >
               <h2 className="mr-2">Events</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={
-                  eventsClicked ? "rotate-180 duration-300" : "duration-300"
+                  eventsClicked ? 'rotate-180 duration-300' : 'duration-300'
                 }
                 height="20"
                 width="12.5"
@@ -207,8 +207,8 @@ const Navbar = () => {
             <div
               className={
                 eventsClicked
-                  ? "flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2"
-                  : "hidden"
+                  ? 'flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2'
+                  : 'hidden'
               }
             >
               <Link to="/events/Cookoff2024">
@@ -240,15 +240,15 @@ const Navbar = () => {
               }}
               className={
                 teamClicked
-                  ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded"
-                  : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
+                  ? 'bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded'
+                  : 'duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded '
               }
             >
               <h2 className="mr-2">Our Team</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={
-                  teamClicked ? "rotate-180 duration-300" : "duration-300"
+                  teamClicked ? 'rotate-180 duration-300' : 'duration-300'
                 }
                 height="20"
                 width="12.5"
@@ -260,13 +260,15 @@ const Navbar = () => {
             <div
               className={
                 teamClicked
-                  ? "flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2"
-                  : "hidden"
+                  ? 'flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2'
+                  : 'hidden'
               }
             >
-              <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
-                <Link to="/CookOff">2023-24 Team</Link>
-              </button>
+              <Link to="/leads">
+                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                  2023-24 Team
+                </button>
+              </Link>
             </div>
           </div>
         </div>
