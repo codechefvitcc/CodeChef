@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Footer, Navbar, ScrollToTop } from "./Components";
-import { Blogs, CookOff2024, Home } from "./Pages";
-import JoinUs from "./Pages/JoinUs";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Footer, Navbar, ScrollToTop } from './Components';
+import { Blogs, CookOff2024, Home, Batch23 } from './Pages';
+import JoinUs from './Pages/JoinUs';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/events/Cookoff2024" element={<CookOff2024 />} />
         <Route path="/join-us" element={<JoinUs />} />
+        <Route path="/leads" element={<Batch23 />} />
       </Routes>
       <Footer />
     </Router>
