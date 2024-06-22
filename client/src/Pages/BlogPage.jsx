@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 
 import { AllBlogsCard } from '../Components'
 
-import image from "../assets/HomeGalley/image1.jpg";
+import { HomeGalleryImages } from '../Constants/images';
 import { BlogsBackgroundImage } from "../Constants/images";
+import { ImageLoaderComponent } from "../Utility";
 
 const mockDataRecommendedBlogs = [
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened R1",
     date: "Sunday, 1 Jan 2023",
     about:
@@ -17,7 +19,8 @@ const mockDataRecommendedBlogs = [
       "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
   },
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened R2",
     date: "Sunday, 2 Jan 2023",
     about:
@@ -29,7 +32,7 @@ const mockDataRecommendedBlogs = [
 
 function BlogPage() {
   const location = useLocation();
-  const { title, image, date, about, details } = location.state;
+  const { url, hashCode, title, date, about, details } = location.state;
 
   return (
     <div 
@@ -48,7 +51,14 @@ function BlogPage() {
               opacity: { duration: 2 }, 
             }}
           >
-            <img src={image} alt={title} className="w-full h-auto rounded-lg" />
+            <ImageLoaderComponent 
+              url={url}
+              hashCode={hashCode}
+              alt={title}
+              className="w-full h-auto rounded-lg"
+              blurWidth={'100%'}
+              blurHeight={'250px'}
+            />
           </motion.div>
           
           <h1 className="text-gray-700 text-[24px] sm:text-4xl font-bold mb-8 capitalize">{title}</h1>
@@ -71,8 +81,9 @@ function BlogPage() {
           {mockDataRecommendedBlogs.map((blog, index) => (
               <AllBlogsCard
                 key={index}
+                url={blog.url}
+                hashCode={blog.hashCode}
                 title={blog.title}
-                image={blog.image}
                 date={blog.date}
                 about={blog.about}
                 details={blog.details}
