@@ -4,6 +4,9 @@ import { FaAsterisk, FaSpinner } from "react-icons/fa"; // Import the asterisk i
 import "../Styles/JoinUs/JoinUs.css";
 import { areWeRecuriting } from "../api/apiCall";
 import { ErrorBox } from "../Utility";
+import axios from "axios"
+
+//Use This link for getting access to code for google sheet deployments - https://mojocommerce-digital-files-production.s3.amazonaws.com/migrate_files/68d194/digital_files/wwoAvILEQFyabgk1L2GI_sheet%20code.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA47TQ2B56F36XREC6%2F20240622%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240622T074735Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=a8b848fe894909bd6e5bc1e46a5c5f3d104b281eaa8ae301b6966fe058594677
 
 const JoinUs = () => {
   const [recruiting, setRecruiting] = useState("No"); // either "Yes" or "No"
@@ -36,8 +39,11 @@ const JoinUs = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // Handle form submission
-    console.log(data);
+    // Handle form submission  
+    // console.log(data);
+    const scriptURL = 'https://sheet.best/api/sheets/c9e1871a-2173-4294-8c92-877ab8a68d16'
+    axios.post(scriptURL,data)
+    .then(response=>{console.log(response)})
   };
 
   // Watch the regNo field to convert it to uppercase
@@ -67,6 +73,7 @@ const JoinUs = () => {
               looking through your application via email or call!
             </p>
             <form
+              name="form"
               className="w-full"
               onSubmit={handleSubmit(onSubmit)}
               noValidate
@@ -84,6 +91,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.name ? "border-red-500" : ""
                     }`}
+                    name="Name"
                     type="text"
                     id="name"
                     placeholder="Name eg: Vishal Kumar Yadav"
@@ -113,6 +121,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.reg_no ? "border-red-500" : ""
                     }`}
+                    name="Registration No"
                     type="text"
                     id="reg_no"
                     placeholder="Registration No. eg: 21BCE1846"
@@ -142,6 +151,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.vit_email ? "border-red-500" : ""
                     }`}
+                    name="VIT Email"
                     type="email"
                     id="vit_email"
                     placeholder="VIT Email ID"
@@ -160,7 +170,6 @@ const JoinUs = () => {
                     </div>
                   )}
                 </div>
-
                 <div className="mb-3 w-full md:w-1/2 px-2">
                   <label
                     className="text-sm font-medium text-gray-700 flex items-center"
@@ -173,13 +182,14 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.phone_no ? "border-red-500" : ""
                     }`}
+                    name="Phone No"
                     type="tel"
                     id="phone_no"
-                    placeholder="Phone number eg: +91 8072XXXXXX"
+                    placeholder="Phone number eg: 8072XXXXXX"
                     {...register("phone_no", {
                       required: "Phone number is required",
                       pattern: {
-                        value: /^\+91 [0-9]{10}$/,
+                        value: /^[0-9]{10}$/,
                         message: "Invalid phone number",
                       },
                     })}
@@ -203,6 +213,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.degree ? "border-red-500" : ""
                     }`}
+                    name="Degree"
                     type="text"
                     id="degree"
                     placeholder="Degree eg: B.Tech, B.SC, M.Tech etc"
@@ -232,6 +243,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.branch ? "border-red-500" : ""
                     }`}
+                    name="Branch"
                     type="text"
                     id="branch"
                     placeholder="Branch eg: CSE"
@@ -261,6 +273,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.batch ? "border-red-500" : ""
                     }`}
+                    name="Graduating Year"
                     type="text"
                     id="batch"
                     placeholder="Graduating Year eg: 2025"
@@ -290,6 +303,7 @@ const JoinUs = () => {
                     className={`form-control ${
                       errors.cgpa ? "border-red-500" : ""
                     }`}
+                    name="CGPA"
                     type="number"
                     step="0.01"
                     id="cgpa"
@@ -318,6 +332,7 @@ const JoinUs = () => {
                     className={`mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
                       errors.department ? "border-red-500" : ""
                     }`}
+                    name="Department"
                     id="department"
                     {...register("department", {
                       required: "Department is required",
@@ -355,13 +370,14 @@ const JoinUs = () => {
                   <textarea
                     className="form-control"
                     placeholder="Write about your experience in the department which you want to join"
+                    name="Relevant Experience"
                     id="experience"
                     rows="5"
                     {...register("experience")}
                   />
                 </div>
               </div>
-              <button className="btnSubmit btn-primary" type="submit">
+              <button name="Submit" type="submit" onClick={handleSubmit} className="btnSubmit btn-primary">
                 Submit
               </button>
             </form>
