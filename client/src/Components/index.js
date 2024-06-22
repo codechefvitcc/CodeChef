@@ -6,5 +6,6 @@ import Leaders from "./Leaders/Leaders";
 import ScrollToTop from "./ScrollToTop";
 import Navbar from "./Navigations/Navbar";
 import Footer from "./Navigations/Footer";
+import AllBlogsCard from "./AllBlogsCard";
 
-export { Footer, Navbar, DeptDisplay, Hero, IntroVideo, Leaders, ScrollToTop };
+export { Footer, Navbar, DeptDisplay, Hero, IntroVideo, Leaders, ScrollToTop, AllBlogsCard };

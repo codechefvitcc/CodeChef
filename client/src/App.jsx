@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Footer, Navbar, ScrollToTop } from "./Components";
-import { Blogs, CookOff2024, Home } from "./Pages";
+import { Blogs, CookOff2024, Home, BlogPage } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogPage />} />
         <Route path="/events/Cookoff2024" element={<CookOff2024 />} />
         <Route path="/join-us" element={<JoinUs />} />
       </Routes>
