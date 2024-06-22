@@ -82,7 +82,8 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
   const shortTitle = title.length > 25 ? `${title.substring(0, 25)}...` : title;
 
   const handleReadMore = () => {
-    navigate(`/blogs/${title}`, { state: { title, image, date, about, details } });
+    const formattedTitle = title.replace(/\s+/g, '-');
+    navigate(`/blogs/${formattedTitle}`, { state: { title, image, date, about, details } });
   };
 
   return (

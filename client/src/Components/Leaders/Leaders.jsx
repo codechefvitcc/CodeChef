@@ -4,7 +4,7 @@ import Faculty from "./Faculty";
 function Leaders() {
   return (
     <div
-      className="flex flex-wrap justify-center w-full bg-[#c6dcfea3] pt-[50px]"
+      className="flex flex-wrap justify-center w-full bg-[#c6dcfea3] pt-[5px] sm:pt-[10px]"
       style={{
         background: "linear-gradient(to bottom, #d8e6ff99 30%, #fff 70%)",
       }}

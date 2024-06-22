@@ -33,11 +33,10 @@ function BlogPage() {
 
   return (
     <div 
-      className="py-10 md:py-5 px-2 sm:px-5 min-h-screen"
+      className="py-14 md:py-5 px-2 sm:px-5 min-h-screen"
       style={{ backgroundImage: `url(${BlogsBackgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className='pt-[45px] sm:pt-[30px] md:pt-[5px]'>
-        <h1 className="text-gray-700 text-4xl text-center font-bold mb-8 capitalize">{title}</h1>
         <div className="max-w-4xl mx-auto bg-white p-3 md:p-8 mb-10 rounded-lg shadow-md">
           <motion.div 
             className="mb-6"
@@ -52,16 +51,23 @@ function BlogPage() {
             <img src={image} alt={title} className="w-full h-auto rounded-lg" />
           </motion.div>
           
-          <p className="text-[#333333] font-semibold mb-4">{date}</p>
-          <p className="text-gray-500 font-bold mb-6">{about}</p>
-          <div className="text-gray-500 leading-relaxed">
+          <h1 className="text-gray-700 text-[24px] sm:text-4xl font-bold mb-8 capitalize">{title}</h1>
+          <p className="text-[#666666] text-sm sm:text-md font-semibold mb-4">{date}</p>
+          <p className="text-gray-500 text-sm sm:text-md font-semibold mb-6">{about}</p>
+          <div className="text-gray-500 text-sm sm:text-md leading-relaxed">
             {details}
           </div>
         </div>
       </div>
       <div className='flex flex-col'>
         <p className='text-gray-700 text-3xl text-center font-bold mb-8 capitalize'>You might also like</p>
-        <div className='flex flex-wrap justify-center gap-[20px]'>
+        <motion.div 
+          className='flex flex-wrap justify-center gap-[20px]'
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.75 }}
+        >
           {mockDataRecommendedBlogs.map((blog, index) => (
               <AllBlogsCard
                 key={index}
@@ -72,7 +78,7 @@ function BlogPage() {
                 details={blog.details}
               />
             ))}
-          </div>
+          </motion.div>
       </div>
     </div>
   );
