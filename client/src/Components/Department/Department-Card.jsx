@@ -53,45 +53,48 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
             )}
           </div>
           <p>{description}</p>
-          <div className="lead-section flex justify-between">
-            {lead?.map((ele, index) => (
-              <div className="flex items-center" key={index}>
-                <img
-                  src={ele.leadImg}
-                  className="rounded-full mx-1"
-                  style={{
-                    height: "38px",
-                    width: "50px",
-                    objectFit: "cover",
-                  }}
-                  alt={ele.leadName}
-                />
-                <div>
-                  <p
-                    className="card-subtitle"
-                    style={{
-                      fontWeight: "500",
-                      fontSize: "14px !important",
-                      color: "#546e7a !important",
-                    }}
-                  >
-                    <a
-                      target="_blank"
-                      href={ele.leadLinkedIn}
-                      style={{ textDecoration: "none", color: "inherit" }}
+          <div className="w-full">
+            <div className="lead-section flex justify-between mb-2 flex-col sm:flex-row">
+              {lead?.map((ele, index) => (
+                <div
+                  className="flex items-center mt-1 mb-1 sm:mt-0 sm:mb-0"
+                  key={index}
+                >
+                  <img
+                    src={ele.leadImg}
+                    className="rounded-full mx-1 h-[40px] w-[40px] sm:h-[40px] sm:w-[50px] object-cover"
+                    alt={ele.leadName}
+                  />
+                  <div className="ml-1">
+                    <p
+                      className="card-subtitle"
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "14px !important",
+                        color: "#546e7a !important",
+                      }}
                     >
-                      {ele.leadName}
-                    </a>
-                  </p>
+                      <a
+                        target="_blank"
+                        href={ele.leadLinkedIn}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        {ele.leadName}
+                      </a>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button
+              className="member-count-button w-full"
+              onClick={handleButtonClick}
+            >
+              {memberCount === 1
+                ? `${memberCount} Member`
+                : `${memberCount} Members`}
+            </button>
           </div>
-          <button className="member-count-button" onClick={handleButtonClick}>
-            {memberCount === 1
-              ? `${memberCount} Member`
-              : `${memberCount} Members`}
-          </button>
         </motion.div>
       </AnimatePresence>
 
