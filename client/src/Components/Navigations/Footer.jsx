@@ -1,5 +1,6 @@
 import { IoLogoInstagram } from "react-icons/io";
 import { CiLinkedin } from "react-icons/ci";
+import { Link } from 'react-router-dom'
 
 import "../../Styles/Navigations/Footer.css";
 
@@ -14,7 +15,7 @@ const Footer = () => {
             </div>
             <div className="l_footer_list">
               <div className="l_footer_link">
-                <a href="/" className="footer_link">
+                <a href="/events/CodeQuest" className="footer_link">
                   Code Quest
                 </a>
               </div>
@@ -24,7 +25,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="l_footer_link">
-                <a href="/" className="footer_link">
+                <a href="/events/DecodeDSA" className="footer_link">
                   Decode DSA
                 </a>
               </div>
@@ -36,12 +37,12 @@ const Footer = () => {
             </div>
             <div className="l_footer_list">
               <div className="l_footer_link">
-                <a href="/" className="footer_link">
+                <a href="/blogs/Some-event-that-happened" className="footer_link">
                   Blog 1
                 </a>
               </div>
               <div className="l_footer_link">
-                <a href="/" className="footer_link">
+                <a href="/blogs/Some-event-that-happened" className="footer_link">
                   Blog 2
                 </a>
               </div>
@@ -69,10 +70,10 @@ const Footer = () => {
               <p className="l_footer_head">Follow Us</p>
             </div>
             <div className="l_footer_list">
-              <a href="/" className="footer_link footer-icons">
+              <a href="https://www.instagram.com/codechef.vitc/" className="footer_link footer-icons">
                 <IoLogoInstagram />
               </a>
-              <a href="/" className="footer_link footer-icons">
+              <a href="https://www.linkedin.com/company/codechef-vitc/mycompany/" className="footer_link footer-icons">
                 <CiLinkedin />
               </a>
             </div>
