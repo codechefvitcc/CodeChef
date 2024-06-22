@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 import { AllBlogsCard } from '../Components';
 
-import image from "../assets/HomeGalley/image1.jpg";
+import { HomeGalleryImages } from "../Constants/images";
+import { ImageLoaderComponent } from "../Utility";
 import { BlogsBackgroundImage } from "../Constants/images";
 
 const mockDataLatestBlog = {
-  image: image,
+  url: HomeGalleryImages[0].url,
+  hashCode: HomeGalleryImages[0].hashCode,
   title: "Some event that happened",
   date: "Sunday, 1 Jan 2024",
   about:
@@ -20,7 +22,8 @@ const mockDataLatestBlog = {
 
 const mockDataAllBlogs = [
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened asdiuadsgi",
     date: "Sunday, 1 Jan 2023",
     about:
@@ -29,7 +32,8 @@ const mockDataAllBlogs = [
       "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
   },
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened asdiuadsgi",
     date: "Sunday, 2 Jan 2023",
     about:
@@ -38,7 +42,8 @@ const mockDataAllBlogs = [
       "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
   },
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened asdiuadsgi",
     date: "Sunday, 3 Jan 2023",
     about:
@@ -47,7 +52,8 @@ const mockDataAllBlogs = [
       "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
   },
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened asdiuadsgi",
     date: "Sunday, 4 Jan 2023",
     about:
@@ -56,7 +62,8 @@ const mockDataAllBlogs = [
       "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
   },
   {
-    image: image,
+    url: HomeGalleryImages[0].url,
+    hashCode: HomeGalleryImages[0].hashCode,
     title: "Some event that happened asdiuadsgi",
     date: "Sunday, 5 Jan 2023",
     about:
@@ -66,7 +73,7 @@ const mockDataAllBlogs = [
   },
 ];
 
-const LatestBlogCard = ({ title, image, date, about, details }) => {
+const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
@@ -83,7 +90,7 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
 
   const handleReadMore = () => {
     const formattedTitle = title.replace(/\s+/g, '-');
-    navigate(`/blogs/${formattedTitle}`, { state: { title, image, date, about, details } });
+    navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details } });
   };
 
   return (
@@ -102,7 +109,15 @@ const LatestBlogCard = ({ title, image, date, about, details }) => {
     >
       <div className="flex flex-col justify-between">
         <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
-          <img src={image} alt={title} className="h-[250px] w-[400px]" />
+          {/* <img src={image} alt={title} className="h-[250px] w-[400px]" /> */}
+          <ImageLoaderComponent 
+            url={url}
+            hashCode={hashCode}
+            alt={title}
+            className="h-[250px] w-[400px]"
+            blurWidth={'400px'}
+            blurHeight={'250px'}
+          />
         </div>
 
         <div className="flex flex-col gap-[10px]">
@@ -164,8 +179,9 @@ function Blogs() {
 
           <div className="block sm:hidden rounded-[16px]" >
             <AllBlogsCard
+              url={mockDataLatestBlog.url}
+              hashCode={mockDataLatestBlog.hashCode}
               title={mockDataLatestBlog.title}
-              image={mockDataLatestBlog.image}
               date={mockDataLatestBlog.date}
               about={mockDataLatestBlog.about}
               details={mockDataLatestBlog.details}
@@ -173,8 +189,9 @@ function Blogs() {
           </div>
           <div className="hidden sm:block rounded-[16px]" >
             <LatestBlogCard
+              url={mockDataLatestBlog.url}
+              hashCode={mockDataLatestBlog.hashCode}
               title={mockDataLatestBlog.title}
-              image={mockDataLatestBlog.image}
               date={mockDataLatestBlog.date}
               about={mockDataLatestBlog.about}
               details={mockDataLatestBlog.details}
@@ -190,8 +207,9 @@ function Blogs() {
             {mockDataAllBlogs.map((blog, index) => (
               <AllBlogsCard
                 key={index}
+                url={blog.url}
+                hashCode={blog.hashCode}
                 title={blog.title}
-                image={blog.image}
                 date={blog.date}
                 about={blog.about}
                 details={blog.details}

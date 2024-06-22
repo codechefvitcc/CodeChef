@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { MdArrowOutward } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 
-function AllBlogsCard({ title, image, date, about, details }) {
+import { ImageLoaderComponent } from "../Utility";
+
+function AllBlogsCard({ url, hashCode, title, date, about, details }) {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
   
@@ -18,7 +20,7 @@ function AllBlogsCard({ title, image, date, about, details }) {
   
     const handleReadMore = () => {
       const formattedTitle = title.replace(/\s+/g, '-');
-      navigate(`/blogs/${formattedTitle}`, { state: { title, image, date, about, details } });
+      navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details } });
     };
   
     return (
@@ -36,7 +38,15 @@ function AllBlogsCard({ title, image, date, about, details }) {
         }}
       >
         <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
-          <img src={image} alt={title} className="h-[250px] w-[330px]" />
+          {/* <img src={image} alt={title} className="h-[250px] w-[330px]" /> */}
+          <ImageLoaderComponent 
+            url={url}
+            hashCode={hashCode}
+            alt={title}
+            className="h-[250px] w-[330px]"
+            blurWidth={'330px'}
+            blurHeight={'250px'}
+          />
         </div>
   
         <div className="mt-6">
