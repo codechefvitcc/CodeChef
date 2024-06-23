@@ -4,10 +4,10 @@ import Home from './Home';
 import CookOff2024 from './Events/Cookoff2024';
 
 // Leads
-import Batch23 from './Leads/Batch23';
+import Batch24 from './Leads/Batch24';
 
 // Blogs
 import Blogs from './Blogs';
 import BlogPage from './BlogPage';
 
-export { Home, Blogs, CookOff2024, BlogPage, Batch23 };
+export { Home, Blogs, CookOff2024, BlogPage, Batch24 };
