@@ -40,7 +40,7 @@ export const Team24 = {
     linkedIn:
       'https://www.linkedin.com/in/aakanksha-gupta-b32b9b24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     image:
-      'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1718963870/20240618_174727_-_Aakanksha_Gupta_22BEC1260_pcsayz.jpg',
+      'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719134139/20240618_174727_-_Aakanksha_Gupta_22BEC1260_tkmxip.jpg',
     hash: 'LKGIlrD*%1t6FyWA9Goz?wbJt6oz',
   },
   'Competitive Programming1': {
@@ -71,7 +71,7 @@ export const Team24 = {
     linkedIn:
       'https://www.linkedin.com/in/achuth-g-69104a251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     image:
-      'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1718963882/Picsart_24-04-07_23-07-56-558_-_Achuth_G_22BCE5148_c7ora0.jpg',
+      'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719148796/Picsart_24-04-07_23-07-56-558_-_Achuth_G_22BCE5148_fnugxy.jpg',
     hash: 'LiNdK]t7-oRk_Nadg4js%$t7e.s:',
   },
   Finance1: {
