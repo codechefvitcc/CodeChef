@@ -68,8 +68,8 @@ const Navbar = () => {
                   }}
                   className={
                     eventsClicked
-                      ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded"
-                      : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
+                      ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded hover:cursor-pointer"
+                      : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded hover:cursor-pointer"
                   }
                 >
                   <h2 className="mr-2">Events</h2>
