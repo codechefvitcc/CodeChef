@@ -7,9 +7,9 @@ import LeadCard from '../../Components/Leads/LeadCard';
 import { LeadsBackgroundImage } from '../../Constants/images';
 
 // Lead data
-import { Team24 } from '../../Constants/Teams/Batch23Data';
+import { Team24 } from '../../Constants/Teams/Batch24Data';
 
-function Batch23() {
+function Batch24() {
   const [year, setYear] = useState(24);
 
   if (year == 24) {
@@ -291,4 +291,4 @@ function Batch23() {
   }
 }
 
-export default Batch23;
+export default Batch24;
