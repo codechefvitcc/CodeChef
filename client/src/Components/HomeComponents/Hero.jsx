@@ -63,7 +63,7 @@ const Hero = () => {
               href="/joinus"
               className="btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5]"
             >
-              Join Us Today
+              Contact Us
             </a>
           </div>
 
@@ -126,7 +126,7 @@ const Hero = () => {
           ) : (
             <CarouselStyle>
               <div className="logos">
-                {Array.from({ length: 2 }).map((i) => {
+                {Array.from({ length: 2 }).map((_, i) => {
                   return (
                     <div className="logos-slide" key={i}>
                       {testimonials?.map((element, index) => (

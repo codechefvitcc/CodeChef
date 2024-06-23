@@ -1,7 +1,9 @@
 import { quotes } from "../../assets/leaders";
 import { MdEmail } from "react-icons/md";
 
-function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
+import { ImageLoaderComponent } from "../../Utility";
+
+function PresidentCard({ name, url, hashCode, year, vision, mail, linkedin }) {
   return (
     <div
       className="
@@ -18,14 +20,17 @@ function PresidentCard({ name, photo, year, vision, mail, linkedin }) {
         className="w-[160px] xl:w-[190px] lg:w-[150px] md:w-[110px] sm:w-[170px]
             flex flex-col items-center"
       >
-        <img
-          src={photo}
-          alt="Profile pic"
+        <ImageLoaderComponent 
+          url={url}
+          hashCode={hashCode}
+          alt={name}
           className="h-[110px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
             w-[110px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
             rounded-full"
+          blurWidth={'auto'}
+          blurHeight={'auto'}
         />
-
+        
         <div className="mt-[15px] flex flex-col items-center gap-[5px] uppercase">
           <h3 className="box-border m-0 bg-transparent tracking-normal text-gray-700 text-center outline-none block 
           text-[11px] xl:text-[17px] lg:text-[13px] md:text-[9.5px] sm:text-[15px] 

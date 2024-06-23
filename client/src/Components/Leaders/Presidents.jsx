@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PresidentCard from "./President-Card";
 import CarouselButton from "./CarouselButton";
 
+import { getAllPresidents } from "../../api/apiCall";
+import ErrorBox from "../../Utility/ErrorBox.jsx";
+
 import image from "../../assets/vishalKrYadav.jpg";
 import "../../Styles/Leaders/Presidents.css";
+import { FaSpinner } from "react-icons/fa";
 
 const mockData = [
   {
@@ -47,14 +51,32 @@ const mockData = [
 
 function Presidents() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [presidents, setPresidents] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchPresidents = async () => {
+      setLoading(true);
+      const data = await getAllPresidents();
+      if (data.error) {
+        setError(true);
+      } else {
+        setPresidents(data);
+      }
+      setLoading(false);
+    };
+
+    fetchPresidents();
+  }, []);
 
   const nextItem = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % mockData.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % presidents.length);
   };
 
   const prevItem = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + mockData.length) % mockData.length
+      (prevIndex) => (prevIndex - 1 + presidents.length) % presidents.length
     );
   };
 
@@ -78,20 +100,29 @@ function Presidents() {
           initial={{ opacity: 0, x: 70 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
-            delay: 0.25,
             type: "spring",
             stiffness: 600,
             damping: 100,
           }}
         >
-          <PresidentCard
-            name={mockData[currentIndex].name}
-            photo={mockData[currentIndex].photo}
-            year={mockData[currentIndex].year}
-            vision={mockData[currentIndex].vision}
-            mail={mockData[currentIndex].mail}
-            linkedin={mockData[currentIndex].linkedin}
-          />
+          {loading ? (
+              <div className="flex justify-center items-center">
+                <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+              </div>
+            ) : error ? (
+              <div className="flex">
+                <ErrorBox />
+              </div>
+            ) : <PresidentCard
+                  name={presidents[currentIndex].name}
+                  url={presidents[currentIndex].imageUrl}
+                  hashCode={presidents[currentIndex].imageHashCode}
+                  year={presidents[currentIndex].year}
+                  vision={presidents[currentIndex].testimonial}
+                  mail={presidents[currentIndex].email}
+                  linkedin={presidents[currentIndex].linkedin}
+                />
+          }
         </motion.div>
 
         <div
@@ -107,7 +138,7 @@ function Presidents() {
           <CarouselButton
             onClick={nextItem}
             direction="next"
-            disabled={currentIndex === mockData.length - 1}
+            disabled={currentIndex === presidents.length - 1}
           />
         </div>
       </div>

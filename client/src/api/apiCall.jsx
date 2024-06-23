@@ -39,6 +39,32 @@ export const getAllMembers = async () => {
   }
 };
 
+// Getting All Leads
+export const getAllLeads = async () => {
+  const query = '*[_type == "clubLeads"]';
+  try {
+    const response = await client.fetch(query);
+    // console.log(response);
+    return response;
+  } catch (error) {
+    console.log("Error fetching leads: ", error);
+    return { error: "Failed to fetch leads" };
+  }
+};
+
+// Getting All Presidents
+export const getAllPresidents = async () => {
+  const query = '*[_type == "presidentTestimonials"]';
+  try {
+    const response = await client.fetch(query);
+    // console.log(response);
+    return response;
+  } catch (error) {
+    console.log("Error fetching presidents: ", error);
+    return { error: "Failed to fetch presidents" };
+  }
+};
+
 // Checking our Recuritement status
 export const areWeRecuriting = async () => {
   const query = '*[_type == "joinus"]';

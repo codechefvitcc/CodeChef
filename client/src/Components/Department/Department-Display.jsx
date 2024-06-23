@@ -13,7 +13,7 @@ import { FaSpinner } from "react-icons/fa";
 import { defaultpfp, vishalpfp } from "../../assets/index.js";
 
 // API call
-import { getAllDepartments, getAllMembers } from "../../api/apiCall";
+import { getAllDepartments, getAllMembers, getAllLeads } from "../../api/apiCall";
 import ErrorBox from "../../Utility/ErrorBox.jsx";
 
 function DeptDisplay() {
@@ -230,21 +230,9 @@ function DeptDisplay() {
     },
   ];
 
-  const lead = [
-    {
-      leadName: "Vishal Kumar Yadav",
-      leadImg: vishalpfp,
-      leadLinkedIn: "https://google.com",
-    },
-    {
-      leadName: "Shashank Sharma",
-      leadImg: defaultpfp,
-      leadLinkedIn: "https://google.com",
-    },
-  ];
-
   const [departments, setDepartments] = useState([]);
   const [allMembers, setAllMembers] = useState([]);
+  const [allLeads, setAllLeads] = useState([]);
   const [loading, setLoading] = useState(true); // State to manage loading
   const [error, setError] = useState(false);
 
@@ -271,9 +259,24 @@ function DeptDisplay() {
       setLoading(false);
     };
 
+    const fetchLeads = async () => {
+      setLoading(true);
+      const data = await getAllLeads();
+      if (data.error) {
+        setError(true);
+      } else {
+        setAllLeads(data);
+      }
+      setLoading(false);
+    };
+
     fetchDepartments();
     fetchMembers();
+    fetchLeads();
   }, []);
+
+  const currentBatch = "2024";
+  const currentLeads = allLeads.filter((lead) => lead.batch === currentBatch);
 
   const renderDeptCards = (data) => {
     return data.map((dept, index) => (
@@ -284,7 +287,7 @@ function DeptDisplay() {
         description={dept.description}
         memberCount={dept.members}
         allMembers={allMembers}
-        lead={lead}
+        currentLeads={currentLeads}
       />
     ));
   };
