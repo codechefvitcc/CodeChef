@@ -292,6 +292,34 @@ function Batch24() {
           </div>
         </div>
 
+        {/* Left Aligned Cards */}
+        {/* <div className="hidden md:flex md:flex-row justify-center items-center md:items-end">
+        <div className="inline-block scale-125 my-10">
+          <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+              Vice President
+            </h3>
+            <LeadCard
+              name={Team23['Vice President'].name}
+              image={Team23['Vice President'].image}
+              hashCode={Team23['Vice President'].hash}
+              link={Team23['Vice President'].linkedIn}
+            />
+          </div>
+          <div className="inline-block pl-32  scale-150 my-20 ">
+            <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+              President
+            </h3>
+            <LeadCard
+              name={Team23.President.name}
+              image={Team23.President.image}
+              hashCode={Team23.President.hash}
+              link={Team23.President.linkedIn}
+            />
+          </div>
+          
+        </div> */}
+
+        {/* Right Aligned Cards */}
         <div className="hidden md:flex md:flex-row justify-center items-center md:items-end">
           <div className="inline-block pl-32 mr-24 scale-150 my-20 mx-20">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -304,7 +332,7 @@ function Batch24() {
               link={Team23.President.linkedIn}
             />
           </div>
-          <div className="inline-block scale-125 my-10">
+          <div className="inline-block scale-125 ml-12 my-10">
           <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
               Vice President
             </h3>
@@ -316,6 +344,33 @@ function Batch24() {
             />
           </div>
         </div>
+
+        {/* Top Bottom Center - Aligned Cards */}
+        {/* <div className="hidden md:flex md:flex-row justify-center flex items-center md:items-end">
+          <div className="inline-block  mr-24 scale-150 my-20 mx-20">
+            <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+              President
+            </h3>
+            <LeadCard
+              name={Team23.President.name}
+              image={Team23.President.image}
+              hashCode={Team23.President.hash}
+              link={Team23.President.linkedIn}
+            />
+          </div>
+          
+        </div>
+        <div className='flex flex-col items-center justify-center'>
+          <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+              Vice President
+            </h3>
+            <LeadCard
+              name={Team23['Vice President'].name}
+              image={Team23['Vice President'].image}
+              hashCode={Team23['Vice President'].hash}
+              link={Team23['Vice President'].linkedIn}
+            />
+        </div> */}
 
         <div className="flex flex-col block md:hidden md:flex-row justify-center items-center md:items-end max-[440px]:scale-90">
           <div className="inline-block scale-150 my-20 mx-20">
