@@ -5,10 +5,11 @@ import Slider from 'react-slick';
 
 //image components imports
 import {
-  EventsBackgroundImage,
   HomeGalleryImages,
   CookOff2024MainImage
 } from '../../Constants/images';
+import  EventsBackgroundImage  from '/Background/EventsBackgroud.svg';
+
 import { ImageLoaderComponent } from '../../Utility';
 
 import { useBreakpoint } from "../../Utility";

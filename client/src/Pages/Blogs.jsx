@@ -7,7 +7,8 @@ import { AllBlogsCard } from '../Components';
 
 import { HomeGalleryImages } from "../Constants/images";
 import { ImageLoaderComponent } from "../Utility";
-import { BlogsBackgroundImage } from "../Constants/images";
+import  BlogsBackgroundImage  from "/Background/BlogsBackground.svg";
+
 
 const mockDataLatestBlog = {
   url: HomeGalleryImages[0].url,
