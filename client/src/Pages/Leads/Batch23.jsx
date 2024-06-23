@@ -192,16 +192,16 @@ function Batch23() {
             </h3>
             <div className='flex'>
             <LeadCard
-              name={Team24['Design1'].name}
-              image={Team24['Design1'].image}
-              hashCode={Team24['Design1'].hash}
-              link={Team24['Design1'].linkedIn}
+              name={Team24['SocialMedia1'].name}
+              image={Team24['SocialMedia1'].image}
+              hashCode={Team24['SocialMedia1'].hash}
+              link={Team24['SocialMedia1'].linkedIn}
             />
             <LeadCard
-              name={Team24['Design2'].name}
-              image={Team24['Design2'].image}
-              hashCode={Team24['Design2'].hash}
-              link={Team24['Design2'].linkedIn}
+              name={Team24['SocialMedia2'].name}
+              image={Team24['SocialMedia2'].image}
+              hashCode={Team24['SocialMedia2'].hash}
+              link={Team24['SocialMedia2'].linkedIn}
             />
             </div>
           </div>
@@ -233,16 +233,16 @@ function Batch23() {
             </h3>
             <div className="flex">
               <LeadCard
-                name={Team24['Event Management1'].name}
-                image={Team24['Event Management1'].image}
-                hashCode={Team24['Event Management1'].hash}
-                link={Team24['Event Management1'].linkedIn}
+                name={Team24['Design1'].name}
+                image={Team24['Design1'].image}
+                hashCode={Team24['Design1'].hash}
+                link={Team24['Design1'].linkedIn}
               />
               <LeadCard
-                name={Team24['Event Management2'].name}
-                image={Team24['Event Management2'].image}
-                hashCode={Team24['Event Management2'].hash}
-                link={Team24['Event Management2'].linkedIn}
+                name={Team24['Design2'].name}
+                image={Team24['Design2'].image}
+                hashCode={Team24['Design2'].hash}
+                link={Team24['Design2'].linkedIn}
               />
             </div>
           </div>
