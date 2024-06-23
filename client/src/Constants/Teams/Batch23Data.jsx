@@ -33,7 +33,7 @@ export const Team23 = {
       linkedIn:
         'https://www.linkedin.com/in/krithika-janakiraman-04547a220/',
       image:
-        'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719157370/IMG_2142_-_Krithika_J_21BCE1978_jel8ct.jpg',
+        'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719161356/IMG_2142_-_Krithika_J_21BCE1978_gpakmj.jpg',
       hash: 'LeF5{l%M-;R+~qofxvad?voMxujZ',
     },
     'Competitive Programming1': {

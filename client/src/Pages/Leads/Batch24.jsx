@@ -293,18 +293,7 @@ function Batch24() {
         </div>
 
         <div className="hidden md:flex md:flex-row justify-center items-center md:items-end">
-          <div className="inline-block scale-125 my-10">
-            <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-              Vice President
-            </h3>
-            <LeadCard
-              name={Team23['Vice President'].name}
-              image={Team23['Vice President'].image}
-              hashCode={Team23['Vice President'].hash}
-              link={Team23['Vice President'].linkedIn}
-            />
-          </div>
-          <div className="inline-block scale-150 my-20 mx-20">
+          <div className="inline-block pl-32 mr-24 scale-150 my-20 mx-20">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
               President
             </h3>
@@ -313,6 +302,17 @@ function Batch24() {
               image={Team23.President.image}
               hashCode={Team23.President.hash}
               link={Team23.President.linkedIn}
+            />
+          </div>
+          <div className="inline-block scale-125 my-10">
+          <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+              Vice President
+            </h3>
+            <LeadCard
+              name={Team23['Vice President'].name}
+              image={Team23['Vice President'].image}
+              hashCode={Team23['Vice President'].hash}
+              link={Team23['Vice President'].linkedIn}
             />
           </div>
         </div>
@@ -350,7 +350,7 @@ function Batch24() {
               Competitive Programming
             </h3>
             <div className="flex">
-              <LeadCard
+            <LeadCard
                 name={Team23['Competitive Programming1'].name}
                 image={Team23['Competitive Programming1'].image}
                 hashCode={Team23['Competitive Programming1'].hash}
@@ -364,31 +364,38 @@ function Batch24() {
               />
             </div>
           </div>
-          {/* <div className="inline-block">
-            <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Web Development
-            </h3>
-            <LeadCard
-              name={Team23['Web Development'].name}
-              image={Team23['Web Development'].image}
-              hashCode={Team23['Web Development'].hash}
-              link={Team23['Web Development'].linkedIn}
-            />
-          </div> */}
           <div className="inline-block items-bottom">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
               Finance
             </h3>
+            <LeadCard
+              name={Team23['Finance1'].name}
+              image={Team23['Finance1'].image}
+              hashCode={Team23['Finance1'].hash}
+              link={Team23['Finance1'].linkedIn}
+            />
+          </div>
+          <div className="inline-block items-bottom">
+            <h3 className="text-24 text-center font-bold text-gray-700 py-2">
+              Design & Content
+            </h3>
             <div className="flex">
+            <LeadCard
+                name={Team23['Design1'].name}
+                image={Team23['Design1'].image}
+                hashCode={Team23['Design1'].hash}
+                link={Team23['Design1'].linkedIn}
+              />
               <LeadCard
-                name={Team23['Finance1'].name}
-                image={Team23['Finance1'].image}
-                hashCode={Team23['Finance1'].hash}
-                link={Team23['Finance1'].linkedIn}
+                name={Team23['Design2'].name}
+                image={Team23['Design2'].image}
+                hashCode={Team23['Design2'].hash}
+                link={Team23['Design2'].linkedIn}
               />
             </div>
           </div>
         </div>
+
 
         <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end ">
           <div className="inline-block items-bottom">
@@ -425,27 +432,7 @@ function Batch24() {
           </div>
         </div>
 
-        <div className="flex  md:scale-110 md:py-10 lg:scale-100 justify-evenly items-end">
-          <div className="inline-block items-bottom">
-            <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Design
-            </h3>
-            <div className="flex">
-              <LeadCard
-                name={Team23['Design1'].name}
-                image={Team23['Design1'].image}
-                hashCode={Team23['Design1'].hash}
-                link={Team23['Design1'].linkedIn}
-              />
-              <LeadCard
-                name={Team23['Design2'].name}
-                image={Team23['Design2'].image}
-                hashCode={Team23['Design2'].hash}
-                link={Team23['Design2'].linkedIn}
-              />
-            </div>
-          </div>
-        </div>
+        
       </div>
     );
   } else {
