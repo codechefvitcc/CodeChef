@@ -36,7 +36,7 @@ const IntroVideo = () => {
   };
 
   return (
-    <div className='flex justify-center items-center introvideobg h-[35vh] md:h-[60vh] lg:h-[75vh]'>
+    <div className='flex justify-center items-center introvideobg h-[35vh] md:h-[60vh] lg:h-[75vh] xl:h-[90vh]'>
       <AnimatePresence>
         <motion.div 
           initial="hidden"
