@@ -15,8 +15,10 @@ app.use(cors());
 
 app.use(router);
 
-// comment the below part later
-app.get("/", controller.readContactUsGoogleSheet);
+// Default get request
+app.get('/', (req, res) => {
+  res.json("Server working fine");
+});
 
 app.listen(PORT, () => {
   console.log(`Server start at Port No : http://localhost:${PORT}`);

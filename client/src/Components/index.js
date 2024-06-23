@@ -8,4 +8,18 @@ import Navbar from "./Navigations/Navbar";
 import Footer from "./Navigations/Footer";
 import AllBlogsCard from "./AllBlogsCard";
 
-export { Footer, Navbar, DeptDisplay, Hero, IntroVideo, Leaders, ScrollToTop, AllBlogsCard };
+import Management from "./JoinUs/Management";
+import SocialMedia from "./JoinUs/SocialMedia";
+
+export {
+  Footer,
+  Navbar,
+  DeptDisplay,
+  Hero,
+  IntroVideo,
+  Leaders,
+  ScrollToTop,
+  AllBlogsCard,
+  Management,
+  SocialMedia,
+};

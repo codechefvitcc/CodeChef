@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaAsterisk, FaSpinner } from "react-icons/fa";
 import "../Styles/JoinUs/JoinUs.css";
 import { areWeRecuriting } from "../api/apiCall";
 import { ErrorBox } from "../Utility";
-import { ToastContainer, toast } from "react-toastify";
-import { Bounce } from "react-toastify";
-import axios from "axios";
+import { Management, SocialMedia } from "../Components";
 
 const JoinUs = () => {
   const [recruiting, setRecruiting] = useState("No"); // either "Yes" or "No"
@@ -15,7 +13,7 @@ const JoinUs = () => {
 
   // to check whether we are recruiting or not
   useEffect(() => {
-    const fetchTestimonials = async () => {
+    const areWeRecruitingOrNot = async () => {
       setLoading(true);
       const data = await areWeRecuriting();
       if (data.error) {
@@ -26,7 +24,7 @@ const JoinUs = () => {
       setLoading(false);
     };
 
-    fetchTestimonials();
+    areWeRecruitingOrNot();
   }, []);
 
   const {
@@ -39,28 +37,8 @@ const JoinUs = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const scriptURL =
-      "https://sheet.best/api/sheets/c9e1871a-2173-4294-8c92-877ab8a68d16";
-    axios
-      .post(scriptURL, data)
-      .then((response) => {
-        // Show success toast notification
-        toast.success("Form Submitted Successfully", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        reset();
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
+    console.log(data);
+    reset();
   };
 
   // Watch the regNo field to convert it to uppercase
@@ -73,7 +51,6 @@ const JoinUs = () => {
 
   return (
     <>
-      <ToastContainer />
       <div className="joinarea flex justify-center items-center pt-[80px] sm:pt-[50px] pb-[50px]">
         {loading ? (
           <div className="flex justify-center items-center">
@@ -100,6 +77,7 @@ const JoinUs = () => {
                 noValidate
               >
                 <div className="flex flex-wrap">
+                  {/* Name */}
                   <div className="mb-3 w-full md:w-1/2 px-2">
                     <label
                       className="text-sm font-medium text-gray-700 flex items-center"
@@ -130,6 +108,7 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
+                  {/* Registration No */}
                   <div className="mb-3 w-full md:w-1/2 px-2">
                     <label
                       className="text-sm font-medium text-gray-700 flex items-center"
@@ -160,6 +139,7 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
+                  {/* VIT Email */}
                   <div className="mb-3 w-full px-2">
                     <label
                       className="text-sm font-medium text-gray-700 flex items-center"
@@ -191,6 +171,7 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
+                  {/* Phone Number */}
                   <div className="mb-3 w-full md:w-1/2 px-2">
                     <label
                       className="text-sm font-medium text-gray-700 flex items-center"
@@ -221,7 +202,7 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
-
+                  {/* Degree */}
                   <div className="mb-3 w-full md:w-1/2 px-2">
                     <label
                       className="text-sm font-medium text-gray-700 flex items-center"
@@ -252,6 +233,7 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
+                  {/* Branch */}
                   <div className="mb-3 w-full md:w-1/2 px-2">
                     <label
                       className="text-sm font-medium text-gray-700 flex items-center"
@@ -282,6 +264,7 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
+                  {/* Department */}
                   <div className="mb-3 w-full md:w-1/2 px-2">
                     <label
                       htmlFor="department"
@@ -311,9 +294,8 @@ const JoinUs = () => {
                       </option>
                       <option value="management">Management</option>
                       <option value="finance">Finance</option>
-                      <option value="video_editing">Video Editing</option>
-                      <option value="social_media_and_content_writing">
-                        Social Media & Content Writing
+                      <option value="social_media_and_content">
+                        Social Media & Content
                       </option>
                     </select>
                     {errors.department && (
@@ -322,54 +304,71 @@ const JoinUs = () => {
                       </div>
                     )}
                   </div>
-
-                  {(department === "marketing_and_outreach" ||
-                    department === "management") && (
-                    <div className="mb-3 w-full md:w-1/2 px-2">
-                      <label
-                        className="text-sm font-medium text-gray-700 flex items-center"
-                        htmlFor="cgpa"
-                      >
-                        CGPA:{" "}
-                        <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
-                      </label>
-                      <select
-                        className={`mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                          errors.cgpa ? "border-red-500" : ""
-                        }`}
-                        name="CGPA"
-                        id="cgpa"
-                        {...register("cgpa", {
-                          required: "CGPA is required",
-                        })}
-                      >
-                        <option value="">Select CGPA</option>
-                        <option value="9 Pointer">9 Pointer</option>
-                        <option value="Not a 9 Pointer">Not a 9 Pointer</option>
-                      </select>
-                      {errors.cgpa && (
-                        <div className="text-red-500 text-sm mt-1">
-                          {errors.cgpa.message}
-                        </div>
-                      )}
-                    </div>
+                  {/* Management questions */}
+                  {department === "management" && (
+                    <Management
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
                   )}
-
+                  {/* Social Media questions */}
+                  {department === "social_media_and_content" && (
+                    <SocialMedia
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
+                  )}
+                  {/* Relavent Experience */}
                   <div className="mb-3 w-full px-2">
                     <label
                       className="text-sm font-medium text-gray-700"
                       htmlFor="experience"
                     >
-                      Relevant Experience:
+                      Relevant Experience:{" "}
+                      <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
                     </label>
                     <textarea
                       className="form-control"
-                      placeholder="Write about your experience in the department which you want to join"
+                      placeholder="Describe your experience in the department you wish to join and provide links to your work."
                       name="Relevant Experience"
                       id="experience"
                       rows="5"
-                      {...register("experience")}
+                      {...register("experience", {
+                        required: "This field is equired",
+                      })}
                     />
+                    {errors.experience && (
+                      <div className="text-red-500 text-sm mt-1">
+                        {errors.experience.message}
+                      </div>
+                    )}
+                  </div>
+                  {/* Why join this club */}
+                  <div className="mb-3 w-full px-2">
+                    <label
+                      className="text-sm font-medium text-gray-700 flex items-center"
+                      htmlFor="whyJoin"
+                    >
+                      Why join this club?{" "}
+                      <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
+                    </label>
+                    <textarea
+                      className="form-control"
+                      placeholder="Write some reason for applying for this club"
+                      name="Why Join This Club"
+                      id="whyJoin"
+                      rows="5"
+                      {...register("whyJoin", {
+                        required: "This field is equired",
+                      })}
+                    />
+                    {errors.whyJoin && (
+                      <div className="text-red-500 text-sm mt-1">
+                        {errors.whyJoin.message}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <button

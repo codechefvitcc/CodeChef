@@ -3,6 +3,8 @@ const fetch = require("node-fetch");
 const contactUsGoogleSheetLink =
   "https://sheet.best/api/sheets/6d6a3b68-108c-4b78-86d9-c711683e7464";
 
+
+// ***************** Contact us APIs Start Here ***********************************
 // reading all the emails from the Contact Us Google Sheet
 const readContactUsGoogleSheet = (req, res) => {
   // Parsed Format
@@ -43,6 +45,7 @@ const addContactUsEmailInGoogleSheet = (req, res) => {
       res.status(500).json({ error: "Error adding data" });
     });
 };
+// ***************** Contact us APIs Ends Here ***********************************
 
 // exporting the functions
 module.exports = {
