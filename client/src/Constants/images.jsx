@@ -11,18 +11,6 @@ import image5 from '../assets/HomeGalley/image5.jpg';
 import image6 from '../assets/HomeGalley/image6.jpg';
 // **************************************************
 
-// Blogs background image import ********************
-import BlogsBackground from '../assets/Background/BlogsBackground.svg';
-// **************************************************
-
-// Events background image import ********************
-import EventsBackground from '../assets/Background/EventsBackground.svg';
-// **************************************************
-
-// Leads background image import ********************
-import LeadsBackground from '../assets/Background/LeadsBackground.svg';
-// **************************************************
-
 // Leads background image import ********************
 import vishalpfp from '../assets/vishalKrYadav.jpg';
 // **************************************************
@@ -42,15 +30,6 @@ export const HomeGalleryImages = [
   { url: image5, hashCode: 'LZI5PhIU-;RP?bbIozs:~qofR*oz' },
   { url: image6, hashCode: 'LYF$V2Myt3V[_NIVafofx]RjaetR' },
 ];
-
-// exporting blogs background image
-export const BlogsBackgroundImage = BlogsBackground;
-
-// exporting events background image
-export const EventsBackgroundImage = EventsBackground;
-
-// exporting Leads background image
-export const LeadsBackgroundImage = LeadsBackground;
 
 // exporting Cookoff2024 main image
 export const VishalPfp = {

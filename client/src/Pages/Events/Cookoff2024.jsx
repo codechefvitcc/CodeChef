@@ -8,7 +8,7 @@ import {
   HomeGalleryImages,
   CookOff2024MainImage
 } from '../../Constants/images';
-import  EventsBackgroundImage  from '/Background/EventsBackgroud.svg';
+import  EventsBackgroundImage  from '/Background/EventsBackground.svg';
 
 import { ImageLoaderComponent } from '../../Utility';
 
