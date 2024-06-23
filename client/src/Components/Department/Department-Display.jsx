@@ -230,19 +230,6 @@ function DeptDisplay() {
     },
   ];
 
-  const lead = [
-    {
-      leadName: "Vishal Kumar Yadav",
-      leadImg: vishalpfp,
-      leadLinkedIn: "https://google.com",
-    },
-    {
-      leadName: "Shashank Sharma",
-      leadImg: defaultpfp,
-      leadLinkedIn: "https://google.com",
-    },
-  ];
-
   const [departments, setDepartments] = useState([]);
   const [allMembers, setAllMembers] = useState([]);
   const [allLeads, setAllLeads] = useState([]);
@@ -300,7 +287,6 @@ function DeptDisplay() {
         description={dept.description}
         memberCount={dept.members}
         allMembers={allMembers}
-        lead={lead}
         currentLeads={currentLeads}
       />
     ));
