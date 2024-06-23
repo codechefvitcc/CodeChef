@@ -13,7 +13,7 @@ const LeadCard = ({ image, name, link, hashCode }) => {
         url={image || defaultpfp}
         hashCode={hashCode || 'L7OgHHof00of01kB~pj[~Uay~Vj@'}
         alt="profile picture"
-        className="w-24 h-24 rounded-full mb-2"
+        className="w-24 h-24 rounded-full mb-2 object-cover object-end"
         blurWidth={'50px'}
         blurHeight={'50px'}
       />
