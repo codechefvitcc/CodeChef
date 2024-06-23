@@ -13,7 +13,7 @@ import { Team24 } from '../../Constants/Teams/Batch24Data';
 import { Team23 } from '../../Constants/Teams/Batch23Data';
 
 function Batch24() {
-  const [year, setYear] = useState(23);
+  const [year, setYear] = useState(24);
 
   if (year == 24) {
     return (
