@@ -6,6 +6,9 @@ import LeadCard from '../../Components/Leads/LeadCard';
 //image components imports
 import { LeadsBackgroundImage, VishalPfp } from '../../Constants/images';
 
+// Lead data
+import { Team24 } from '../../Constants/Teams/Batch23Data';
+
 function Batch23() {
   return (
     <div
@@ -34,26 +37,36 @@ function Batch23() {
       <div className="hidden md:flex md:flex-row justify-center items-center md:items-end">
         <div className="inline-block scale-125 my-10">
           <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-            Secretary
+            Vice President
           </h3>
-          <LeadCard name="Some name" link="www.google.com" />
+          <LeadCard
+            name={Team24['Vice President'].name}
+            image={Team24['Vice President'].image}
+            hashCode={Team24['Vice President'].hash}
+            link={Team24['Vice President'].linkedIn}
+          />
         </div>
         <div className="inline-block scale-150 my-20 mx-20">
           <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
             President
           </h3>
           <LeadCard
-            name="Some name"
-            link="www.google.com"
-            image={VishalPfp.url}
-            hashCode={VishalPfp.hashCode}
+            name={Team24.President.name}
+            image={Team24.President.image}
+            hashCode={Team24.President.hash}
+            link={Team24.President.linkedIn}
           />
         </div>
         <div className="inline-block scale-125 my-10">
           <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
             Treasurer
           </h3>
-          <LeadCard name="Some name" link="www.google.com" />
+          <LeadCard
+            name={Team24['Vice President'].name}
+            image={Team24['Vice President'].image}
+            hashCode={Team24['Vice President'].hash}
+            link={Team24['Vice President'].linkedIn}
+          />
         </div>
       </div>
 
@@ -63,24 +76,34 @@ function Batch23() {
             President
           </h3>
           <LeadCard
-            name="Some name"
-            link="www.google.com"
-            image={VishalPfp.url}
-            hashCode={VishalPfp.hashCode}
+            name={Team24.President.name}
+            image={Team24.President.image}
+            hashCode={Team24.President.hash}
+            link={Team24.President.linkedIn}
           />
         </div>
         <div className="w-full flex flex-row justify-evenly justify-evenly">
           <div className="inline-block scale-105 my-10">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-              Secretary
+              Vice President
             </h3>
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Vice President'].name}
+              image={Team24['Vice President'].image}
+              hashCode={Team24['Vice President'].hash}
+              link={Team24['Vice President'].linkedIn}
+            />
           </div>
           <div className="inline-block scale-105 my-10">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
               Treasurer
             </h3>
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Vice President'].name}
+              image={Team24['Vice President'].image}
+              hashCode={Team24['Vice President'].hash}
+              link={Team24['Vice President'].linkedIn}
+            />
           </div>
         </div>
       </div>
@@ -88,26 +111,51 @@ function Batch23() {
       <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end">
         <div className="inline-block items-bottom ">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-            Content
+            Competitive Programming
           </h3>
           <div className="flex">
-            <LeadCard name="Some name" link="www.google.com" />
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Competitive Programming1'].name}
+              image={Team24['Competitive Programming1'].image}
+              hashCode={Team24['Competitive Programming1'].hash}
+              link={Team24['Competitive Programming1'].linkedIn}
+            />
+            <LeadCard
+              name={Team24['Competitive Programming2'].name}
+              image={Team24['Competitive Programming2'].image}
+              hashCode={Team24['Competitive Programming2'].hash}
+              link={Team24['Competitive Programming2'].linkedIn}
+            />
           </div>
         </div>
         <div className="inline-block">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-            Web dev
+            Web Development
           </h3>
-          <LeadCard name="Some name" link="www.google.com" />
+          <LeadCard
+            name={Team24['Web Development'].name}
+            image={Team24['Web Development'].image}
+            hashCode={Team24['Web Development'].hash}
+            link={Team24['Web Development'].linkedIn}
+          />
         </div>
         <div className="inline-block items-bottom">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
             Finance
           </h3>
           <div className="flex">
-            <LeadCard name="Some name" link="www.google.com" />
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Finance1'].name}
+              image={Team24['Finance1'].image}
+              hashCode={Team24['Finance1'].hash}
+              link={Team24['Finance1'].linkedIn}
+            />
+            <LeadCard
+              name={Team24['Finance2'].name}
+              image={Team24['Finance2'].image}
+              hashCode={Team24['Finance2'].hash}
+              link={Team24['Finance2'].linkedIn}
+            />
           </div>
         </div>
       </div>
@@ -115,26 +163,51 @@ function Batch23() {
       <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end ">
         <div className="inline-block items-bottom">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-            Content
+            Event Management
           </h3>
           <div className="flex">
-            <LeadCard name="Some name" link="www.google.com" />
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Event Management1'].name}
+              image={Team24['Event Management1'].image}
+              hashCode={Team24['Event Management1'].hash}
+              link={Team24['Event Management1'].linkedIn}
+            />
+            <LeadCard
+              name={Team24['Event Management2'].name}
+              image={Team24['Event Management2'].image}
+              hashCode={Team24['Event Management2'].hash}
+              link={Team24['Event Management2'].linkedIn}
+            />
           </div>
         </div>
         <div className="inline-block transform -translate-y-8 pt-8">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
             Social Media
           </h3>
-          <LeadCard name="Some name" link="www.google.com" />
+          <LeadCard
+            name={Team24['Web Development'].name}
+            image={Team24['Web Development'].image}
+            hashCode={Team24['Web Development'].hash}
+            link={Team24['Web Development'].linkedIn}
+          />
         </div>
         <div className="inline-block items-bottom">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-            Finance
+            Outreach & Sponsorship
           </h3>
           <div className="flex">
-            <LeadCard name="Some name" link="www.google.com" />
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Outreach & Sponsorship1'].name}
+              image={Team24['Outreach & Sponsorship1'].image}
+              hashCode={Team24['Outreach & Sponsorship1'].hash}
+              link={Team24['Outreach & Sponsorship1'].linkedIn}
+            />
+            <LeadCard
+              name={Team24['Outreach & Sponsorship2'].name}
+              image={Team24['Outreach & Sponsorship2'].image}
+              hashCode={Team24['Outreach & Sponsorship2'].hash}
+              link={Team24['Outreach & Sponsorship2'].linkedIn}
+            />
           </div>
         </div>
       </div>
@@ -142,11 +215,21 @@ function Batch23() {
       <div className="flex  md:scale-110 md:py-10 lg:scale-100 justify-evenly items-end">
         <div className="inline-block items-bottom">
           <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-            Finance
+            Design & Content
           </h3>
           <div className="flex">
-            <LeadCard name="Some name" link="www.google.com" />
-            <LeadCard name="Some name" link="www.google.com" />
+            <LeadCard
+              name={Team24['Event Management1'].name}
+              image={Team24['Event Management1'].image}
+              hashCode={Team24['Event Management1'].hash}
+              link={Team24['Event Management1'].linkedIn}
+            />
+            <LeadCard
+              name={Team24['Event Management2'].name}
+              image={Team24['Event Management2'].image}
+              hashCode={Team24['Event Management2'].hash}
+              link={Team24['Event Management2'].linkedIn}
+            />
           </div>
         </div>
       </div>
