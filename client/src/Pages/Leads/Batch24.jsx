@@ -4,7 +4,7 @@ import { useState } from 'react';
 import LeadCard from '../../Components/Leads/LeadCard';
 
 //image components imports
-import { LeadsBackgroundImage } from '../../Constants/images';
+import LeadsBackgroundImage  from '/Background/LeadsBackground.svg';
 
 // Lead data 24-25
 import { Team24 } from '../../Constants/Teams/Batch24Data';
