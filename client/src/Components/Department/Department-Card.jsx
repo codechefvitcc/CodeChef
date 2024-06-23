@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 
 import Popup from "./Popup";
 import "../../Styles/Department/Department-Card.css";
+import { ImageLoaderComponent } from "../../Utility";
 
-function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
+function DeptCard({ name, icon, description, memberCount, allMembers, lead, currentLeads }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const departmentLeads = currentLeads.filter((lead) => lead.position === name);
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
@@ -55,15 +58,18 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
           <p>{description}</p>
           <div className="w-full">
             <div className="lead-section flex justify-between mb-2 flex-col sm:flex-row">
-              {lead?.map((ele, index) => (
+              {departmentLeads?.map((lead, index) => (
                 <div
                   className="flex items-center mt-1 mb-1 sm:mt-0 sm:mb-0"
                   key={index}
                 >
-                  <img
-                    src={ele.leadImg}
-                    className="rounded-full mx-1 h-[40px] w-[40px] sm:h-[40px] sm:w-[50px] object-cover"
-                    alt={ele.leadName}
+                  <ImageLoaderComponent 
+                    url={lead.imageUrl}
+                    hashCode={lead.imageHashCode}
+                    alt={lead.name}
+                    className="rounded-full mx-1 h-[40px] w-[40px] sm:h-[50px] sm:w-[50px] object-cover"
+                    blurWidth={'45px'}
+                    blurHeight={'45px'}
                   />
                   <div className="ml-1">
                     <p
@@ -76,10 +82,10 @@ function DeptCard({ name, icon, description, memberCount, allMembers, lead }) {
                     >
                       <a
                         target="_blank"
-                        href={ele.leadLinkedIn}
+                        href={lead.linkedin}
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        {ele.leadName}
+                        {lead.name}
                       </a>
                     </p>
                   </div>
