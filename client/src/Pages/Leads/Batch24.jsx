@@ -31,19 +31,19 @@ function Batch24() {
         <div className="flex items-center justify-center space-x-4">
           <div
             onClick={() => setYear(23)}
-            className="text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2023-24
           </div>
           <div
             onClick={() => setYear(24)}
-            className="text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2024-25
           </div>
           <div
             onClick={() => setYear(25)}
-            className="text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2025-26
           </div>
@@ -274,19 +274,19 @@ function Batch24() {
         <div className="flex items-center justify-center space-x-4">
           <div
             onClick={() => setYear(23)}
-            className="text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2023-24
           </div>
           <div
             onClick={() => setYear(24)}
-            className="text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2024-25
           </div>
           <div
             onClick={() => setYear(25)}
-            className="text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2025-26
           </div>
@@ -451,19 +451,19 @@ function Batch24() {
         <div className="flex items-center justify-center space-x-4">
         <div
             onClick={() => setYear(23)}
-            className="text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2023-24
           </div>
           <div
             onClick={() => setYear(24)}
-            className="text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2024-25
           </div>
           <div
             onClick={() => setYear(25)}
-            className="text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
           >
             2025-26
           </div>
