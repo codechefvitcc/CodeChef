@@ -6,7 +6,7 @@ import Popup from "./Popup";
 import "../../Styles/Department/Department-Card.css";
 import { ImageLoaderComponent } from "../../Utility";
 
-function DeptCard({ name, icon, description, memberCount, allMembers, lead, currentLeads }) {
+function DeptCard({ name, icon, description, memberCount, allMembers, currentLeads }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const departmentLeads = currentLeads.filter((lead) => lead.position === name);
