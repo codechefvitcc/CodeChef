@@ -29,16 +29,12 @@ function AllBlogsCard({ url, hashCode, title, date, about, details }) {
         style={cardStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        initial={{ opacity: 0, scale: 0.97 }}
-        animate={{ opacity: 1 }}
-        whileHover={{ scale: 1 }}
-        transition={{ 
-          scale: { duration: 0.25 }, 
-          opacity: { duration: 2 }, 
-        }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.75 }}
       >
         <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
-          {/* <img src={image} alt={title} className="h-[250px] w-[330px]" /> */}
           <ImageLoaderComponent 
             url={url}
             hashCode={hashCode}

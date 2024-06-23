@@ -85,7 +85,9 @@ function DeptCard({ name, icon, description, memberCount, allMembers, currentLea
                         href={lead.linkedin}
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        {lead.name}
+                        <span className="sm:text-[12px] xl:text-[14px] capitalize">
+                          {lead.name}
+                        </span>
                       </a>
                     </p>
                   </div>
