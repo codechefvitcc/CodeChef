@@ -69,14 +69,14 @@ function Batch23() {
             hashCode={VishalPfp.hashCode}
           />
         </div>
-        <div className="w-full flex flex-row max-[440px]:justify-between justify-evenly">
-          <div className="inline-block scale-125 my-10">
+        <div className="w-full flex flex-row justify-evenly justify-evenly">
+          <div className="inline-block scale-105 my-10">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
               Secretary
             </h3>
             <LeadCard name="Some name" link="www.google.com" />
           </div>
-          <div className="inline-block scale-125 my-10">
+          <div className="inline-block scale-105 my-10">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
               Treasurer
             </h3>
