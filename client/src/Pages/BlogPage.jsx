@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { AllBlogsCard } from '../Components'
 
 import { HomeGalleryImages } from '../Constants/images';
-import { BlogsBackgroundImage } from "../Constants/images";
+import { BlogsBackgroundImage } from "../../public/images";
 import { ImageLoaderComponent } from "../Utility";
 
 const mockDataRecommendedBlogs = [
@@ -93,6 +93,6 @@ function BlogPage() {
       </div>
     </div>
   );
-};
+}
 
 export default BlogPage;
