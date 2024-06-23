@@ -1,6 +1,10 @@
+import { commonrequest } from "./expressAPICallConfig";
+import { BACKEND_URL } from "./Helper";
+
 import { client } from "./apiConfig";
 
-// Getting All Testimonials
+// ***********************SANITY APIs STARTS HERE****************************
+// Getting All Testimonials from sanity backend
 export const getAllTestimonials = async () => {
   const query = '*[_type == "testimonials"]';
   try {
@@ -13,7 +17,7 @@ export const getAllTestimonials = async () => {
   }
 };
 
-// Getting All Departments
+// Getting All Departments from sanity backend
 export const getAllDepartments = async () => {
   const query = '*[_type == "departments"]';
   try {
@@ -26,7 +30,7 @@ export const getAllDepartments = async () => {
   }
 };
 
-// Getting All Members Of Each Department
+// Getting All Members Of Each Department from sanity backend
 export const getAllMembers = async () => {
   const query = '*[_type == "departmentMembers"]';
   try {
@@ -39,7 +43,7 @@ export const getAllMembers = async () => {
   }
 };
 
-// Getting All Leads
+// Getting All Leads from sanity backend
 export const getAllLeads = async () => {
   const query = '*[_type == "clubLeads"]';
   try {
@@ -52,7 +56,7 @@ export const getAllLeads = async () => {
   }
 };
 
-// Getting All Presidents
+// Getting All Presidents from sanity backend
 export const getAllPresidents = async () => {
   const query = '*[_type == "presidentTestimonials"]';
   try {
@@ -65,7 +69,7 @@ export const getAllPresidents = async () => {
   }
 };
 
-// Checking our Recuritement status
+// Checking our Recuritement status from sanity backend
 export const areWeRecuriting = async () => {
   const query = '*[_type == "joinus"]';
   try {
@@ -76,4 +80,25 @@ export const areWeRecuriting = async () => {
     console.log("Error fetching members: ", error);
     return { error: "Failed to fetch members" };
   }
+};
+
+// ***********************SANITY APIs ENDS HERE*****************************
+
+// ***********************EXPRESS APIs STARTS HERE**************************
+
+// getting all the emails from the google sheet
+export const getAllContactUsEmails = async () => {
+  return await commonrequest(
+    "GET",
+    `${BACKEND_URL}/api/v1/contact-us/read/emails`
+  );
+};
+
+// adding new email to the google sheet
+export const addContactUsEmail = async (data) => {
+  return await commonrequest(
+    "POST",
+    `${BACKEND_URL}/api/v1/contact-us/add/email`,
+    data
+  );
 };

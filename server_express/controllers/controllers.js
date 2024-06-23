@@ -1,12 +1,16 @@
 const fetch = require("node-fetch");
 
-const readGoogleSheet = (req, res) => {
+const contactUsGoogleSheetLink =
+  "https://sheet.best/api/sheets/6d6a3b68-108c-4b78-86d9-c711683e7464";
+
+// reading all the emails from the Contact Us Google Sheet
+const readContactUsGoogleSheet = (req, res) => {
   // Parsed Format
-  fetch("https://sheet.best/api/sheets/6d6a3b68-108c-4b78-86d9-c711683e7464")
+  fetch(contactUsGoogleSheetLink)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((error) => {
       console.error("Error reading data:", error);
@@ -14,11 +18,12 @@ const readGoogleSheet = (req, res) => {
     });
 };
 
-const addInGoogleSheet = (req, res) => {
+// adding new email in the contact us google sheet
+const addContactUsEmailInGoogleSheet = (req, res) => {
   const { data } = req.body;
-  console.log(data);
+  //console.log("What we got from frontend:", req.body);
 
-  fetch("https://sheet.best/api/sheets/6d6a3b68-108c-4b78-86d9-c711683e7464", {
+  fetch(contactUsGoogleSheetLink, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -39,7 +44,8 @@ const addInGoogleSheet = (req, res) => {
     });
 };
 
+// exporting the functions
 module.exports = {
-  readGoogleSheet,
-  addInGoogleSheet,
+  readContactUsGoogleSheet,
+  addContactUsEmailInGoogleSheet,
 };

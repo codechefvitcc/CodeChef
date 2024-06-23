@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -11,12 +11,43 @@ import { defaultpfp } from "../../assets";
 import { ErrorBox, ImageLoaderComponent } from "../../Utility";
 
 // API call
-import { getAllTestimonials } from "../../api/apiCall";
+import {
+  addContactUsEmail,
+  getAllContactUsEmails,
+  getAllTestimonials,
+} from "../../api/apiCall";
+import ToastMsg from "../../Constants/ToastMsg";
 
 const Hero = () => {
+  const [allEmails, setAllEmails] = useState(false);
+  const [emailLoading, setEmailLoading] = useState(false);
+  const emailInputRef = useRef(null);
+
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true); // State to manage loading
   const [error, setError] = useState(false);
+
+  // Getting all the emails in the Google Sheet from backend
+  const fetchAllEmailsData = async () => {
+    setEmailLoading(true);
+    try {
+      const response = await getAllContactUsEmails();
+
+      // Set the fetched user data to the component state
+      if (response.status === 200) {
+        // Extract the emails and ensure uniqueness
+        const emails = response.data.map((item) => item.email);
+        const uniqueEmails = [...new Set(emails)];
+
+        // Store the unique emails in the state
+        setAllEmails(uniqueEmails);
+        //console.log(uniqueEmails);
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+    setEmailLoading(false);
+  };
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -31,7 +62,47 @@ const Hero = () => {
     };
 
     fetchTestimonials();
+    fetchAllEmailsData();
   }, []);
+
+  // adding new and unique email to the google sheet in the backend
+  const handleAddEmail = async () => {
+    setEmailLoading(true);
+    const email = emailInputRef.current.value;
+
+    if (allEmails.includes(email)) {
+      ToastMsg(
+        "Email already exists. We will contact you withing 48hrs.",
+        "info"
+      );
+    } else {
+      try {
+        // Prepare the data object to send to the backend
+        const data = {
+          data: {
+            email: email,
+          },
+        };
+
+        const response = await addContactUsEmail(data);
+
+        if (response.status === 200) {
+          ToastMsg(
+            "Contact request send. We will contact you withing 48hrs.",
+            "success"
+          );
+          emailInputRef.current.value = "";
+          fetchAllEmailsData(); // Refresh the email list
+        } else {
+          ToastMsg("Failed to add email", "error");
+        }
+      } catch (error) {
+        console.error("Error adding email:", error);
+        alert("An error occurred while adding the email.");
+      }
+    }
+    setEmailLoading(false);
+  };
 
   return (
     <div className="pt-20 pb-15 sm:pb-20 !px-5 sm:!px-20 bg-gradient-to-b from-[#c6dcfea3] to-[#d8e6ff99]">
@@ -55,16 +126,22 @@ const Hero = () => {
           {/* Join club input */}
           <div className="main-input flex justify-center md:justify-start items-center mt-2">
             <input
-              className="input-box w-full py-2 px-2 max-w-[200px] lg:max-w-[280px] gap-4 border border-[#d2d9e7] rounded-l-md border-r-0 text-gray-500 font-normal text-xl leading-[23px] placeholder-[#b3bdd2] lg:py-4 focus:outline-none focus:ring-0 border-0 outline-none box-border"
+              ref={emailInputRef}
+              className="input-box w-full py-2 px-2 max-w-[200px] lg:max-w-[280px] gap-4  border-[#d2d9e7] rounded-l-md border-r-0 text-gray-500 font-normal text-xl leading-[23px] placeholder-[#b3bdd2] lg:py-4 focus:outline-none focus:ring-0 border-0 outline-none box-border"
               type="email"
               placeholder="Enter email"
             />
-            <a
-              href="/joinus"
+            <button
+              onClick={handleAddEmail}
               className="btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5]"
             >
               Contact Us
-            </a>
+              {emailLoading === true ? (
+                <FaSpinner className="ml-3 inline spinner text-center text-sm sm:text-sm" />
+              ) : (
+                ""
+              )}
+            </button>
           </div>
 
           {/* Connect section */}
