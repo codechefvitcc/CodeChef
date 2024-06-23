@@ -15,19 +15,20 @@ const Footer = () => {
             </div>
             <div className="l_footer_list">
               <div className="l_footer_link">
-                <a href="/events/CodeQuest" className="footer_link">
-                  Code Quest
-                </a>
-              </div>
-              <div className="l_footer_link">
-                <a href="/events/Cookoff2024" className="footer_link">
+                <Link
+                  to="/events/Cook-Off-2024"
+                  className="footer_link"
+                >
                   Cook-Off 2024
-                </a>
+                </Link>
               </div>
               <div className="l_footer_link">
-                <a href="/events/DecodeDSA" className="footer_link">
+              <Link
+                  to="/events/Decode-DSA"
+                  className="footer_link"
+                >
                   Decode DSA
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -54,14 +55,12 @@ const Footer = () => {
             </div>
             <div className="l_footer_list">
               <div className="l_footer_link">
-                <a href="/" className="footer_link">
-                  Batch 2024-25
-                </a>
-              </div>
-              <div className="l_footer_link">
-                <a href="/" className="footer_link">
-                  Batch 2023-24
-                </a>
+                <Link
+                  to="/our-teams"
+                  className="footer_link"
+                >
+                  View Team
+                </Link>
               </div>
             </div>
           </div>
@@ -70,12 +69,16 @@ const Footer = () => {
               <p className="l_footer_head">Follow Us</p>
             </div>
             <div className="l_footer_list">
-              <a href="https://www.instagram.com/codechef.vitc/" className="footer_link footer-icons">
+              <Link
+                to="https://www.instagram.com/codechef.vitc/" className="footer_link footer-icons" target="_blank"
+              >
                 <IoLogoInstagram />
-              </a>
-              <a href="https://www.linkedin.com/company/codechef-vitc/mycompany/" className="footer_link footer-icons">
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/codechef-vitc/mycompany/" className="footer_link footer-icons" target="_blank"
+              >
                 <CiLinkedin />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
