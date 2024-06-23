@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Leads card import
 import LeadCard from '../../Components/Leads/LeadCard';
 
 //image components imports
-import { LeadsBackgroundImage, VishalPfp } from '../../Constants/images';
+import { LeadsBackgroundImage } from '../../Constants/images';
 
 // Lead data
 import { Team24 } from '../../Constants/Teams/Batch23Data';
@@ -65,13 +65,13 @@ function Batch23() {
           </div>
           <div className="inline-block scale-125 my-10">
             <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-              Treasurer
+            General Secretary
             </h3>
             <LeadCard
-              name={Team24['Vice President'].name}
-              image={Team24['Vice President'].image}
-              hashCode={Team24['Vice President'].hash}
-              link={Team24['Vice President'].linkedIn}
+              name={Team24['General Secretary'].name}
+              image={Team24['General Secretary'].image}
+              hashCode={Team24['General Secretary'].hash}
+              link={Team24['General Secretary'].linkedIn}
             />
           </div>
         </div>
@@ -102,13 +102,13 @@ function Batch23() {
             </div>
             <div className="inline-block scale-105 my-10">
               <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-                Treasurer
+              General Secretary
               </h3>
               <LeadCard
-                name={Team24['Vice President'].name}
-                image={Team24['Vice President'].image}
-                hashCode={Team24['Vice President'].hash}
-                link={Team24['Vice President'].linkedIn}
+                name={Team24['General Secretary'].name}
+                image={Team24['General Secretary'].image}
+                hashCode={Team24['General Secretary'].hash}
+                link={Team24['General Secretary'].linkedIn}
               />
             </div>
           </div>
@@ -188,14 +188,22 @@ function Batch23() {
           </div>
           <div className="inline-block transform -translate-y-8 pt-8">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Social Media
+              Social Media & Content
             </h3>
+            <div className='flex'>
             <LeadCard
-              name={Team24['Web Development'].name}
-              image={Team24['Web Development'].image}
-              hashCode={Team24['Web Development'].hash}
-              link={Team24['Web Development'].linkedIn}
+              name={Team24['Design1'].name}
+              image={Team24['Design1'].image}
+              hashCode={Team24['Design1'].hash}
+              link={Team24['Design1'].linkedIn}
             />
+            <LeadCard
+              name={Team24['Design2'].name}
+              image={Team24['Design2'].image}
+              hashCode={Team24['Design2'].hash}
+              link={Team24['Design2'].linkedIn}
+            />
+            </div>
           </div>
           <div className="inline-block items-bottom">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
@@ -221,7 +229,7 @@ function Batch23() {
         <div className="flex  md:scale-110 md:py-10 lg:scale-100 justify-evenly items-end">
           <div className="inline-block items-bottom">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Design & Content
+              Design
             </h3>
             <div className="flex">
               <LeadCard
