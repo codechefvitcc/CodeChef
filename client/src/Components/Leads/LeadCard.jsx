@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 // Default profile pic
 import { defaultpfp } from '../../assets';
@@ -8,7 +9,13 @@ import { ImageLoaderComponent } from '../../Utility';
 
 const LeadCard = ({ image, name, link, hashCode }) => {
   return (
-    <div className="w-40 h-auto border bg-white rounded-lg shadow-lg p-3 flex flex-col items-center m-3">
+    <motion.div 
+      className="w-40 h-auto border bg-white rounded-lg shadow-lg p-3 flex flex-col items-center m-3"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.85 }}
+    >
       <ImageLoaderComponent
         url={image || defaultpfp}
         hashCode={hashCode || 'L7OgHHof00of01kB~pj[~Uay~Vj@'}
@@ -29,7 +36,7 @@ const LeadCard = ({ image, name, link, hashCode }) => {
         rel="noopener noreferrer"
         style={{ maxWidth: '140px' }}
       >
-        <div className="flex items-center justify-center bg-blue-500 text-white py-1 px-2 rounded text-xs mt-2">
+        <div className="flex items-center justify-center bg-[#0288D1] text-white py-1 px-2 rounded text-xs mt-2">
           LinkedIn
           <img
             src="https://img.icons8.com/color/48/linkedin.png"
@@ -38,7 +45,7 @@ const LeadCard = ({ image, name, link, hashCode }) => {
           />
         </div>
       </a>
-    </div>
+    </motion.div>
   );
 };
 

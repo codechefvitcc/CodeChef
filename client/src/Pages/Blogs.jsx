@@ -99,24 +99,20 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)} 
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1 }}
-      whileHover={{ scale: 1 }}
-      transition={{ 
-        scale: { duration: 0.25 }, 
-        opacity: { duration: 2 }, 
-      }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.75 }}
     >
       <div className="flex flex-col justify-between">
         <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
-          {/* <img src={image} alt={title} className="h-[250px] w-[400px]" /> */}
           <ImageLoaderComponent 
             url={url}
             hashCode={hashCode}
             alt={title}
             className="h-[250px] w-[400px]"
             blurWidth={'400px'}
-            blurHeight={'250px'}
+            blurHeight={'270px'}
           />
         </div>
 
@@ -202,7 +198,6 @@ function Blogs() {
         <div className="px-[30px] flex flex-col gap-[10px] sm:gap-[30px] mt-[30px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 md:ml-[10px] lg:ml-[90px] xl:ml-[150px]">All blogs</h2>
 
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[20px] rounded-[16px]"> */}
           <div className="flex flex-wrap justify-center gap-[20px] rounded-[16px]">
             {mockDataAllBlogs.map((blog, index) => (
               <AllBlogsCard
