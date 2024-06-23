@@ -126,7 +126,7 @@ const Hero = () => {
           ) : (
             <CarouselStyle>
               <div className="logos">
-                {Array.from({ length: 2 }).map((i) => {
+                {Array.from({ length: 2 }).map((_, i) => {
                   return (
                     <div className="logos-slide" key={i}>
                       {testimonials?.map((element, index) => (
