@@ -10,6 +10,8 @@ import AllBlogsCard from "./AllBlogsCard";
 
 import Management from "./JoinUs/Management";
 import SocialMedia from "./JoinUs/SocialMedia";
+import WebDevelopment from "./JoinUs/WebDevelopment";
+import MarketingOutreach from "./JoinUs/MarketingOutreach";
 
 export {
   Footer,
@@ -22,4 +24,6 @@ export {
   AllBlogsCard,
   Management,
   SocialMedia,
+  WebDevelopment,
+  MarketingOutreach,
 };

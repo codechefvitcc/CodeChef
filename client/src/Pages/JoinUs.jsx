@@ -4,7 +4,12 @@ import { FaAsterisk, FaSpinner } from "react-icons/fa";
 import "../Styles/JoinUs/JoinUs.css";
 import { areWeRecuriting } from "../api/apiCall";
 import { ErrorBox } from "../Utility";
-import { Management, SocialMedia } from "../Components";
+import {
+  Management,
+  MarketingOutreach,
+  SocialMedia,
+  WebDevelopment,
+} from "../Components";
 
 const JoinUs = () => {
   const [recruiting, setRecruiting] = useState("No"); // either "Yes" or "No"
@@ -315,6 +320,22 @@ const JoinUs = () => {
                   {/* Social Media questions */}
                   {department === "social_media_and_content" && (
                     <SocialMedia
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
+                  )}
+                  {/* Web Development Questions */}
+                  {department === "web_development" && (
+                    <WebDevelopment
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
+                  )}
+                  {/* Marketing & outreach questions */}
+                  {department === "marketing_and_outreach" && (
+                    <MarketingOutreach
                       register={register}
                       errors={errors}
                       watch={watch}
