@@ -388,7 +388,7 @@ const JoinUs = () => {
                       watch={watch}
                     />
                   )}
-                  {/* Web Development Questions */}
+                  {/* Finance Department Questions */}
                   {department === "finance" && (
                     <Finance
                       register={register}
