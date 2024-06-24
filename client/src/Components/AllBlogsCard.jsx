@@ -39,9 +39,9 @@ function AllBlogsCard({ url, hashCode, title, date, about, details }) {
             url={url}
             hashCode={hashCode}
             alt={title}
-            className="h-[250px] w-[330px]"
+            className="h-[250px] w-[330px] object-cover"
             blurWidth={'330px'}
-            blurHeight={'300px'}
+            blurHeight={'250px'}
           />
         </div>
   
