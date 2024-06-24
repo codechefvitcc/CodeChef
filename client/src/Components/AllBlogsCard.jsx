@@ -34,7 +34,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details }) {
         viewport={{ once: false }}
         transition={{ duration: 0.75 }}
       >
-        <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
+        <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center" style={{ width: "330px", height: "250px" }}>
           <ImageLoaderComponent 
             url={url}
             hashCode={hashCode}
