@@ -23,6 +23,16 @@ export default{
             name : 'imageUrl',
             title : 'Image URL',
             type : 'string'
+        },
+        {
+            name: 'imageHashCode',
+            title: 'Image Hash Code',
+            type: 'string',
+        },
+        {
+            name: 'date',
+            title: 'Date',
+            type: 'date',
         }
     ]
 }
