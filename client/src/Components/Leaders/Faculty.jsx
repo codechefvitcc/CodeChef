@@ -2,8 +2,33 @@ import { motion } from "framer-motion";
 
 //import faculty and quotes images from assets
 import { faculty, quotes } from "../../assets/leaders";
+import { FacultyImage } from "../../Constants/images";
+import ImageLoaderComponent from "../../Utility/ImageLoaderComponent";
+
+//Project hooks
+import { useBreakpoint } from '../../Utility/useBreakpoint'; // To find the screen size
+import { useEffect, useState } from "react";
 
 function Faculty() {
+
+  const [screenSize, setScreenSize] = useState('lg');
+
+  const isSm = useBreakpoint('sm').isSm;
+  const isMd = useBreakpoint('md').isMd;
+  const isLg = useBreakpoint('lg').isLg;
+
+  useEffect(() => {
+    if (isSm) {
+      setScreenSize('sm');
+    } else if (isMd) {
+      setScreenSize('md');
+    } else if (isLg) {
+      setScreenSize('lg');
+    } else {
+      setScreenSize('xl');
+    }
+  }, [isSm, isMd, isLg]);
+
   return (
     <motion.div
       className="w-full md:w-1/2 min-w-[384px] 
@@ -79,13 +104,24 @@ function Faculty() {
         </div>
         {/* faculty image */}
         <div className="w-1/2 flex justify-center items-center p-4 sm:p-8">
-          <img
+          {/* <img
             className="
               h-[100px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
               w-[100px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
               rounded-full border border-black-400"
             src={faculty}
             alt="Group"
+          /> */}
+          <ImageLoaderComponent
+            url={FacultyImage.url}
+            hashCode={FacultyImage.hashCode}
+            alt="Faculty Image"
+            className="h-[100px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
+              w-[100px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
+              rounded-full border border-black-400"
+            blurWidth={screenSize === "sm" ? '130px' : screenSize === "md" ? '80px' : screenSize === "lg" ? '100px' : '100px'}
+            blurHeight={screenSize === "sm" ? '130px' : screenSize === "md" ? '80px' : screenSize === "lg" ? '100px' : '100px'}
+            rounded={true}
           />
         </div>
       </motion.div>
