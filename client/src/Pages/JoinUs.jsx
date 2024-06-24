@@ -13,7 +13,9 @@ import {
   MarketingOutreach,
   SocialMedia,
   WebDevelopment,
-  Finance
+  Finance,
+  CompetitiveProgramming,
+  Design,
 } from "../Components";
 import ToastMsg from "../Constants/ToastMsg";
 
@@ -388,9 +390,25 @@ const JoinUs = () => {
                       watch={watch}
                     />
                   )}
+                  {/* Design Questions */}
+                  {department === "design" && (
+                    <Design
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
+                  )}
                   {/* Finance Department Questions */}
                   {department === "finance" && (
                     <Finance
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
+                  )}
+                  {/* Competitive Programming questions */}
+                  {department === "competitive_programming" && (
+                    <CompetitiveProgramming
                       register={register}
                       errors={errors}
                       watch={watch}
