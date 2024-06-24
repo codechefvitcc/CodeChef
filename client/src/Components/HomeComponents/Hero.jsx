@@ -27,6 +27,8 @@ const Hero = () => {
   const [loading, setLoading] = useState(true); // State to manage loading
   const [error, setError] = useState(false);
 
+  const animationDurationRef = useRef(testimonials.length * 3.5); // testimonial carousel duration
+
   // Getting all the emails in the Google Sheet from backend
   const fetchAllEmailsData = async () => {
     setEmailLoading(true);
@@ -57,6 +59,7 @@ const Hero = () => {
         setError(true);
       } else {
         setTestimonials(data);
+        animationDurationRef.current = data.length * 3.5;
       }
       setLoading(false);
     };
@@ -203,7 +206,7 @@ const Hero = () => {
               <ErrorBox />
             </div>
           ) : (
-            <CarouselStyle>
+            <CarouselStyle animationDuration={animationDurationRef.current}>
               <div className="logos">
                 {Array.from({ length: 2 }).map((_, i) => {
                   return (
@@ -293,7 +296,7 @@ const CarouselStyle = styled.section`
 
   .logos-slide {
     display: inline-flex !important; /* Updated display property */
-    animation: 15s slide infinite linear;
+    animation: ${({ animationDuration }) => animationDuration}s slide infinite linear;
   }
 
   @media screen and (max-width: 820px) {
