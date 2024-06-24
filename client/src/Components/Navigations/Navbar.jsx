@@ -88,7 +88,7 @@ const Navbar = () => {
                 <div
                   className={
                     eventsClicked
-                      ? "flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-2 flex-col space-y-2"
+                      ? "flex z-50 absolute justify-start text-[0.85rem] bg-white shadow-lg rounded mt-2 flex-col space-y-2"
                       : "hidden"
                   }
                 >

@@ -216,7 +216,7 @@ function Batch24() {
           </div>
           <div className="inline-block items-bottom">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Outreach & Sponsorship
+              Marketing & Sponsorship
             </h3>
             <div className="flex">
               <LeadCard
@@ -474,7 +474,7 @@ function Batch24() {
           </div>
           <div className="inline-block items-bottom">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Outreach & Sponsorship
+              Marketing & Sponsorship
             </h3>
             <div className="flex">
               <LeadCard

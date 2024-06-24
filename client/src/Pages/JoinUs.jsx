@@ -352,7 +352,7 @@ const JoinUs = () => {
                       <option value="web_development">Web Development</option>
                       <option value="design">Design</option>
                       <option value="marketing_and_outreach">
-                        Marketing & Outreach
+                        Marketing & Sponsorship
                       </option>
                       <option value="management">Event Management</option>
                       <option value="finance">Finance</option>
