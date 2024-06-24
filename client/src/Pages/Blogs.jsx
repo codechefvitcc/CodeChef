@@ -10,7 +10,7 @@ import { ImageLoaderComponent } from "../Utility";
 import  BlogsBackgroundImage  from "/Background/BlogsBackground.svg";
 
 import { getAllBlogs } from "../api/apiCall";
-import ErrorBox from "../Utility/ErrorBox.jsx";
+import { ErrorBox } from "../Utility";
 import { FaSpinner } from "react-icons/fa";
 
 // Function to find the latest blog
@@ -181,16 +181,15 @@ function Blogs() {
                   <ErrorBox />
                 </div>
               ) : 
-                    <AllBlogsCard
-                      url={latestBlog.imageUrl}
-                      hashCode={latestBlog.imageHashCode}
-                      title={latestBlog.heading}
-                      date={latestBlog.date}
-                      about={latestBlog.about}
-                      details={latestBlog.blog[0].children[0].text}
-                      blogs={blogs}
-                    />
-                  
+                  <AllBlogsCard
+                    url={latestBlog.imageUrl}
+                    hashCode={latestBlog.imageHashCode}
+                    title={latestBlog.heading}
+                    date={latestBlog.date}
+                    about={latestBlog.about}
+                    details={latestBlog.blog[0].children[0].text}
+                    blogs={blogs}
+                  /> 
             }
           </div>
           <div className="hidden sm:block rounded-[16px]" >
@@ -203,16 +202,15 @@ function Blogs() {
                   <ErrorBox />
                 </div>
               ) : 
-                    <LatestBlogCard
-                      url={latestBlog.imageUrl}
-                      hashCode={latestBlog.imageHashCode}
-                      title={latestBlog.heading}
-                      date={latestBlog.date}
-                      about={latestBlog.about}
-                      details={latestBlog.blog[0].children[0].text}
-                      blogs={blogs}
-                    />
-                  
+                  <LatestBlogCard
+                    url={latestBlog.imageUrl}
+                    hashCode={latestBlog.imageHashCode}
+                    title={latestBlog.heading}
+                    date={latestBlog.date}
+                    about={latestBlog.about}
+                    details={latestBlog.blog[0].children[0].text}
+                    blogs={blogs}
+                  />
             }
           </div>
         </div>
