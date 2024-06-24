@@ -1,10 +1,42 @@
 import { IoLogoInstagram } from "react-icons/io";
 import { CiLinkedin } from "react-icons/ci";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from "react";
+
+import { getAllBlogs } from "../../api/apiCall";
+import { ErrorBox } from "../../Utility";
+import { FaSpinner } from "react-icons/fa";
 
 import "../../Styles/Navigations/Footer.css";
 
 const Footer = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true);
+      const data = await getAllBlogs();
+      if (data.error) {
+        setError(true);
+      } else {
+        setBlogs(data);
+      }
+      setLoading(false);
+    };
+
+    fetchBlogs();
+  }, []);
+
+  const displayBlogs = [blogs[blogs.length-1], blogs[blogs.length-2]];
+
+  const handleBlogLink = (blog) => {
+    const formattedTitle = blog.heading.replace(/\s+/g, '-');
+    navigate(`/blogs/${formattedTitle}`, { state: { url: blog.imageUrl, hashCode: blog.imageHashCode, title: blog.heading, date: blog.date, about: blog.about, details: blog.blog[0].children[0].text, blogs: blogs } });
+  };
+  
   return (
     <>
       <footer>
@@ -37,16 +69,26 @@ const Footer = () => {
               <p className="l_footer_head">Blogs</p>
             </div>
             <div className="l_footer_list">
-              <div className="l_footer_link">
-                <a href="/blogs/Some-event-that-happened" className="footer_link">
-                  Blog 1
-                </a>
-              </div>
-              <div className="l_footer_link">
-                <a href="/blogs/Some-event-that-happened" className="footer_link">
-                  Blog 2
-                </a>
-              </div>
+              {loading ? (
+                  <div className="flex justify-center items-center">
+                    <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+                  </div>
+                ) : error ? (
+                  <div className="flex">
+                    <ErrorBox />
+                  </div>
+                ) : (
+                  displayBlogs.map((blog, index) => (
+                    <div className="l_footer_link" key={index}>
+                      <span 
+                        className="footer_link"
+                        onClick={() => handleBlogLink(blog)}
+                      >
+                        {blog.heading}
+                      </span>
+                    </div>
+                  ))
+              )}
             </div>
           </div>
           <div className="col-sm-3 col-md-3 my-2">
