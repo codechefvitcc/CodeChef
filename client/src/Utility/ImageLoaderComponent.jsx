@@ -21,22 +21,6 @@ const ImageLoaderComponent = ({ url, hashCode, alt, className, blurWidth, blurHe
 
   return (
     <>
-      {/* {imageLoaded && (
-        <div style={rounded?roundedStyle:null}>
-        <Blurhash
-          hash={hashCode}
-          width={blurWidth}
-          height={blurHeight}
-          resolutionX={32}
-          resolutionY={32}
-          punch={1}
-          // className={className}
-        />
-      </div>
-      )}
-
-      {!imageLoaded && <img src={url} alt={alt} className={className} />} */}
-
       {imageLoaded ? (
         <img src={url} alt={alt} className={className} />
       ) : (
