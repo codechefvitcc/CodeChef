@@ -23,6 +23,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details, blogs }) {
   
     const handleReadMore = () => {
       const formattedTitle = title.replace(/\s+/g, '-');
+      window.scrollTo(0, 0);
       navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details, blogs } });
     };
   
