@@ -12,7 +12,7 @@ const SocialMedia = ({ register, errors, watch }) => {
           className="text-sm font-medium text-gray-700 flex items-center"
           htmlFor="pod"
         >
-          Which POD do you want to join?{" "}
+          Which pod do you want to join?{" "}
           <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
         </label>
         <select

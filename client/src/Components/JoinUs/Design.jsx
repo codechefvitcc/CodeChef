@@ -14,7 +14,7 @@ const Design = ({ register, errors, watch }) => {
                     <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
                 </label>
                 <input
-                    className={`form-control ${
+                    className={`form-control w-[100%] ${
                     errors.designSkills ? "border-red-500" : ""
                     }`}
                     name="DesignSkills"
@@ -103,7 +103,7 @@ const Design = ({ register, errors, watch }) => {
                     {...register("designPortfolio", {
                     required: "Your profile link is required",
                     pattern: {
-                        value: /(https?:\/\/(?:www\.)?[^\s/$.?#].[^\s,]*)|((?:www\.)[^\s/$.?#].[^\s,]*)/gi,
+                        value: /(https?\/\/(?www\.)?[^\s/$.?#].[^\s,]*)|((?www\.)[^\s/$.?#].[^\s,]*)/gi,
                         message: "Invalid profile link",
                     },
                     })}

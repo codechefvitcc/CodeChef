@@ -345,7 +345,7 @@ const JoinUs = () => {
                         required: "Department is required",
                       })}
                     >
-                      <option value="">Select A Department</option>
+                      <option value="">Select a Department</option>
                       <option value="competitive_programming">
                         Competitive Programming
                       </option>
