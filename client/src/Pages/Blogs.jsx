@@ -106,13 +106,13 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
       transition={{ duration: 0.75 }}
     >
       <div className="flex flex-col justify-between">
-        <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center">
+        <div className="rounded-[12px] overflow-hidden border border-gray-400 text-center" style={{width:"100%", height:"250px"}}>
           <ImageLoaderComponent 
             url={url}
             hashCode={hashCode}
             alt={title}
             className="h-[250px] w-[400px] object-cover"
-            blurWidth={'400px'}
+            blurWidth="100%"
             blurHeight={'250px'}
           />
         </div>
