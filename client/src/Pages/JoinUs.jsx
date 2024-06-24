@@ -21,7 +21,7 @@ import ToastMsg from "../Constants/ToastMsg";
 
 const JoinUs = () => {
   const [formFillLoading, setFormFillLoading] = useState(false);
-  const [allRegno, setAllRegno] = useState(false);
+  const [allJoinUsData, setAllJoinUsData] = useState([]);
 
   const [recruiting, setRecruiting] = useState("No"); // either "Yes" or "No"
   const [loading, setLoading] = useState(true);
@@ -36,10 +36,7 @@ const JoinUs = () => {
       // Set the fetched user data to the component state
       if (response.status === 200) {
         // Extract the emails and ensure uniqueness
-        const regNo = response.data.map((item) => item.reg_no);
-        const uniqueRegNo = [...new Set(regNo)];
-        setAllRegno(uniqueRegNo);
-        console.log(uniqueRegNo);
+        setAllJoinUsData(response.data);
       }
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -75,32 +72,53 @@ const JoinUs = () => {
 
   const onSubmit = async (formData) => {
     console.log(formData);
-    const { reg_no } = formData;
-    if (allRegno.includes(reg_no)) {
-      ToastMsg("You cannot fill multiple forms", "warning");
-    } else {
-      setFormFillLoading(true);
-      try {
-        const data = {
-          data: formData,
-        };
-        console.log(data);
+    const { reg_no, department } = formData;
 
-        const response = await addJoinUsData(data);
-        console.log(response);
-        if (response.status === 200) {
-          ToastMsg("Form filled", "success");
-          reset();
-          fetchAllJoinUsData();
-        } else {
-          ToastMsg("Failed to add email", "error");
-        }
-      } catch (error) {
-        console.error("Error adding email:", error);
-        ToastMsg("An error occurred while filling the form.", "error");
+    // Get all entries with the same reg_no
+    const existingEntries = allJoinUsData.filter(
+      (entry) => entry.reg_no === reg_no
+    );
+
+    if (existingEntries.length > 0) {
+      const sameDepartmentEntry = existingEntries.find(
+        (entry) => entry.department === department
+      );
+      if (sameDepartmentEntry) {
+        ToastMsg(
+          "You cannot fill the form twice with the same registration number and department",
+          "warning"
+        );
+      } else {
+        // Proceed with API call since department is different
+        await handleFormSubmit(formData);
       }
-      setFormFillLoading(false);
+    } else {
+      // Proceed with API call since reg_no is new
+      await handleFormSubmit(formData);
     }
+  };
+  const handleFormSubmit = async (formData) => {
+    setFormFillLoading(true);
+    try {
+      const data = {
+        data: formData,
+      };
+      console.log(data);
+
+      const response = await addJoinUsData(data);
+      console.log(response);
+      if (response.status === 200) {
+        ToastMsg("Form filled", "success");
+        reset();
+        fetchAllJoinUsData();
+      } else {
+        ToastMsg("Failed to add data", "error");
+      }
+    } catch (error) {
+      console.error("Error adding data:", error);
+      ToastMsg("An error occurred while filling the form.", "error");
+    }
+    setFormFillLoading(false);
   };
 
   // Watch the regNo field to convert it to uppercase
