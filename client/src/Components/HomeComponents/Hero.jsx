@@ -88,7 +88,7 @@ const Hero = () => {
 
         if (response.status === 200) {
           ToastMsg(
-            "Contact request send. We will contact you withing 48hrs.",
+            "Contact request send. We will contact you within 48hrs.",
             "success"
           );
           emailInputRef.current.value = "";
@@ -133,7 +133,9 @@ const Hero = () => {
             />
             <button
               onClick={handleAddEmail}
-              className="btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5]"
+              className={`btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5] ${
+                emailLoading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               Contact Us
               {emailLoading === true ? (

@@ -39,9 +39,11 @@ function Faculty() {
       viewport={{ once: false }}
       transition={{ delay: 0.2, duration: 1 }}
     >
-      <h2 className="box-border tracking-normal text-gray-700 outline-none block 
+      <h2
+        className="box-border tracking-normal text-gray-700 outline-none block 
       text-2xl xl:text-3xl lg:text-2xl md:text-xl 
-      font-bold mx-auto mb-5 w-full text-center">
+      font-bold mx-auto mb-5 w-full text-center"
+      >
         Faculty Coordinator
       </h2>
 
@@ -63,11 +65,7 @@ function Faculty() {
             md:top-[10px] top-[15px] 
             md:left-[15px] left-[10px]"
           >
-            <img
-              className="w-7 h-7"
-              src={quotes}
-              alt="Quotes"
-            />
+            <img className="w-7 h-7" src={quotes} alt="Quotes" />
           </div>
           {/* quotes text */}
           <div
@@ -78,11 +76,11 @@ function Faculty() {
             flex items-center justify-center text-center"
           >
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-              minima asperiores delectus fugiat id quasi quaerat atque. Sit
-              inventore ullam vitae perspiciatis voluptatibus voluptas obcaecati
-              harum vero quo quis est quam quae mollitia dolores, consequatur
-              omnis laudantium asperiores libero voluptatem.
+              The CodeChef Student Chapter at VIT Chennai has rapidly expanded,
+              enhancing programming and competitive coding skills through
+              competitions, workshops, and peer learning. Events like hackathons
+              and coding marathons, often with industry partners, provide
+              platforms for showcasing skills and networking.
             </p>
           </div>
           {/* faculty details */}
@@ -90,14 +88,18 @@ function Faculty() {
             className="text-gray-800 
           uppercase font-bold"
           >
-            <p className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
+            <p
+              className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
             text-[11px] xl:text-[18px] lg:text-[13px] md:text-[10px] sm:text-[15px] 
-            font-bold">
+            font-bold"
+            >
               Shridevi
             </p>
-            <p className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
+            <p
+              className="box-border m-0 bg-transparent tracking-normal text-gray-700 outline-none block 
             text-[9px] xl:text-[14px] lg:text-[11px] md:text-[8px] sm:text-[13px] 
-            font-semibold">
+            font-semibold"
+            >
               Faculty coordinator
             </p>
           </div>
@@ -119,8 +121,24 @@ function Faculty() {
             className="h-[100px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
               w-[100px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
               rounded-full border border-black-400"
-            blurWidth={screenSize === "sm" ? '130px' : screenSize === "md" ? '80px' : screenSize === "lg" ? '100px' : '100px'}
-            blurHeight={screenSize === "sm" ? '130px' : screenSize === "md" ? '80px' : screenSize === "lg" ? '100px' : '100px'}
+            blurWidth={
+              screenSize === "sm"
+                ? "130px"
+                : screenSize === "md"
+                ? "80px"
+                : screenSize === "lg"
+                ? "100px"
+                : "100px"
+            }
+            blurHeight={
+              screenSize === "sm"
+                ? "130px"
+                : screenSize === "md"
+                ? "80px"
+                : screenSize === "lg"
+                ? "100px"
+                : "100px"
+            }
             rounded={true}
           />
         </div>
