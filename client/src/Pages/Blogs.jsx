@@ -1,7 +1,8 @@
 import { MdArrowOutward } from "react-icons/md";
 import { motion } from 'framer-motion';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { format, parseISO, isAfter } from 'date-fns'; // for date formatting and viewing
 
 import { AllBlogsCard } from '../Components';
 
@@ -9,74 +10,33 @@ import { HomeGalleryImages } from "../Constants/images";
 import { ImageLoaderComponent } from "../Utility";
 import  BlogsBackgroundImage  from "/Background/BlogsBackground.svg";
 
+import { getAllBlogs } from "../api/apiCall";
+import ErrorBox from "../Utility/ErrorBox.jsx";
+import { FaSpinner } from "react-icons/fa";
 
-const mockDataLatestBlog = {
-  url: HomeGalleryImages[0].url,
-  hashCode: HomeGalleryImages[0].hashCode,
-  title: "Some event that happened",
-  date: "Sunday, 1 Jan 2024",
-  about:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  details:
-    "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
+// Function to find the latest blog
+const findLatestBlog = (blogs) => {
+  if (blogs.length === 0) return null;
+
+  let latestBlog = blogs[0];
+
+  for (let i = 1; i < blogs.length; i++) {
+    const currentDate = parseISO(blogs[i].date);
+    const latestDate = parseISO(latestBlog.date || '1970-01-01'); // Default date for comparison
+
+    if (isAfter(currentDate, latestDate)) {
+      latestBlog = blogs[i];
+    }
+  }
+
+  return latestBlog;
 };
 
-const mockDataAllBlogs = [
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened asdiuadsgi",
-    date: "Sunday, 1 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened asdiuadsgi",
-    date: "Sunday, 2 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened asdiuadsgi",
-    date: "Sunday, 3 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened asdiuadsgi",
-    date: "Sunday, 4 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened asdiuadsgi",
-    date: "Sunday, 5 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-];
-
-const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
+const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
+
+  const formattedDate = format(new Date(date), 'EEEE, d MMM yyyy');
 
   const cardStyle = {
     transition: 'box-shadow 0.25s ease-in-out',
@@ -91,7 +51,7 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
 
   const handleReadMore = () => {
     const formattedTitle = title.replace(/\s+/g, '-');
-    navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details } });
+    navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details, blogs } });
   };
 
   return (
@@ -119,7 +79,7 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
 
         <div className="flex flex-col gap-[10px]">
           <p className="mt-4 mb-1.5 text-[#333333] text-[13px] font-semibold">
-            {date}
+            {formattedDate}
           </p>
 
           <div className="flex justify-between items-center">
@@ -164,6 +124,44 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
 };
 
 function Blogs() {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true);
+      const data = await getAllBlogs();
+      if (data.error) {
+        setError(true);
+      } else {
+        setBlogs(data);
+      }
+      setLoading(false);
+    };
+
+    fetchBlogs();
+  }, []);
+
+  const latestBlog = findLatestBlog(blogs);
+
+  const renderAllBlogs = (data) => {
+    // const filteredBlogs = data.filter(blog => blog !== latestBlog); // filter out all other blogs except for the latest one
+  
+    return data.map((blog, index) => (
+      <AllBlogsCard
+        key={index}
+        url={blog.imageUrl}
+        hashCode={blog.imageHashCode}
+        title={blog.heading}
+        date={blog.date}
+        about={blog.about}
+        details={blog.blog[0].children[0].text}
+        blogs={blogs}
+      />
+    ));
+  };
+
   return (
     <div style={{ backgroundImage: `url(${BlogsBackgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="flex flex-col gap-[10px] sm:gap-[30px] items-center pb-16 pt-[65px] sm:pt-[50px] md:pt-[0px]">
@@ -174,43 +172,62 @@ function Blogs() {
         <div className="px-[40px] flex flex-col sm:gap-[20px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px]">Latest blog</h2>
 
-          <div className="block sm:hidden rounded-[16px]" >
-            <AllBlogsCard
-              url={mockDataLatestBlog.url}
-              hashCode={mockDataLatestBlog.hashCode}
-              title={mockDataLatestBlog.title}
-              date={mockDataLatestBlog.date}
-              about={mockDataLatestBlog.about}
-              details={mockDataLatestBlog.details}
-            />
-          </div>
-          <div className="hidden sm:block rounded-[16px]" >
-            <LatestBlogCard
-              url={mockDataLatestBlog.url}
-              hashCode={mockDataLatestBlog.hashCode}
-              title={mockDataLatestBlog.title}
-              date={mockDataLatestBlog.date}
-              about={mockDataLatestBlog.about}
-              details={mockDataLatestBlog.details}
-            />
-          </div>
+          {loading ? (
+              <div className="flex justify-center items-center">
+                <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+              </div>
+            ) : error ? (
+              <div className="flex">
+                <ErrorBox />
+              </div>
+            ) : <div className="block sm:hidden rounded-[16px]" >
+                  <AllBlogsCard
+                    url={latestBlog.imageUrl}
+                    hashCode={latestBlog.imageHashCode}
+                    title={latestBlog.heading}
+                    date={latestBlog.date}
+                    about={latestBlog.about}
+                    details={latestBlog.blog[0].children[0].text}
+                    blogs={blogs}
+                  />
+                </div>
+          }
+          {loading ? (
+              <div className="flex justify-center items-center">
+                <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+              </div>
+            ) : error ? (
+              <div className="flex">
+                <ErrorBox />
+              </div>
+            ) : <div className="hidden sm:block rounded-[16px]" >
+                  <LatestBlogCard
+                    url={latestBlog.imageUrl}
+                    hashCode={latestBlog.imageHashCode}
+                    title={latestBlog.heading}
+                    date={latestBlog.date}
+                    about={latestBlog.about}
+                    details={latestBlog.blog[0].children[0].text}
+                    blogs={blogs}
+                  />
+                </div>
+          }
         </div>
 
         <div className="px-[30px] flex flex-col gap-[10px] sm:gap-[30px] mt-[30px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 md:ml-[10px] lg:ml-[90px] xl:ml-[150px]">All blogs</h2>
 
           <div className="flex flex-wrap justify-center gap-[20px] rounded-[16px]">
-            {mockDataAllBlogs.map((blog, index) => (
-              <AllBlogsCard
-                key={index}
-                url={blog.url}
-                hashCode={blog.hashCode}
-                title={blog.title}
-                date={blog.date}
-                about={blog.about}
-                details={blog.details}
-              />
-            ))}
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+              </div>
+            ) : error ? (
+              <div className="flex">
+                <ErrorBox />
+              </div>
+            ) : renderAllBlogs(blogs)
+            }
           </div>
         </div>
       </div>

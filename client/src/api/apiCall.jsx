@@ -69,6 +69,19 @@ export const getAllPresidents = async () => {
   }
 };
 
+// Getting All Blogs from sanity backend
+export const getAllBlogs = async () => {
+  const query = '*[_type == "blogs"]';
+  try {
+    const response = await client.fetch(query);
+    // console.log(response);
+    return response;
+  } catch (error) {
+    console.log("Error fetching blogs: ", error);
+    return { error: "Failed to fetch blogs" };
+  }
+};
+
 // Checking our Recuritement status from sanity backend
 export const areWeRecuriting = async () => {
   const query = '*[_type == "joinus"]';

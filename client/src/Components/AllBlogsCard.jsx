@@ -2,25 +2,28 @@ import { useState } from "react";
 import { motion } from 'framer-motion';
 import { MdArrowOutward } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import { format } from "date-fns";
 
 import { ImageLoaderComponent } from "../Utility";
 
-function AllBlogsCard({ url, hashCode, title, date, about, details }) {
+function AllBlogsCard({ url, hashCode, title, date, about, details, blogs }) {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
+  
+    const formattedDate = format(new Date(date), 'EEEE, d MMM yyyy');
   
     const cardStyle = {
       transition: 'box-shadow 0.25s ease-in-out',
       boxShadow: isHovered ? '0 4px 8px rgba(0, 0, 0, 0.2)' : '0 4px 12px rgba(207, 216, 220, 0.4)',
     };
-  
+
     const shortAbout =
       about.length > 180 ? `${about.substring(0, 180)}...` : about;
     const shortTitle = title.length > 20 ? `${title.substring(0, 20)}...` : title;
   
     const handleReadMore = () => {
       const formattedTitle = title.replace(/\s+/g, '-');
-      navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details } });
+      navigate(`/blogs/${formattedTitle}`, { state: { url, hashCode, title, date, about, details, blogs } });
     };
   
     return (
@@ -47,7 +50,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details }) {
   
         <div className="mt-6">
           <p className="mt-4 mb-1.5 text-[#333333] text-[13px] font-semibold">
-            {date}
+            {formattedDate}
           </p>
   
           <div className="flex justify-between items-center">
