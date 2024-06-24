@@ -33,7 +33,7 @@ const findLatestBlog = (blogs) => {
 
 const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+  const navigate = useNavigate();
 
   const formattedDate = format(new Date(date), 'EEEE, d MMM yyyy');
 
