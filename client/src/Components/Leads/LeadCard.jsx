@@ -21,8 +21,9 @@ const LeadCard = ({ image, name, link, hashCode }) => {
         hashCode={hashCode || 'L7OgHHof00of01kB~pj[~Uay~Vj@'}
         alt="profile picture"
         className="w-24 h-24 rounded-full mb-2 object-cover object-end"
-        blurWidth={'50px'}
-        blurHeight={'50px'}
+        blurWidth={'96px'}
+        blurHeight={'96px'}
+        rounded={true}
       />
       <div
         className="text-sm font-semibold text-center truncate"
