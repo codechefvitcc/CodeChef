@@ -70,6 +70,7 @@ function DeptCard({ name, icon, description, memberCount, allMembers, currentLea
                     className="rounded-full mx-1 h-[40px] w-[40px] sm:h-[50px] sm:w-[50px] object-cover"
                     blurWidth={'45px'}
                     blurHeight={'45px'}
+                    rounded={true}
                   />
                   <div className="ml-1">
                     <p

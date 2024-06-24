@@ -114,7 +114,7 @@ const Hero = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.75 }}
         >
-          <h1 className="main-heading text-center md:text-left text-4xl leading-[3rem] sm:text-4xl font-semibold leading-[3rem] mb-6 md:text-5xl md:leading-[4.5rem] lg:text-6xl lg:leading-[5rem] md:mb-5">
+          <h1 className="main-heading text-center md:text-left text-4xl sm:text-4xl font-semibold leading-[3rem] mb-6 md:text-5xl md:leading-[4.5rem] lg:text-6xl lg:leading-[5rem] md:mb-5">
             Start your club
             <br /> journey with us!
           </h1>
@@ -221,8 +221,9 @@ const Hero = () => {
                                 hashCode={element.imageHashCode}
                                 alt="mainimage"
                                 className="rounded-full mb-2 h-[50px] w-[50px] object-cover"
-                                blurWidth={"50px"}
-                                blurHeight={"50px"}
+                                blurWidth={"54px"}
+                                blurHeight={"54px"}
+                                rounded={true}
                               />
                               <p className="font-semibold text-m text-gray-700">
                                 {element.name}
