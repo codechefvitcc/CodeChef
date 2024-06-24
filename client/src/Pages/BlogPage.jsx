@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { format } from 'date-fns';
 
 import { AllBlogsCard } from '../Components'
 
@@ -7,32 +8,23 @@ import { HomeGalleryImages } from '../Constants/images';
 import BlogsBackgroundImage  from "/Background/BlogsBackground.svg";
 import { ImageLoaderComponent } from "../Utility";
 
-const mockDataRecommendedBlogs = [
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened R1",
-    date: "Sunday, 1 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-  {
-    url: HomeGalleryImages[0].url,
-    hashCode: HomeGalleryImages[0].hashCode,
-    title: "Some event that happened R2",
-    date: "Sunday, 2 Jan 2023",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-    details:
-      "Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium recusandae blanditiis earum, distinctio quisquam ullam voluptates, autem iste adipisci dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minus quo, omnis quam quos aut? Iste incidunt veritatis adipisci non iusto.",
-  },
-]
-
 function BlogPage() {
   const location = useLocation();
-  const { url, hashCode, title, date, about, details } = location.state;
+  const { url, hashCode, title, date, about, details, blogs } = location.state;
+
+  const formattedDate = format(new Date(date), 'EEEE, d MMM yyyy');
+
+  // choosing 2 random blogs to suggest
+  const filteredBlogs = blogs.filter(blog => blog.heading !== title); // all other blogs excluding the current one
+  
+  const randomIndexes = [];
+  while (randomIndexes.length < 2) {
+    const randomIndex = Math.floor(Math.random() * filteredBlogs.length);
+    if (!randomIndexes.includes(randomIndex)) {
+      randomIndexes.push(randomIndex);
+    }
+  };
+  const randomBlogs = randomIndexes.map(index => filteredBlogs[index]); // 2 random blogs amongst these
 
   return (
     <div 
@@ -62,7 +54,7 @@ function BlogPage() {
           </motion.div>
           
           <h1 className="text-gray-700 text-[24px] sm:text-4xl font-bold mb-8 capitalize">{title}</h1>
-          <p className="text-[#666666] text-sm sm:text-md font-semibold mb-4">{date}</p>
+          <p className="text-[#666666] text-sm sm:text-md font-semibold mb-4">{formattedDate}</p>
           <p className="text-gray-500 text-sm sm:text-md font-semibold mb-6">{about}</p>
           <div className="text-gray-500 text-sm sm:text-md leading-relaxed">
             {details}
@@ -78,15 +70,16 @@ function BlogPage() {
           viewport={{ once: false }}
           transition={{ duration: 0.75 }}
         >
-          {mockDataRecommendedBlogs.map((blog, index) => (
+          {randomBlogs.map((blog, index) => (
               <AllBlogsCard
                 key={index}
-                url={blog.url}
-                hashCode={blog.hashCode}
-                title={blog.title}
+                url={blog.imageUrl}
+                hashCode={blog.imageHashCode}
+                title={blog.heading}
                 date={blog.date}
                 about={blog.about}
-                details={blog.details}
+                details={blog.blog[0].children[0].text}
+                blogs={blogs}
               />
             ))}
           </motion.div>
