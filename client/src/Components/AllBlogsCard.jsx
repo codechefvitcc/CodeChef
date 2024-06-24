@@ -41,7 +41,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details }) {
             alt={title}
             className="h-[250px] w-[330px]"
             blurWidth={'330px'}
-            blurHeight={'250px'}
+            blurHeight={'300px'}
           />
         </div>
   
