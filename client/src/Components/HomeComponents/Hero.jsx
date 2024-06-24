@@ -98,7 +98,7 @@ const Hero = () => {
         }
       } catch (error) {
         console.error("Error adding email:", error);
-        alert("An error occurred while adding the email.");
+        ToastMsg("An error occurred while adding the email.", "error");
       }
     }
     setEmailLoading(false);

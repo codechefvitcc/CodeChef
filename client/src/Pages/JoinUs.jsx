@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaAsterisk, FaSpinner } from "react-icons/fa";
 import "../Styles/JoinUs/JoinUs.css";
-import { areWeRecuriting } from "../api/apiCall";
+import {
+  addJoinUsData,
+  areWeRecuriting,
+  getAllJoinUsData,
+} from "../api/apiCall";
 import { ErrorBox } from "../Utility";
 import {
   Management,
@@ -10,11 +14,35 @@ import {
   SocialMedia,
   WebDevelopment,
 } from "../Components";
+import ToastMsg from "../Constants/ToastMsg";
 
 const JoinUs = () => {
+  const [formFillLoading, setFormFillLoading] = useState(false);
+  const [allRegno, setAllRegno] = useState(false);
+
   const [recruiting, setRecruiting] = useState("No"); // either "Yes" or "No"
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  // Getting all the responses in the Google Sheet from backend for Join us
+  const fetchAllJoinUsData = async () => {
+    setFormFillLoading(true);
+    try {
+      const response = await getAllJoinUsData();
+      console.log(response);
+      // Set the fetched user data to the component state
+      if (response.status === 200) {
+        // Extract the emails and ensure uniqueness
+        const regNo = response.data.map((item) => item.reg_no);
+        const uniqueRegNo = [...new Set(regNo)];
+        setAllRegno(uniqueRegNo);
+        console.log(uniqueRegNo);
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+    setFormFillLoading(false);
+  };
 
   // to check whether we are recruiting or not
   useEffect(() => {
@@ -30,6 +58,7 @@ const JoinUs = () => {
     };
 
     areWeRecruitingOrNot();
+    fetchAllJoinUsData();
   }, []);
 
   const {
@@ -41,9 +70,33 @@ const JoinUs = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit = async (formData) => {
+    //console.log(formData);
+    const { reg_no } = formData;
+    if (allRegno.includes(reg_no)) {
+      ToastMsg("You cannot fill multiple forms", "warning");
+    } else {
+      setFormFillLoading(true);
+      try {
+        const data = {
+          data: formData,
+        };
+        console.log(data);
+
+        const response = await addJoinUsData(data);
+        console.log(response);
+        if (response.status === 200) {
+          ToastMsg("Form filled", "success");
+          reset();
+        } else {
+          ToastMsg("Failed to add email", "error");
+        }
+      } catch (error) {
+        console.error("Error adding email:", error);
+        ToastMsg("An error occurred while filling the form.", "error");
+      }
+      setFormFillLoading(false);
+    }
   };
 
   // Watch the regNo field to convert it to uppercase
@@ -344,10 +397,10 @@ const JoinUs = () => {
                   {/* Relavent Experience */}
                   <div className="mb-3 w-full px-2">
                     <label
-                      className="text-sm font-medium text-gray-700"
+                      className="text-sm font-medium text-gray-700 flex items-center"
                       htmlFor="experience"
                     >
-                      Relevant Experience:{" "}
+                      Relavent Experience:{" "}
                       <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
                     </label>
                     <textarea
@@ -398,7 +451,12 @@ const JoinUs = () => {
                   onClick={handleSubmit}
                   className="btnSubmit btn-primary"
                 >
-                  Submit
+                  Submit{" "}
+                  {formFillLoading ? (
+                    <FaSpinner className="ml-3 inline spinner text-center text-sm sm:text-sm" />
+                  ) : (
+                    ""
+                  )}
                 </button>
               </form>
             </div>

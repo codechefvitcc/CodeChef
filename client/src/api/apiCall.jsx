@@ -87,6 +87,7 @@ export const areWeRecuriting = async () => {
 // ***********************EXPRESS APIs STARTS HERE**************************
 
 // **************************** Contact Us Handling *************************
+
 // getting all the emails from the google sheet
 export const getAllContactUsEmails = async () => {
   return await commonrequest(
@@ -101,5 +102,25 @@ export const addContactUsEmail = async (data) => {
     "POST",
     `${BACKEND_URL}/api/v1/contact-us/add/email`,
     data
+  );
+};
+
+
+// ****************************** Join Us Handling ****************************
+
+// adding new recruite's data in the join us google sheet
+export const addJoinUsData = async (data) => {
+  return await commonrequest(
+    "POST",
+    `${BACKEND_URL}/api/v1/join-us/add/data`,
+    data
+  );
+};
+
+// getting all the recruites data from the google sheet
+export const getAllJoinUsData = async () => {
+  return await commonrequest(
+    "GET",
+    `${BACKEND_URL}/api/v1/join-us/read/all-data`
   );
 };
