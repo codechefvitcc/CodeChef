@@ -32,7 +32,7 @@ const JoinUs = () => {
     setFormFillLoading(true);
     try {
       const response = await getAllJoinUsData();
-      console.log(response);
+      //console.log(response);
       // Set the fetched user data to the component state
       if (response.status === 200) {
         // Extract the emails and ensure uniqueness
@@ -71,7 +71,7 @@ const JoinUs = () => {
   } = useForm();
 
   const onSubmit = async (formData) => {
-    console.log(formData);
+    //console.log(formData);
     const { reg_no, department } = formData;
 
     // Get all entries with the same reg_no
@@ -84,10 +84,7 @@ const JoinUs = () => {
         (entry) => entry.department === department
       );
       if (sameDepartmentEntry) {
-        ToastMsg(
-          "You cannot fill the form twice with the same registration number and department",
-          "warning"
-        );
+        ToastMsg("You cannot fill the form twice for a department", "warning");
       } else {
         // Proceed with API call since department is different
         await handleFormSubmit(formData);
@@ -103,20 +100,23 @@ const JoinUs = () => {
       const data = {
         data: formData,
       };
-      console.log(data);
+      //console.log(data);
 
       const response = await addJoinUsData(data);
-      console.log(response);
+      //console.log(response);
       if (response.status === 200) {
-        ToastMsg("Form filled", "success");
+        ToastMsg("Form filled Successfully!", "success");
         reset();
         fetchAllJoinUsData();
       } else {
         ToastMsg("Failed to add data", "error");
       }
     } catch (error) {
-      console.error("Error adding data:", error);
-      ToastMsg("An error occurred while filling the form.", "error");
+      //console.error("Error adding data:", error);
+      ToastMsg(
+        "An error occurred while filling the form. Please try later.",
+        "error"
+      );
     }
     setFormFillLoading(false);
   };
@@ -410,11 +410,7 @@ const JoinUs = () => {
                   )}
                   {/* Design Questions */}
                   {department === "design" && (
-                    <Design
-                      register={register}
-                      errors={errors}
-                      watch={watch}
-                    />
+                    <Design register={register} errors={errors} watch={watch} />
                   )}
                   {/* Finance Department Questions */}
                   {department === "finance" && (
@@ -495,7 +491,9 @@ const JoinUs = () => {
                   name="Submit"
                   type="submit"
                   onClick={handleSubmit}
-                  className="btnSubmit btn-primary"
+                  className={`btnSubmit btn-primary ${
+                    formFillLoading ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 >
                   Submit{" "}
                   {formFillLoading ? (

@@ -5,19 +5,19 @@ import Slider from 'react-slick';
 
 //image components imports
 import {
-  HomeGalleryImages,
-  CookOff2024MainImage
-} from '../../Constants/images';
-import  EventsBackgroundImage  from '/Background/EventsBackground.svg';
+  CookOff2024MainImage,
+  CookOff2024GalleryImages,
+} from "../../Constants/images";
+import EventsBackgroundImage from "/Background/EventsBackground.svg";
 
-import { ImageLoaderComponent } from '../../Utility';
+import { ImageLoaderComponent } from "../../Utility";
 
 import { useBreakpoint } from "../../Utility";
 
 const CookOff2024 = () => {
   // Carousel Component settings for the images
   const settings = {
-    lazyLoad: 'ondemand',
+    lazyLoad: "ondemand",
     dots: true,
     infinite: true,
     arrows: false,
@@ -46,8 +46,8 @@ const CookOff2024 = () => {
     <div
       style={{
         backgroundImage: `url(${EventsBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="overflow-hidden container mx-auto mt-16 sm:mt-0 p-4 lg:p-32 lg:pt-4">
@@ -58,16 +58,16 @@ const CookOff2024 = () => {
             hashCode={CookOff2024MainImage.hashCode}
             alt="mainimage"
             className=" sm:w-[60vw] h-[40vh] lg:h-[80vh] mb-4 rounded-xl"
-            blurWidth={useBreakpoint('lg').isLg ? '60%' : '100%'} //100% since we used w-full
-            blurHeight={useBreakpoint('lg').isLg ? '80vh' : '40vh'}
+            blurWidth={useBreakpoint("lg").isLg ? "60%" : "100%"} //100% since we used w-full
+            blurHeight={useBreakpoint("lg").isLg ? "80vh" : "40vh"}
           />
         </div>
         {/* Heading */}
         <h1 className="text-3xl md:text-7xl font-bold mb-2 text-gray-700">
-          T Shirt Distribution
+          Cook Off - 2024
         </h1>
         {/* Date */}
-        <p className="text-gray-600 mb-4">Jan 10, 2024</p>
+        <p className="text-gray-600 mb-4">Feb 19, 2024</p>
         {/* Sub heading */}
         <h2 className="text-base md:text-3xl font-semibold mb-2 text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
@@ -86,14 +86,14 @@ const CookOff2024 = () => {
         </p>
         {/* Carousel Starts*/}
         <Slider {...settings}>
-          {HomeGalleryImages.map((ele, index) => (
+          {CookOff2024GalleryImages.map((ele, index) => (
             <div key={index}>
               <ImageLoaderComponent
                 url={ele.url}
                 hashCode={ele.hashCode}
                 alt={`carousel${index}`}
                 className="w-full h-[250px] px-1 rounded-xl object-cover"
-                blurWidth={'100%'}
+                blurWidth={"100%"}
                 blurHeight={250}
               />
             </div>

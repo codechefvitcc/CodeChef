@@ -75,7 +75,7 @@ const Hero = () => {
 
     if (allEmails.includes(email)) {
       ToastMsg(
-        "Email already exists. We will contact you withing 48hrs.",
+        "Email already exists. We will contact you within 48hrs.",
         "info"
       );
     } else {
@@ -100,7 +100,7 @@ const Hero = () => {
           ToastMsg("Failed to add email", "error");
         }
       } catch (error) {
-        console.error("Error adding email:", error);
+        //console.error("Error adding email:", error);
         ToastMsg("An error occurred while adding the email.", "error");
       }
     }

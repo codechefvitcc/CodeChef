@@ -1,10 +1,14 @@
 const fetch = require("node-fetch");
 
+// ************* Docs to work with Google Sheet Integration ******************
+// https://docs.sheet.best/#generating-your-rest-api
+// ***************************************************************************
+
 const contactUsGoogleSheetLink =
-  "https://sheet.best/api/sheets/6d6a3b68-108c-4b78-86d9-c711683e7464";
+  "https://sheet.best/api/sheets/d62f5c63-d82b-4188-9e19-b8711709ef35";
 
 const joinUsGoogleSheetLink =
-  "https://sheet.best/api/sheets/e514b711-a0fa-44fc-b32a-7fa2b30ced5c";
+  "https://sheet.best/api/sheets/09cc0171-8d87-4ac1-b05c-898d0b799cf9";
 
 // ***************** Contact us APIs Start Here ***********************************
 // reading all the emails from the Contact Us Google Sheet
