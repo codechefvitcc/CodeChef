@@ -13,6 +13,7 @@ import {
   MarketingOutreach,
   SocialMedia,
   WebDevelopment,
+  Finance
 } from "../Components";
 import ToastMsg from "../Constants/ToastMsg";
 
@@ -71,7 +72,7 @@ const JoinUs = () => {
   } = useForm();
 
   const onSubmit = async (formData) => {
-    //console.log(formData);
+    console.log(formData);
     const { reg_no } = formData;
     if (allRegno.includes(reg_no)) {
       ToastMsg("You cannot fill multiple forms", "warning");
@@ -351,7 +352,7 @@ const JoinUs = () => {
                       <option value="marketing_and_outreach">
                         Marketing & Outreach
                       </option>
-                      <option value="management">Management</option>
+                      <option value="management">Event Management</option>
                       <option value="finance">Finance</option>
                       <option value="social_media_and_content">
                         Social Media & Content
@@ -387,6 +388,14 @@ const JoinUs = () => {
                       watch={watch}
                     />
                   )}
+                  {/* Web Development Questions */}
+                  {department === "finance" && (
+                    <Finance
+                      register={register}
+                      errors={errors}
+                      watch={watch}
+                    />
+                  )}
                   {/* Marketing & outreach questions */}
                   {department === "marketing_and_outreach" && (
                     <MarketingOutreach
@@ -401,7 +410,7 @@ const JoinUs = () => {
                       className="text-sm font-medium text-gray-700 flex items-center"
                       htmlFor="experience"
                     >
-                      Relavent Experience:{" "}
+                      Relevant Experience:{" "}
                       <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
                     </label>
                     <textarea

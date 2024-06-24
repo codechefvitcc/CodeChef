@@ -74,7 +74,7 @@ const Management = ({ register, errors, watch }) => {
           className={`mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
             errors.otherClub ? "border-red-500" : ""
           }`}
-          name="CGPA"
+          name="Other Club"
           id="otherClub"
           {...register("otherClub", {
             required: "This field is required",
@@ -171,6 +171,32 @@ const Management = ({ register, errors, watch }) => {
         {errors.strength && (
           <div className="text-red-500 text-sm mt-1">
             {errors.strength.message}
+          </div>
+        )}
+      </div>
+      {/* Effective Communication */}
+      <div className="mb-3 w-full px-2">
+        <label
+          className="text-sm font-medium text-gray-700 flex items-center"
+          htmlFor="effectiveComm"
+        >
+          How would you effectively manage the communication with a list of participants until the event is conducted ?{" "}
+          <FaAsterisk className="text-red-500 ml-[2px] text-[6px]" />
+        </label>
+        <textarea
+          className={`form-control ${errors.question6 ? "border-red-500" : ""}`}
+          name="Effective Communication"
+          type="text"
+          id="effectiveComm"
+          rows="5"
+          placeholder="Tell us about your thoughts on effective delivery of information"
+          {...register("effectiveComm", {
+            required: "This field is required",
+          })}
+        />
+        {errors.effectiveComm && (
+          <div className="text-red-500 text-sm mt-1">
+            {errors.effectiveComm.message}
           </div>
         )}
       </div>
