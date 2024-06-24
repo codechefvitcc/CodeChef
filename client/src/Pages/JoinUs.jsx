@@ -88,6 +88,7 @@ const JoinUs = () => {
         if (response.status === 200) {
           ToastMsg("Form filled", "success");
           reset();
+          fetchAllJoinUsData();
         } else {
           ToastMsg("Failed to add email", "error");
         }
