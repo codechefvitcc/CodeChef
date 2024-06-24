@@ -42,7 +42,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div ref={navRef}>
+    <div >
       {/* Navbar that appears for laptop screens */}
       <nav className="w-full px-4 sm:px-9 bg-white flex shadow border-gray-400 text-gray-500 justify-between items-center h-[10vh]">
         <Link to="/" className="ml-4">
@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="mr-4 items-center hidden md:block">
             {/* Drop down menus start here */}
             <div className="flex">
-              <div className="mx-2 block">
+              <div className="mx-2 block" ref={navRef}>
                 <div
                   onClick={() => {
                     setEventsClicked(!eventsClicked);
