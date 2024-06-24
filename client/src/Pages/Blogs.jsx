@@ -113,7 +113,7 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details }) => {
             alt={title}
             className="h-[250px] w-[400px]"
             blurWidth={'400px'}
-            blurHeight={'270px'}
+            blurHeight={'300px'}
           />
         </div>
 
