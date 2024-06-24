@@ -13,6 +13,8 @@ import SocialMedia from "./JoinUs/SocialMedia";
 import WebDevelopment from "./JoinUs/WebDevelopment";
 import MarketingOutreach from "./JoinUs/MarketingOutreach";
 import Finance from "./JoinUs/Finance";
+import CompetitiveProgramming from "./JoinUs/CompetitiveProgramming";
+import Design from "./JoinUs/Design";
 
 export {
   Footer,
@@ -28,4 +30,6 @@ export {
   WebDevelopment,
   MarketingOutreach,
   Finance,
+  CompetitiveProgramming,
+  Design,
 };
