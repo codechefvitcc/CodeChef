@@ -6,7 +6,6 @@ import { format, parseISO, isAfter } from 'date-fns'; // for date formatting and
 
 import { AllBlogsCard } from '../Components';
 
-import { HomeGalleryImages } from "../Constants/images";
 import { ImageLoaderComponent } from "../Utility";
 import  BlogsBackgroundImage  from "/Background/BlogsBackground.svg";
 
@@ -146,9 +145,9 @@ function Blogs() {
   const latestBlog = findLatestBlog(blogs);
 
   const renderAllBlogs = (data) => {
-    // const filteredBlogs = data.filter(blog => blog !== latestBlog); // filter out all other blogs except for the latest one
+    const filteredBlogs = data.filter(blog => blog !== latestBlog); // filter out all other blogs except for the latest one
   
-    return data.map((blog, index) => (
+    return filteredBlogs.map((blog, index) => (
       <AllBlogsCard
         key={index}
         url={blog.imageUrl}
@@ -172,46 +171,50 @@ function Blogs() {
         <div className="px-[40px] flex flex-col sm:gap-[20px]">
           <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px]">Latest blog</h2>
 
-          {loading ? (
-              <div className="flex justify-center items-center">
-                <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
-              </div>
-            ) : error ? (
-              <div className="flex">
-                <ErrorBox />
-              </div>
-            ) : <div className="block sm:hidden rounded-[16px]" >
-                  <AllBlogsCard
-                    url={latestBlog.imageUrl}
-                    hashCode={latestBlog.imageHashCode}
-                    title={latestBlog.heading}
-                    date={latestBlog.date}
-                    about={latestBlog.about}
-                    details={latestBlog.blog[0].children[0].text}
-                    blogs={blogs}
-                  />
+          <div className="block sm:hidden rounded-[16px]" >
+            {loading ? (
+                <div className="flex justify-center items-center">
+                  <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
                 </div>
-          }
-          {loading ? (
-              <div className="flex justify-center items-center">
-                <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
-              </div>
-            ) : error ? (
-              <div className="flex">
-                <ErrorBox />
-              </div>
-            ) : <div className="hidden sm:block rounded-[16px]" >
-                  <LatestBlogCard
-                    url={latestBlog.imageUrl}
-                    hashCode={latestBlog.imageHashCode}
-                    title={latestBlog.heading}
-                    date={latestBlog.date}
-                    about={latestBlog.about}
-                    details={latestBlog.blog[0].children[0].text}
-                    blogs={blogs}
-                  />
+              ) : error ? (
+                <div className="flex">
+                  <ErrorBox />
                 </div>
-          }
+              ) : 
+                    <AllBlogsCard
+                      url={latestBlog.imageUrl}
+                      hashCode={latestBlog.imageHashCode}
+                      title={latestBlog.heading}
+                      date={latestBlog.date}
+                      about={latestBlog.about}
+                      details={latestBlog.blog[0].children[0].text}
+                      blogs={blogs}
+                    />
+                  
+            }
+          </div>
+          <div className="hidden sm:block rounded-[16px]" >
+            {loading ? (
+                <div className="flex justify-center items-center">
+                  <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
+                </div>
+              ) : error ? (
+                <div className="flex">
+                  <ErrorBox />
+                </div>
+              ) : 
+                    <LatestBlogCard
+                      url={latestBlog.imageUrl}
+                      hashCode={latestBlog.imageHashCode}
+                      title={latestBlog.heading}
+                      date={latestBlog.date}
+                      about={latestBlog.about}
+                      details={latestBlog.blog[0].children[0].text}
+                      blogs={blogs}
+                    />
+                  
+            }
+          </div>
         </div>
 
         <div className="px-[30px] flex flex-col gap-[10px] sm:gap-[30px] mt-[30px]">

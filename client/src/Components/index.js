@@ -12,6 +12,7 @@ import Management from "./JoinUs/Management";
 import SocialMedia from "./JoinUs/SocialMedia";
 import WebDevelopment from "./JoinUs/WebDevelopment";
 import MarketingOutreach from "./JoinUs/MarketingOutreach";
+import Finance from "./JoinUs/Finance";
 
 export {
   Footer,
@@ -26,4 +27,5 @@ export {
   SocialMedia,
   WebDevelopment,
   MarketingOutreach,
+  Finance,
 };
