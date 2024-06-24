@@ -152,12 +152,12 @@ const Hero = () => {
           {/* Connect section */}
           <div className="connect-with-us md:justify-start justify-center my-3 flex items-center gap-4">
             <div className="connect-msg text-sm font-[400]">
-              connect with us on
+              Connect with us on
             </div>
             <div className="connection-links flex space-x-2">
               <div className="single-box flex items-center justify-center gap-4">
                 <a
-                  href="/"
+                  href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A72556598&keywords=codechef%20vit-chennai%20chapter&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=5ebd4798-fe9b-49da-ae54-c8df7f39fd48&sid=GKZ&spellCorrectionEnabled=true"
                   className="connection-link no-underline"
                   target="_blank"
                 >
@@ -172,7 +172,7 @@ const Hero = () => {
                   </button>
                 </a>
                 <a
-                  href="/"
+                  href="https://www.instagram.com/codechef.vitc?igsh=MXBiZzE4cTh0a2s5Yw=="
                   className="connection-link no-underline"
                   target="_blank"
                 >

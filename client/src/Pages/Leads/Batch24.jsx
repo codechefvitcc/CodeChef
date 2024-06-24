@@ -274,19 +274,19 @@ function Batch24() {
         <div className="flex items-center justify-center space-x-4">
           <div
             onClick={() => setYear(23)}
-            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded "
           >
             2023-24
           </div>
           <div
             onClick={() => setYear(24)}
-            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded "
           >
             2024-25
           </div>
           <div
             onClick={() => setYear(25)}
-            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded "
           >
             2025-26
           </div>
@@ -384,7 +384,7 @@ function Batch24() {
               link={Team23.President.linkedIn}
             />
           </div>
-          <div className="w-full flex flex-row justify-evenly justify-evenly">
+          <div className="w-full flex flex-row justify-evenly ">
             <div className="inline-block scale-105 my-10">
               <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
                 Vice President
@@ -506,19 +506,19 @@ function Batch24() {
         <div className="flex items-center justify-center space-x-4">
         <div
             onClick={() => setYear(23)}
-            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded "
           >
             2023-24
           </div>
           <div
             onClick={() => setYear(24)}
-            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-lg text-gray-500 hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded "
           >
             2024-25
           </div>
           <div
             onClick={() => setYear(25)}
-            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded cursor-default"
+            className="cursor-pointer text-2xl text-[#0DCAF0] hover:bg-gray-700 hover:bg-opacity-20 p-1 rounded "
           >
             2025-26
           </div>

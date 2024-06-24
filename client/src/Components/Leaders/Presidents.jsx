@@ -91,7 +91,7 @@ function Presidents() {
       <h2 className="box-border tracking-normal text-gray-700 outline-none block text-2xl 
       xl:text-3xl lg:text-2xl md:text-xl 
       font-bold mx-auto mb-5 w-full text-center">
-        Presidents Council
+        President Council
       </h2>
 
       <div className="flex flex-col items-center">
