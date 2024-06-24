@@ -72,8 +72,8 @@ function Faculty() {
             className="
             h-[190px] xl:h-[180px] lg:h-[140px] md:h-[120px] sm:h-[170px] 
             w-[180px] xl:w-[290px] lg:w-[240px] md:w-[190px] sm:w-[270px] 
-            xl:text-[14px] lg:text-[11px] md:text-[9px] sm:text-[13px] 
-            flex items-center justify-center text-center text-2xl"
+            text-[10px] xl:text-[14px] lg:text-[11px] md:text-[9px] sm:text-[13px] 
+            flex items-center justify-center text-center"
           >
             <p>
               The CodeChef Student Chapter at VIT Chennai has rapidly expanded,

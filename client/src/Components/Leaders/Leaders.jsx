@@ -10,7 +10,7 @@ function Leaders() {
       }}
     >
       <h2 className="box-border tracking-normal text-gray-700 outline-none block text-[44px] xl:text-[48px] font-bold mx-auto mb-5 w-full text-center">
-        Senior Leadership Council
+        Leadership Board
       </h2>
       <Faculty />
       <Presidents />
