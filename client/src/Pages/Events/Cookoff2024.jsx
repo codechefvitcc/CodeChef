@@ -57,7 +57,7 @@ const CookOff2024 = () => {
             url={CookOff2024MainImage.url}
             hashCode={CookOff2024MainImage.hashCode}
             alt="mainimage"
-            className="w-full sm:w-[60vw] h-[40vh] lg:h-[80vh] mb-4 rounded-xl"
+            className=" sm:w-[60vw] h-[40vh] lg:h-[80vh] mb-4 rounded-xl"
             blurWidth={useBreakpoint('lg').isLg ? '60%' : '100%'} //100% since we used w-full
             blurHeight={useBreakpoint('lg').isLg ? '80vh' : '40vh'}
           />

@@ -24,7 +24,7 @@ const CompetitiveProgramming = ({ register, errors, watch }) => {
                     {...register("cpProfile", {
                     required: "Your profile link is required",
                     pattern: {
-                        value: /(https?\/\/(?www\.)?[^\s/$.?#].[^\s,]*)|((?www\.)[^\s/$.?#].[^\s,]*)/gi,
+                        value: /(https?:\/\/(?:www\.)?[^\s/$.?#].[^\s,]*)|((?:www\.)[^\s/$.?#].[^\s,]*)/gi,
                         message: "Invalid profile link",
                     },
                     })}
@@ -55,7 +55,7 @@ const CompetitiveProgramming = ({ register, errors, watch }) => {
                     {...register("linkedin", {
                     required: "Your profile link is required",
                     pattern: {
-                        value: /^https?\/\/(www\.)?linkedin\.com\/in\/[A-Za-z0-9_-]+\/?$/,
+                        value: /^https?:\/\/(www\.)?linkedin\.com\/in\/[A-Za-z0-9_-]+\/?$/,
                         message: "Invalid Linkedin url",
                     },
                     })}

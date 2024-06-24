@@ -103,7 +103,7 @@ const Design = ({ register, errors, watch }) => {
                     {...register("designPortfolio", {
                     required: "Your profile link is required",
                     pattern: {
-                        value: /(https?\/\/(?www\.)?[^\s/$.?#].[^\s,]*)|((?www\.)[^\s/$.?#].[^\s,]*)/gi,
+                        value: /(https?:\/\/(?:www\.)?[^\s/$.?#].[^\s,]*)|((?:www\.)[^\s/$.?#].[^\s,]*)/gi,
                         message: "Invalid profile link",
                     },
                     })}
