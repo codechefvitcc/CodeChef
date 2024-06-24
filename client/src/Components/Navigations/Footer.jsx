@@ -128,7 +128,7 @@ const Footer = () => {
       <div className="copy-right">
         <p className="copy-right-para">
           &copy; {new Date().getFullYear()} Copyright All Rights Reserved | Made
-          With ❤ By CodeChef Student Chapter VITC
+          With ❤ By CodeChef Student Chapter, VITC
         </p>
       </div>
     </>
