@@ -30,7 +30,7 @@ const Footer = () => {
     fetchBlogs();
   }, []);
 
-  const displayBlogs = [blogs[blogs.length-1], blogs[blogs.length-2]];
+  const displayBlogs = blogs.slice(-2);
 
   const handleBlogLink = (blog) => {
     const formattedTitle = blog.heading.replace(/\s+/g, '-');
