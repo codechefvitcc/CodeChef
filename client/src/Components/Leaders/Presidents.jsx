@@ -6,48 +6,47 @@ import CarouselButton from "./CarouselButton";
 import { getAllPresidents } from "../../api/apiCall";
 import ErrorBox from "../../Utility/ErrorBox.jsx";
 
-import image from "../../assets/vishalKrYadav.jpg";
 import "../../Styles/Leaders/Presidents.css";
 import { FaSpinner } from "react-icons/fa";
 
-const mockData = [
-  {
-    name: "Shashank Sharma",
-    photo: image,
-    year: "2024-25",
-    vision:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est excepturi eligendi aperiam quia! Quisquam totam enim itaque porro tenetur in laborum laudantium aspernatur quae, magni eius voluptates quibusdam voluptate?",
-    mail: "shashank.sharma2022@vitstudent.ac.in",
-    linkedin: "https://example.com",
-  },
-  {
-    name: "Vishal Kumar Yadav",
-    photo: image,
-    year: "2025-26",
-    vision:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est excepturi eligendi aperiam quia! Quisquam totam enim itaque porro tenetur in laborum laudantium aspernatur quae, magni eius voluptates quibusdam voluptate?",
-    mail: "some.name2022@vitstudent.ac.in",
-    linkedin: "https://example.com",
-  },
-  {
-    name: "Akkilesh",
-    photo: image,
-    year: "2026-27",
-    vision:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est excepturi eligendi aperiam quia! Quisquam totam enim itaque porro tenetur in laborum laudantium aspernatur quae, magni eius voluptates quibusdam voluptate?",
-    mail: "some.name2022@vitstudent.ac.in",
-    linkedin: "https://example.com",
-  },
-  {
-    name: "Sidharth Tiwari",
-    photo: image,
-    year: "2026-27",
-    vision:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem!",
-    mail: "some.name2022@vitstudent.ac.in",
-    linkedin: "https://example.com",
-  },
-];
+// const mockData = [
+//   {
+//     name: "Shashank Sharma",
+//     photo: image,
+//     year: "2024-25",
+//     vision:
+//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est excepturi eligendi aperiam quia! Quisquam totam enim itaque porro tenetur in laborum laudantium aspernatur quae, magni eius voluptates quibusdam voluptate?",
+//     mail: "shashank.sharma2022@vitstudent.ac.in",
+//     linkedin: "https://example.com",
+//   },
+//   {
+//     name: "Vishal Kumar Yadav",
+//     photo: image,
+//     year: "2025-26",
+//     vision:
+//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est excepturi eligendi aperiam quia! Quisquam totam enim itaque porro tenetur in laborum laudantium aspernatur quae, magni eius voluptates quibusdam voluptate?",
+//     mail: "some.name2022@vitstudent.ac.in",
+//     linkedin: "https://example.com",
+//   },
+//   {
+//     name: "Akkilesh A",
+//     photo: image,
+//     year: "2026-27",
+//     vision:
+//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est excepturi eligendi aperiam quia! Quisquam totam enim itaque porro tenetur in laborum laudantium aspernatur quae, magni eius voluptates quibusdam voluptate?",
+//     mail: "some.name2022@vitstudent.ac.in",
+//     linkedin: "https://example.com",
+//   },
+//   {
+//     name: "Siddharth Tiwari",
+//     photo: image,
+//     year: "2026-27",
+//     vision:
+//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere officia culpa dolorem velit illo tempora neque est nam sapiente autem!",
+//     mail: "some.name2022@vitstudent.ac.in",
+//     linkedin: "https://example.com",
+//   },
+// ];
 
 function Presidents() {
   const [currentIndex, setCurrentIndex] = useState(0);
