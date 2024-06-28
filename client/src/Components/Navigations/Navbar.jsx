@@ -98,12 +98,12 @@ const Navbar = () => {
                   >
                     <button>Cook-Off 2024</button>
                   </Link>
-                  <Link
+                  {/* <Link
                     to="events/Decode-DSA"
                     className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"
                   >
                     <button>Decode DSA</button>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
               <div className="mx-2 block">
