@@ -59,6 +59,8 @@ function DeptCard({ name, icon, description, memberCount, allMembers, currentLea
           <div className="w-full">
             <div className="lead-section flex justify-between mb-2 flex-col sm:flex-row">
               {departmentLeads?.map((lead, index) => (
+                <a key={index} target="_blank"
+                        href={lead.linkedin}>
                 <div
                   className="flex items-center mt-1 mb-1 sm:mt-0 sm:mb-0"
                   key={index}
@@ -93,6 +95,7 @@ function DeptCard({ name, icon, description, memberCount, allMembers, currentLea
                     </p>
                   </div>
                 </div>
+                </a>
               ))}
             </div>
             <button
