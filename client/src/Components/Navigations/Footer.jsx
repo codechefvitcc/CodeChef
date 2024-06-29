@@ -117,7 +117,7 @@ const Footer = () => {
                 <IoLogoInstagram />
               </Link>
               <Link
-                to="https://www.linkedin.com/company/codechef-vitc/mycompany/" className="footer_link footer-icons" target="_blank"
+                to="https://www.linkedin.com/company/codechef-vit-chennai-chapter/" className="footer_link footer-icons" target="_blank"
               >
                 <CiLinkedin />
               </Link>
