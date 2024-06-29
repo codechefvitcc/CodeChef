@@ -508,7 +508,7 @@ const JoinUs = () => {
               <div className="closed-thing alert alert-info">
                 <h3>Sorry recruitments are currently closed :(</h3>
                 <p>
-                  Follow our social media to get updates regarging recuritments
+                  Follow our social media to get updates regarding recruitments
                 </p>
               </div>
             ) : (

@@ -54,14 +54,14 @@ const Footer = () => {
                   Cook-Off 2024
                 </Link>
               </div>
-              <div className="l_footer_link">
+              {/* <div className="l_footer_link">
               <Link
                   to="/events/Decode-DSA"
                   className="footer_link"
                 >
                   Decode DSA
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-sm-3 col-md-3 my-2">
