@@ -208,7 +208,7 @@ const JoinUs = () => {
                       {...register("reg_no", {
                         required: "Registration number is required",
                         pattern: {
-                          value: /^(1|2)[0-9](B)[A-Z]{2}[0-9]{4}$/,
+                          value: /^(1|2)[0-9](B|M)[A-Z]{2}[0-9]{4}$/,
                           message: "Invalid register number",
                         },
                       })}
