@@ -255,7 +255,7 @@ const JoinUs = () => {
                         required: "Email is required",
                         pattern: {
                           value:
-                            /^[A-Za-z]+\.?[A-Za-z0-9]+[0-9]{4}[A-Za-z]*@vitstudent\.ac\.in$/,
+                            /^[A-Za-z]+\.[A-Za-z]*2[0-9]{3}@vitstudent\.ac\.in$/, // to validate the email
                           message: "Invalid email",
                         },
                       })}
