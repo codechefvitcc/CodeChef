@@ -98,12 +98,12 @@ const Navbar = () => {
                   >
                     <button>Cook-Off 2024</button>
                   </Link>
-                  <Link
+                  {/* <Link
                     to="events/Decode-DSA"
                     className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"
                   >
                     <button>Decode DSA</button>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
               <div className="mx-2 block">
@@ -163,7 +163,7 @@ const Navbar = () => {
               className={
                 eventsClicked
                   ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded"
-                  : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
+                  : "duration-300 focus:bg-[#2a67b11e] flex items-center px-4 py-2 rounded "
               }
             >
               <h2 className="mr-2">Events</h2>
@@ -187,12 +187,12 @@ const Navbar = () => {
               }
             >
               <Link to="/events/Cook-Off-2024">
-                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                <button className=" focus:bg-[#2a67b11e] p-2 px-4 rounded">
                   Cook-Off 2024
                 </button>
               </Link>
               <Link to="/events/Decode-DSA">
-                <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded">
+                <button className=" focus:bg-[#2a67b11e] p-2 px-4 rounded">
                   Decode DSA
                 </button>
               </Link>
@@ -200,7 +200,7 @@ const Navbar = () => {
           </div>
           <div className="mx-2 block">
             <h2
-              className="block px-4 py-2 rounded hover:bg-[#2a67b11e]"
+              className="block px-4 py-2 rounded focus:bg-[#2a67b11e]"
               onClick={() => {
                 setBlogsClicked(!blogsClicked);
               }}
@@ -210,7 +210,7 @@ const Navbar = () => {
           </div>
           <div className="mx-2 block">
             <h2
-              className="block px-4 py-2 rounded hover:bg-[#2a67b11e]"
+              className="block px-4 py-2 rounded focus:bg-[#2a67b11e]"
               onClick={() => {
                 setTeamClicked(!teamClicked);
               }}

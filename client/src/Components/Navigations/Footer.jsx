@@ -54,14 +54,14 @@ const Footer = () => {
                   Cook-Off 2024
                 </Link>
               </div>
-              <div className="l_footer_link">
+              {/* <div className="l_footer_link">
               <Link
                   to="/events/Decode-DSA"
                   className="footer_link"
                 >
                   Decode DSA
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-sm-3 col-md-3 my-2">
@@ -117,7 +117,7 @@ const Footer = () => {
                 <IoLogoInstagram />
               </Link>
               <Link
-                to="https://www.linkedin.com/company/codechef-vitc/mycompany/" className="footer_link footer-icons" target="_blank"
+                to="https://www.linkedin.com/company/codechef-vit-chennai-chapter/" className="footer_link footer-icons" target="_blank"
               >
                 <CiLinkedin />
               </Link>
@@ -128,7 +128,7 @@ const Footer = () => {
       <div className="copy-right">
         <p className="copy-right-para">
           &copy; {new Date().getFullYear()} Copyright All Rights Reserved | Made
-          With ❤ By CodeChef Student Chapter VITC
+          With ❤ By CodeChef VITC Chapter
         </p>
       </div>
     </>

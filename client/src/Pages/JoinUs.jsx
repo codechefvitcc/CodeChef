@@ -146,9 +146,14 @@ const JoinUs = () => {
           <div className="flex">
             <ErrorBox />
           </div>
-        ) : (
+        ) : (recruiting == "No" ? <div className="closed-thing text-xl font-semibold alert alert-info">
+                <h3>Sorry recruitments are currently closed :(</h3>
+                <p>
+                  Follow our social media to get updates regarding recruitments
+                </p>
+              </div>: 
           <div className="box">
-            <div className={recruiting === "No" ? "blur" : ""}>
+            <div>
               <h2 className="text-gray-700 outline-none block text-[40px] xl:text-[44px] font-bold mx-auto mb-3 w-full text-center">
                 Recruitment Form
               </h2>
@@ -214,7 +219,7 @@ const JoinUs = () => {
                       {...register("reg_no", {
                         required: "Registration number is required",
                         pattern: {
-                          value: /^(1|2)[0-9](B)[A-Z]{2}[0-9]{4}$/,
+                          value: /^(1|2)[0-9](B|M)[A-Z]{2}[0-9]{4}$/,
                           message: "Invalid register number",
                         },
                       })}
@@ -510,16 +515,6 @@ const JoinUs = () => {
                 </button>
               </form>
             </div>
-            {recruiting === "No" ? (
-              <div className="closed-thing alert alert-info">
-                <h3>Sorry recruitments are currently closed :(</h3>
-                <p>
-                  Follow our social media to get updates regarging recuritments
-                </p>
-              </div>
-            ) : (
-              ""
-            )}
           </div>
         )}
       </div>

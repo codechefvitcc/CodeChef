@@ -27,7 +27,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogPage />} />
         <Route path="/events/Cook-Off-2024" element={<CookOff2024 />} />
-        <Route path="/events/Decode-DSA" element={<DecodeDSA />} />
+        {/* <Route path="/events/Decode-DSA" element={<DecodeDSA />} /> */}
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/our-teams" element={<Batch24 />} />
       </Routes>
