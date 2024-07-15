@@ -1,13 +1,7 @@
 // Importing default packages
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ReactGA from "react-ga4";
 import "react-toastify/dist/ReactToastify.css";
-import ReactGA from "react-ga";
-import { useEffect } from "react";
 
 // Importing Components
 import { Footer, Navbar, ScrollToTop } from "./Components";
@@ -20,25 +14,22 @@ import {
   Batch24,
 } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
+import { useEffect } from "react";
 
 ReactGA.initialize("G-KNNN0M8KPB");
 
-function PageTracking() {
-  const location = useLocation();
-
-  useEffect(() => {
-    ReactGA.pageview(location.pathname + location.search);
-  }, [location]);
-
-  return null;
-}
-
 function App() {
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname + window.location.search,
+      title: "Home Page",
+    });
+  }, []);
   return (
     <Router>
       <ScrollToTop />
       <Navbar />
-      <PageTracking />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
