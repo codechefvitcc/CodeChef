@@ -1,8 +1,21 @@
+// Importing defaults packages
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Footer, Navbar, ScrollToTop } from "./Components";
-import { Blogs, CookOff2024, DecodeDSA, Home, BlogPage, Batch24  } from "./Pages";
-import JoinUs from "./Pages/JoinUs";
 import "react-toastify/dist/ReactToastify.css";
+import ReactGA from "react-ga";
+
+// Importing Components
+import { Footer, Navbar, ScrollToTop } from "./Components";
+import {
+  Blogs,
+  CookOff2024,
+  DecodeDSA,
+  Home,
+  BlogPage,
+  Batch24,
+} from "./Pages";
+import JoinUs from "./Pages/JoinUs";
+
+ReactGA.initialize("G-KNNN0M8KPB");
 
 function App() {
   return (

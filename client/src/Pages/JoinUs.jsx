@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import ReactGA from "react-ga";
 import { FaAsterisk, FaSpinner } from "react-icons/fa";
 import "../Styles/JoinUs/JoinUs.css";
 import {
@@ -59,6 +60,11 @@ const JoinUs = () => {
 
     areWeRecruitingOrNot();
     fetchAllJoinUsData();
+  }, []);
+
+  // using google analytics
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
   }, []);
 
   const {
