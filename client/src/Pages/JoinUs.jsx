@@ -18,6 +18,7 @@ import {
   Design,
 } from "../Components";
 import ToastMsg from "../Constants/ToastMsg";
+import ReactGA from "react-ga4";
 
 const JoinUs = () => {
   const [formFillLoading, setFormFillLoading] = useState(false);
@@ -59,6 +60,15 @@ const JoinUs = () => {
 
     areWeRecruitingOrNot();
     fetchAllJoinUsData();
+  }, []);
+
+  // integrating google analytics 4
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname + window.location.search,
+      title: "JoinUs Page",
+    });
   }, []);
 
   const {
@@ -140,12 +150,12 @@ const JoinUs = () => {
           <div className="flex">
             <ErrorBox />
           </div>
-        ) : (recruiting == "No" ? <div className="closed-thing text-xl font-semibold alert alert-info">
-                <h3>Sorry recruitments are currently closed :(</h3>
-                <p>
-                  Follow our social media to get updates regarding recruitments
-                </p>
-              </div>: 
+        ) : recruiting == "No" ? (
+          <div className="closed-thing text-xl font-semibold alert alert-info">
+            <h3>Sorry recruitments are currently closed :(</h3>
+            <p>Follow our social media to get updates regarding recruitments</p>
+          </div>
+        ) : (
           <div className="box">
             <div>
               <h2 className="text-gray-700 outline-none block text-[40px] xl:text-[44px] font-bold mx-auto mb-3 w-full text-center">
