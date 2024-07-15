@@ -250,7 +250,7 @@ const JoinUs = () => {
                       name="VIT Email"
                       type="email"
                       id="vit_email"
-                      placeholder="VIT Email ID"
+                      placeholder="Email eg: shashank.sharma2022@vitstudent.ac.in"
                       {...register("vit_email", {
                         required: "Email is required",
                         pattern: {
