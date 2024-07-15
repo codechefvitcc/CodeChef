@@ -14,18 +14,10 @@ import {
   Batch24,
 } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
-import { useEffect } from "react";
 
 ReactGA.initialize("G-KNNN0M8KPB");
 
 function App() {
-  useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-      page: window.location.pathname + window.location.search,
-      title: "Home Page",
-    });
-  }, []);
   return (
     <Router>
       <ScrollToTop />
