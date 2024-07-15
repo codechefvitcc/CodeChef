@@ -5,7 +5,7 @@ import { DeptDisplay, Hero, IntroVideo, Leaders } from "../Components";
 
 const Home = () => {
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   return (

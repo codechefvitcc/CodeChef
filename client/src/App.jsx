@@ -15,7 +15,7 @@ import {
 } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
 
-ReactGA.initialize("8472791460");
+ReactGA.initialize("G-KNNN0M8KPB");
 
 function App() {
   return (
