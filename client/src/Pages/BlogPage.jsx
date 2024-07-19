@@ -56,7 +56,7 @@ function BlogPage() {
           <h1 className="text-gray-700 text-[24px] sm:text-4xl font-bold mb-8 capitalize">{title}</h1>
           <p className="text-[#666666] text-sm sm:text-md font-semibold mb-4">{formattedDate}</p>
           <p className="text-gray-500 text-sm sm:text-md font-semibold mb-6">{about}</p>
-          <div className="text-gray-500 text-sm sm:text-md leading-relaxed">
+          <div className="text-gray-500 text-sm sm:text-md leading-relaxed break-words">
             {details}
           </div>
         </div>
