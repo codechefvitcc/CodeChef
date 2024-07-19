@@ -103,7 +103,7 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) =
 
       <div className="flex flex-col justify-between text-gray-600">
         <p className="font-bold text-[14px]">{shortAbout}</p>
-        <p className="text-[14px]">{shortDetail}</p>
+        <p className="text-[14px] break-words">{shortDetail}</p>
 
         {details.length > 350 && (
           <div>
@@ -203,6 +203,7 @@ function Blogs() {
                   <ErrorBox />
                 </div>
               ) : 
+                  <>
                   <LatestBlogCard
                     url={latestBlog.imageUrl}
                     hashCode={latestBlog.imageHashCode}
@@ -212,6 +213,8 @@ function Blogs() {
                     details={latestBlog.blog[0].children[0].text}
                     blogs={blogs}
                   />
+                  {console.log(latestBlog.blog)}
+                  </>
             }
           </div>
         </div>
