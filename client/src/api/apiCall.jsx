@@ -138,9 +138,10 @@ export const getAllJoinUsData = async () => {
   );
 };
 
-export const sendWhatsAppGroupJoinLink = async () => {
+export const sendWhatsAppGroupJoinLink = async (data) => {
   return await commonrequest(
     "POST",
-    `${BACKEND_URL}/api/v1/join-us/send-group-link`
+    `${BACKEND_URL}/api/v1/join-us/send-group-link`,
+    data
   );
 };

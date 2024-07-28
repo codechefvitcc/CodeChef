@@ -111,9 +111,9 @@ const sendWhatsAppJoinEmail = (req, res) => {
     management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
   };
 
-  const { userEmail, department } = req.body;
+  const { vit_email, department } = req.body;
 
-  if (!userEmail) {
+  if (!vit_email) {
     return res.status(400).json({ error: "Please Provide Email" });
   }
 
@@ -123,7 +123,7 @@ const sendWhatsAppJoinEmail = (req, res) => {
 
   const mailOptions = {
     from: "vitcseguide@gmail.com",
-    to: userEmail,
+    to: vit_email,
     subject: "Sending Email For Joining our whatsapp group",
     text: `WhatsApp Group Link:- ${whatsAppGroupLinks[department]}`,
   };
