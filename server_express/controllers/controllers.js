@@ -106,7 +106,7 @@ const readJoinUsDataFromGoogleSheet = (req, res) => {
     });
 };
 
-const sendWhatsAppJoinEmail = (req, res) => {
+const sendWhatsAppJoinEmail = async (req, res) => {
   const whatsAppGroupLinks = {
     management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
   };
@@ -121,22 +121,26 @@ const sendWhatsAppJoinEmail = (req, res) => {
     return res.status(400).json({ error: "Invalid department" });
   }
 
-  const mailOptions = {
-    from: "vitcseguide@gmail.com",
-    to: vit_email,
-    subject: "Sending Email For Joining our whatsapp group",
-    text: `WhatsApp Group Link:- ${whatsAppGroupLinks[department]}`,
-  };
+  try {
+    const mailOptions = {
+      from: "vitcseguide@gmail.com",
+      to: vit_email,
+      subject: "Sending Email For Joining our whatsapp group",
+      text: `WhatsApp Group Link:- ${whatsAppGroupLinks[department]}`,
+    };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log("error", error);
-      return res.status(400).json({ message: "email not sent" });
-    } else {
-      console.log("Email sent", info.response);
-      return res.status(200).json({ message: "email sent Successfully" });
-    }
-  });
+    await transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log("error", error);
+        return res.status(400).json({ message: "email not sent" });
+      } else {
+        console.log("Email sent", info.response);
+        return res.status(200).json({ message: "email sent Successfully" });
+      }
+    });
+  } catch (error) {
+    return res.status(400).json({ message: "Internal Server Error", error });
+  }
 };
 
 // exporting the functions
