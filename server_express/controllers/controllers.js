@@ -1,5 +1,18 @@
 const fetch = require("node-fetch");
 
+// Email sending packages and config. ********
+const nodemailer = require("nodemailer");
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "vitcseguide@gmail.com",
+    pass: "gvdt kqqs zzvr vfib",
+  },
+});
+// *****************************************
+
 // ************* Docs to work with Google Sheet Integration ******************
 // https://docs.sheet.best/#generating-your-rest-api
 // ***************************************************************************
@@ -56,7 +69,7 @@ const addContactUsEmailInGoogleSheet = (req, res) => {
 // ***************** Join us APIs Starts Here ************************************
 const addJoinUsDataInGoogleSheet = (req, res) => {
   const { data } = req.body;
-  //console.log("What we got from frontend:", req.body);
+  console.log("What we got from frontend:", req.body);
 
   fetch(joinUsGoogleSheetLink, {
     method: "POST",
