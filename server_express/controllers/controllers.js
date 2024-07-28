@@ -21,7 +21,7 @@ const contactUsGoogleSheetLink =
   "https://sheet.best/api/sheets/d62f5c63-d82b-4188-9e19-b8711709ef35";
 
 const joinUsGoogleSheetLink =
-  "https://sheet.best/api/sheets/09cc0171-8d87-4ac1-b05c-898d0b799cf9";
+  "https://sheet.best/api/sheets/4a530dd9-cd9b-45e7-b01c-1165bb1e747a";
 
 // ***************** Contact us APIs Start Here ***********************************
 // reading all the emails from the Contact Us Google Sheet
