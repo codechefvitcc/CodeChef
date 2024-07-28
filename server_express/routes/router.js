@@ -20,4 +20,9 @@ router.get("/api/v1/join-us/read/all-data",controller.readJoinUsDataFromGoogleSh
 
 router.post("/api/v1/join-us/add/data", controller.addJoinUsDataInGoogleSheet)
 
+router.post(
+  "/api/v1/join-us/send-group-link",
+  controller.sendWhatsAppJoinEmail
+);
+
 module.exports = router;

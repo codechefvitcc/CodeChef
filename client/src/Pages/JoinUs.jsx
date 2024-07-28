@@ -6,6 +6,7 @@ import {
   addJoinUsData,
   areWeRecuriting,
   getAllJoinUsData,
+  sendWhatsAppGroupJoinLink,
 } from "../api/apiCall";
 import { ErrorBox } from "../Utility";
 import {
@@ -110,12 +111,14 @@ const JoinUs = () => {
       const data = {
         data: formData,
       };
+      const { vit_email, department } = formData;
       //console.log(data);
 
       const response = await addJoinUsData(data);
       //console.log(response);
       if (response.status === 200) {
         ToastMsg("Form filled Successfully!", "success");
+        await sendWhatsAppGroupJoinLink(vit_email, department);
         reset();
         fetchAllJoinUsData();
       } else {

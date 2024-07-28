@@ -69,7 +69,7 @@ const addContactUsEmailInGoogleSheet = (req, res) => {
 // ***************** Join us APIs Starts Here ************************************
 const addJoinUsDataInGoogleSheet = (req, res) => {
   const { data } = req.body;
-  console.log("What we got from frontend:", req.body);
+  //console.log("What we got from frontend:", req.body);
 
   fetch(joinUsGoogleSheetLink, {
     method: "POST",
@@ -106,10 +106,44 @@ const readJoinUsDataFromGoogleSheet = (req, res) => {
     });
 };
 
+const sendWhatsAppJoinEmail = (req, res) => {
+  const whatsAppGroupLinks = {
+    management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
+  };
+
+  const { userEmail, department } = req.body;
+
+  if (!userEmail) {
+    return res.status(400).json({ error: "Please Provide Email" });
+  }
+
+  if (!whatsAppGroupLinks[department]) {
+    return res.status(400).json({ error: "Invalid department" });
+  }
+
+  const mailOptions = {
+    from: "vitcseguide@gmail.com",
+    to: userEmail,
+    subject: "Sending Email For Joining our whatsapp group",
+    text: `WhatsApp Group Link:- ${whatsAppGroupLinks[department]}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log("error", error);
+      return res.status(400).json({ message: "email not sent" });
+    } else {
+      console.log("Email sent", info.response);
+      return res.status(200).json({ message: "email sent Successfully" });
+    }
+  });
+};
+
 // exporting the functions
 module.exports = {
   readContactUsGoogleSheet,
   addContactUsEmailInGoogleSheet,
   readJoinUsDataFromGoogleSheet,
   addJoinUsDataInGoogleSheet,
+  sendWhatsAppJoinEmail,
 };
