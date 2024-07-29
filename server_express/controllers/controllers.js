@@ -109,6 +109,8 @@ const readJoinUsDataFromGoogleSheet = (req, res) => {
 const sendWhatsAppJoinEmail = async (req, res) => {
   const whatsAppGroupLinks = {
     management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
+    social_media_and_content:
+      "https://chat.whatsapp.com/GsZjXZ85Z048Cow4gEmh1V",
   };
 
   const { vit_email, department, name } = req.body;
