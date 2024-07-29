@@ -222,10 +222,10 @@ const sendWhatsAppJoinEmail = async (req, res) => {
                 <div class="footer">
                     <p>Follow us on social media:</p>
                     <div class="social-media">
-                        <a href="#" target="_blank" class="social-icon">
+                        <a href="https://www.linkedin.com/company/codechef-vit-chennai-chapter/" target="_blank" class="social-icon">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
                         </a>
-                        <a href="#" target="_blank" class="social-icon">
+                        <a href="https://www.instagram.com/codechef.vitc/" target="_blank" class="social-icon">
                             <img src="https://res.cloudinary.com/dxu5hlgvd/image/upload/v1720083181/instagram_mqplcc.png" alt="Instagram">
                         </a>
                     </div>
