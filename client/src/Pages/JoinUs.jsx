@@ -111,7 +111,7 @@ const JoinUs = () => {
       const data = {
         data: formData,
       };
-      const { vit_email, department } = formData;
+      const { vit_email, department, name } = formData;
       console.log(vit_email, department);
 
       const response = await addJoinUsData(data);
