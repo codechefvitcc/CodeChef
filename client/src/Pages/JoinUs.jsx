@@ -112,18 +112,18 @@ const JoinUs = () => {
         data: formData,
       };
       const { vit_email, department, name } = formData;
-      console.log(vit_email, department);
+      //console.log(vit_email, department);
 
       const response = await addJoinUsData(data);
       //console.log(response);
       if (response.status === 200) {
         ToastMsg("Form filled Successfully!", "success");
-        const responseOfEmail = await sendWhatsAppGroupJoinLink({
+        /*const responseOfEmail = await sendWhatsAppGroupJoinLink({
           vit_email,
           department,
           name,
-        });
-        console.log(responseOfEmail);
+        });*/
+        //console.log(responseOfEmail);
         reset();
         fetchAllJoinUsData();
       } else {
