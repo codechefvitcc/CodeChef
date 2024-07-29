@@ -120,7 +120,9 @@ const sendWhatsAppJoinEmail = async (req, res) => {
   }
 
   if (!whatsAppGroupLinks[department]) {
-    return res.status(400).json({ error: "Invalid department" });
+    return res
+      .status(400)
+      .json({ error: "Invalid department", givenDept: department });
   }
 
   try {
