@@ -93,9 +93,17 @@ const Footer = () => {
           </div>
           <div className="col-sm-3 col-md-3 my-2">
             <div className="l_footer_col">
-              <p className="l_footer_head">Our Team</p>
+              <p className="l_footer_head">Our Club</p>
             </div>
             <div className="l_footer_list">
+              {/* <div className="l_footer_link">
+                <Link
+                  to="/about-us"
+                  className="footer_link"
+                >
+                  About Us
+                </Link>
+              </div> */}
               <div className="l_footer_link">
                 <Link
                   to="/our-teams"
