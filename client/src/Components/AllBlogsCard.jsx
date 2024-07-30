@@ -15,6 +15,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details, blogs }) {
     const cardStyle = {
       transition: 'box-shadow 0.25s ease-in-out',
       boxShadow: isHovered ? '0 4px 8px rgba(0, 0, 0, 0.2)' : '0 4px 12px rgba(207, 216, 220, 0.4)',
+      cursor: isHovered ? 'pointer' : 'default',
     };
 
     const shortAbout =
@@ -33,6 +34,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details, blogs }) {
         style={cardStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={handleReadMore}
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false }}
