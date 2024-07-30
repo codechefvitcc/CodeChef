@@ -162,6 +162,7 @@ const sendWhatsAppJoinEmail = async (req, res) => {
                     background-color: #ffffff;
                     padding: 20px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
                 }
                 .header {
                     text-align: center;
