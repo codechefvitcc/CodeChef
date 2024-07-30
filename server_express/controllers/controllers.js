@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "vitcseguide@gmail.com",
-    pass: "gvdt kqqs zzvr vfib",
+    pass: "eguq lcud nyfp zdmm",
   },
 });
 // *****************************************
@@ -106,6 +106,7 @@ const readJoinUsDataFromGoogleSheet = (req, res) => {
     });
 };
 
+// API to send email to join our whatsapp group
 const sendWhatsAppJoinEmail = async (req, res) => {
   const whatsAppGroupLinks = {
     management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
@@ -127,7 +128,7 @@ const sendWhatsAppJoinEmail = async (req, res) => {
 
   try {
     const mailOptions = {
-      from: "vitcseguide@gmail.com",
+      from: "codechef.vitcc@gmail.com",
       to: vit_email,
       subject: "Join Our WhatsApp Group",
       html: `
