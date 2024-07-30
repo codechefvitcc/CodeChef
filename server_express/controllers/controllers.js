@@ -109,13 +109,20 @@ const readJoinUsDataFromGoogleSheet = (req, res) => {
 // API to send email to join our whatsapp group
 const sendWhatsAppJoinEmail = async (req, res) => {
   const whatsAppGroupLinks = {
-    management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
-    design: "https://chat.whatsapp.com/EjAzaKldne438q2zmMMupx",
-    competitive_programming: "https://chat.whatsapp.com/E2woNYDyh7jKBTstOFdwNJ",
+    management:
+      "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
+    design:
+      "https://chat.whatsapp.com/EjAzaKldne438q2zmMMupx",
+    competitive_programming:
+      "https://chat.whatsapp.com/E2woNYDyh7jKBTstOFdwNJ",
     social_media_and_content:
       "https://chat.whatsapp.com/GsZjXZ85Z048Cow4gEmh1V",
-    marketing_and_outreach: "https://chat.whatsapp.com/Ed6WYSCEdmb9CMfG2KjiuW",
-    web_development: "https://chat.whatsapp.com/JoEeiaH559cIs2vtWjggud",
+    marketing_and_outreach:
+      "https://chat.whatsapp.com/Ed6WYSCEdmb9CMfG2KjiuW",
+    web_development:
+      "https://chat.whatsapp.com/JoEeiaH559cIs2vtWjggud",
+    finance:
+      "https://chat.whatsapp.com/JG3Ct1HieNEEUixCIivGhv",
   };
 
   const { vit_email, department, name } = req.body;
