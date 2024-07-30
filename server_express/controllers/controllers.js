@@ -7,7 +7,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "vitcseguide@gmail.com",
+    user: "codechef.vitcc@gmail.com",
     pass: "eguq lcud nyfp zdmm",
   },
 });
