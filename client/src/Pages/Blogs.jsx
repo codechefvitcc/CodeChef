@@ -40,6 +40,7 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) =
   const cardStyle = {
     transition: 'box-shadow 0.25s ease-in-out',
     boxShadow: isHovered ? '0 4px 8px rgba(0, 0, 0, 0.2)' : '0 4px 12px rgba(207, 216, 220, 0.4)',
+    cursor: isHovered ? 'pointer' : 'default',
   };
 
   const shortAbout =
@@ -59,7 +60,8 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) =
       className="bg-white p-[16px] rounded-[16px] grid grid-cols-2 gap-[30px] max-w-[800px]"
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)} 
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleReadMore}
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false }}
