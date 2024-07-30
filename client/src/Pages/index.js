@@ -11,4 +11,7 @@ import Batch24 from './Leads/Batch24';
 import Blogs from './Blogs';
 import BlogPage from './BlogPage';
 
-export { Home, Blogs, CookOff2024, DecodeDSA, BlogPage, Batch24 };
+// About us
+import AboutUs from './AboutUs';
+
+export { Home, Blogs, CookOff2024, DecodeDSA, BlogPage, Batch24, AboutUs };

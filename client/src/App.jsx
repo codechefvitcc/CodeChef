@@ -12,6 +12,7 @@ import {
   Home,
   BlogPage,
   Batch24,
+  AboutUs,
 } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
 
@@ -30,6 +31,7 @@ function App() {
         {/* <Route path="/events/Decode-DSA" element={<DecodeDSA />} /> */}
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/our-teams" element={<Batch24 />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
       <Footer />
     </Router>
