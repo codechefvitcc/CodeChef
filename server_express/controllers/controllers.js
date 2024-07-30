@@ -115,6 +115,7 @@ const sendWhatsAppJoinEmail = async (req, res) => {
     social_media_and_content:
       "https://chat.whatsapp.com/GsZjXZ85Z048Cow4gEmh1V",
     marketing_and_outreach: "https://chat.whatsapp.com/Ed6WYSCEdmb9CMfG2KjiuW",
+    web_development: "https://chat.whatsapp.com/JoEeiaH559cIs2vtWjggud",
   };
 
   const { vit_email, department, name } = req.body;
