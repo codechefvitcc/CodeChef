@@ -172,7 +172,7 @@ function Blogs() {
         </div>
 
         <div className="px-[40px] flex flex-col sm:gap-[20px]">
-          <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px]">Latest blog</h2>
+          <h2 className="text-[36px] font-bold capitalize text-gray-700 mb-[20px] text-center sm:text-left">Latest blog</h2>
 
           <div className="block sm:hidden rounded-[16px]" >
             {loading ? (
@@ -222,7 +222,7 @@ function Blogs() {
         </div>
 
         <div className="px-[30px] flex flex-col gap-[10px] sm:gap-[30px] mt-[30px]">
-          <h2 className="text-[36px] font-bold capitalize text-gray-700 md:ml-[10px] lg:ml-[90px] xl:ml-[150px]">All blogs</h2>
+          <h2 className="text-[40px] font-bold capitalize text-gray-700 text-center">All blogs</h2>
 
           <div className="flex flex-wrap justify-center gap-[20px] rounded-[16px]">
             {loading ? (
