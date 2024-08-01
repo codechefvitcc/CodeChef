@@ -20,7 +20,7 @@ function AllBlogsCard({ url, hashCode, title, date, about, details, blogs }) {
 
     const shortAbout =
       about.length > 180 ? `${about.substring(0, 180)}...` : about;
-    const shortTitle = title.length > 20 ? `${title.substring(0, 20)}...` : title;
+    const shortTitle = title.length > 24 ? `${title.substring(0, 24)}...` : title;
   
     const handleReadMore = () => {
       const formattedTitle = title.replace(/\s+/g, '-');
