@@ -191,11 +191,11 @@ const Navbar = () => {
                   Cook-Off 2024
                 </button>
               </Link>
-              <Link to="/events/Decode-DSA">
+              {/* <Link to="/events/Decode-DSA">
                 <button className=" focus:bg-[#2a67b11e] p-2 px-4 rounded">
                   Decode DSA
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="mx-2 block">
