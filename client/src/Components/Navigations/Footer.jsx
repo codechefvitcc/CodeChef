@@ -35,7 +35,12 @@ const Footer = () => {
   const handleBlogLink = (blog) => {
     const formattedTitle = blog.heading.replace(/\s+/g, '-');
     navigate(`/blogs/${formattedTitle}`, { state: { url: blog.imageUrl, hashCode: blog.imageHashCode, title: blog.heading, date: blog.date, about: blog.about, details: blog.blog[0].children[0].text, blogs: blogs } });
+    window.scrollTo(0, 0);
   };
+
+  const defaultScrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
   
   return (
     <>
@@ -50,6 +55,7 @@ const Footer = () => {
                 <Link
                   to="/events/Cook-Off-2024"
                   className="footer_link"
+                  onClick={defaultScrollToTop}
                 >
                   Cook-Off 2024
                 </Link>
@@ -108,6 +114,7 @@ const Footer = () => {
                 <Link
                   to="/our-teams"
                   className="footer_link"
+                  onClick={defaultScrollToTop}
                 >
                   View Team
                 </Link>
