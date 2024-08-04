@@ -102,14 +102,6 @@ const Footer = () => {
               <p className="l_footer_head">Our Club</p>
             </div>
             <div className="l_footer_list">
-              {/* <div className="l_footer_link">
-                <Link
-                  to="/about-us"
-                  className="footer_link"
-                >
-                  About Us
-                </Link>
-              </div> */}
               <div className="l_footer_link">
                 <Link
                   to="/our-teams"
