@@ -45,7 +45,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="row l-footer px-[2px] sm:px-[20px] md:px-[40px] lg:px-[56px]">
+        <div className="row l-footer px-[2px] sm:px-[20px] md:px-[40px] lg:px-[56px] grid grid-cols-2 sm:flex">
           <div className="col-sm-3 col-md-3 my-2">
             <div className="l_footer_col">
               <p className="l_footer_head">Events</p>
