@@ -158,7 +158,7 @@ const Hero = () => {
               <div className="single-box flex items-center justify-center gap-4">
                 <a
                   href="https://www.linkedin.com/company/codechef-vit-chennai-chapter/"
-                  className="connection-link no-underline"
+                  className="connection-link no-underline hover:shadow-md transition-shadow duration-150 delay-100"
                   target="_blank"
                 >
                   <button className="flex items-center space-x-2 bg-white border border-[#131313] rounded-md text-black font-normal text-sm p-2">
@@ -173,7 +173,7 @@ const Hero = () => {
                 </a>
                 <a
                   href="https://www.instagram.com/codechef.vitc?igsh=MXBiZzE4cTh0a2s5Yw=="
-                  className="connection-link no-underline"
+                  className="connection-link no-underline hover:shadow-md transition-shadow duration-150 delay-100"
                   target="_blank"
                 >
                   <button className="flex items-center space-x-2 bg-white border border-[#131313] rounded-md text-black font-normal text-sm p-2">

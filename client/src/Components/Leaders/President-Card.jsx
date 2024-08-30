@@ -27,8 +27,8 @@ function PresidentCard({ name, url, hashCode, year, vision, mail, linkedin }) {
           className="h-[110px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
             w-[110px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
             rounded-full"
-          blurWidth={"auto"}
-          blurHeight={"auto"}
+          blurWidth={"150px"}
+          blurHeight={"100px"}
         />
 
         <div className="mt-[15px] flex flex-col items-center gap-[5px] uppercase">
@@ -90,7 +90,8 @@ function PresidentCard({ name, url, hashCode, year, vision, mail, linkedin }) {
                         border border-[#131313] 
                         bg-white 
                         rounded-full cursor-pointer
-                        rounded-3xl"
+                        rounded-3xl
+                        hover:shadow-md transition-shadow duration-150 delay-100"
               onClick={() => window.open(`mailto:${mail}`, "_blank")}
             >
               <MdEmail size={20} color="#062c68" />
@@ -101,7 +102,8 @@ function PresidentCard({ name, url, hashCode, year, vision, mail, linkedin }) {
               className="flex items-center justify-around space-x-2 bg-white border border-[#131313] rounded-3xl text-black font-normal p-2 
               text-[13px] xl:text-sm lg:text-sm md:text-xs 
               h-[20px] xl:h-[40px] lg:h-[30px] md:h-[20px] sm:h-[40px] h-[25px] 
-              lg:w-[100px] md:w-[50px] sm:w-[100px] w-[90px]"
+              lg:w-[100px] md:w-[50px] sm:w-[100px] w-[90px]
+              hover:shadow-md transition-shadow duration-150 delay-10"
               onClick={() => window.open(linkedin, "_blank")}
             >
               <img

@@ -106,14 +106,6 @@ function Faculty() {
         </div>
         {/* faculty image */}
         <div className="w-1/2 flex justify-center items-center p-4 sm:p-8">
-          {/* <img
-            className="
-              h-[100px] xl:h-[150px] lg:h-[100px] md:h-[80px] sm:h-[130px]
-              w-[100px] xl:w-[150px] lg:w-[100px] md:w-[80px] sm:w-[130px]
-              rounded-full border border-black-400"
-            src={faculty}
-            alt="Group"
-          /> */}
           <ImageLoaderComponent
             url={FacultyImage.url}
             hashCode={FacultyImage.hashCode}
