@@ -13,6 +13,7 @@ import {
   BlogPage,
   Batch24,
   AboutUs,
+  Error404
 } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
 
@@ -25,6 +26,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/*" element={<Error404 />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogPage />} />
         <Route path="/events/Cook-Off-2024" element={<CookOff2024 />} />
