@@ -27,6 +27,15 @@ import cookOffImg7 from "../assets/Events/CookOff2024/img7.JPG";
 import { faculty } from "../assets/leaders";
 // **************************************************
 
+// Error 404 page image import ********************
+import Error404Img1  from "../assets/Error404/errorImage1.png";
+import Error404Img2  from "../assets/Error404/errorImage2.png";
+import Error404Img3  from "../assets/Error404/errorImage3.png";
+import Error404Img4  from "../assets/Error404/errorImage4.png";
+import error404bg from '../assets/Error404/error404bg.png';
+// **************************************************
+
+
 // import other images here and export accordingly
 
 // exporting Home Page Gallery Images
@@ -60,3 +69,13 @@ export const FacultyImage = {
   url: faculty,
   hashCode: 'LnQu$zVt_4s:Pqoy%gbb$xjbMdae',
 }
+
+//exporting Error404 images
+export const Error404bg=error404bg;
+export const Error404Images = [
+  { url: Error404Img1, hashCode: "LVG^YOX80=xBpyjbNHWX,ljY#jW?" },
+  { url: Error404Img2, hashCode: "LSH3?$n#18s.uPj]WBR+,+S5,Aj?" },
+  { url: Error404Img3, hashCode: "LZFtmTtQA0s,7jafoIjYMeRk#jS5" },
+  { url: Error404Img4, hashCode: "LNJlaOxt0=t6.mWFNIaxZzM}v}s," },
+];
+
