@@ -126,6 +126,8 @@ const Hero = () => {
             friendships and create cherished memories.
           </p>
 
+          <div className="hidden">Easter Egg!😉 kjndkjndk2343HJHBJ43465kjkbkdjcds</div>
+
           {/* Join club input */}
           <div className="main-input flex justify-center md:justify-start items-center mt-2">
             <input
