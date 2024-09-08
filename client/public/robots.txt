@@ -1,1 +1,4 @@
-{jqsjd235rnrj3445hy9genknfncklKk2124123}
+User-agent: *
+Disallow: 
+
+Sitemap: https://codechefvitcc.vercel.app/robots.txt
