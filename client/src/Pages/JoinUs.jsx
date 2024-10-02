@@ -107,34 +107,38 @@ const JoinUs = () => {
   };
   const handleFormSubmit = async (formData) => {
     setFormFillLoading(true);
-    try {
-      const data = {
-        data: formData,
-      };
-      const { vit_email, department, name } = formData;
-      //console.log(vit_email, department);
+    if (recruiting == "No") {
+      return;
+    } else {
+      try {
+        const data = {
+          data: formData,
+        };
+        const { vit_email, department, name } = formData;
+        //console.log(vit_email, department);
 
-      const response = await addJoinUsData(data);
-      //console.log(response);
-      if (response.status === 200) {
-        ToastMsg("Form filled Successfully!", "success");
-        const responseOfEmail = await sendWhatsAppGroupJoinLink({
-          vit_email,
-          department,
-          name,
-        });
-        //console.log(responseOfEmail);
-        reset();
-        fetchAllJoinUsData();
-      } else {
-        ToastMsg("Failed to add data", "error");
+        const response = await addJoinUsData(data);
+        //console.log(response);
+        if (response.status === 200) {
+          ToastMsg("Form filled Successfully!", "success");
+          const responseOfEmail = await sendWhatsAppGroupJoinLink({
+            vit_email,
+            department,
+            name,
+          });
+          //console.log(responseOfEmail);
+          reset();
+          fetchAllJoinUsData();
+        } else {
+          ToastMsg("Failed to add data", "error");
+        }
+      } catch (error) {
+        //console.error("Error adding data:", error);
+        ToastMsg(
+          "An error occurred while filling the form. Please try later.",
+          "error"
+        );
       }
-    } catch (error) {
-      //console.error("Error adding data:", error);
-      ToastMsg(
-        "An error occurred while filling the form. Please try later.",
-        "error"
-      );
     }
     setFormFillLoading(false);
   };
