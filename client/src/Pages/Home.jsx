@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import ReactGA from "react-ga4";
 import { DeptDisplay, Hero, IntroVideo, Leaders } from "../Components";
+import Alumni from "../Components/HomeComponents/Alumni";
 
 const Home = () => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const Home = () => {
       {/* <Gallery /> */}
       <IntroVideo />
       <Leaders />
+      <Alumni />
     </>
   );
 };

@@ -15,6 +15,7 @@ import MarketingOutreach from "./JoinUs/MarketingOutreach";
 import Finance from "./JoinUs/Finance";
 import CompetitiveProgramming from "./JoinUs/CompetitiveProgramming";
 import Design from "./JoinUs/Design";
+import Alumni from "./HomeComponents/Alumni";
 
 export {
   Footer,
@@ -32,4 +33,5 @@ export {
   Finance,
   CompetitiveProgramming,
   Design,
+  Alumni,
 };

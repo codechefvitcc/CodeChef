@@ -3,17 +3,16 @@ Got to "https://blurha.sh/" inorder to generate "hashCode" for any image you wan
 *************************************************** */
 
 // Home Page Gallery Images ************************
-import image1 from '../assets/HomeGalley/image1.jpg';
-import image2 from '../assets/HomeGalley/image2.jpg';
-import image3 from '../assets/HomeGalley/image3.jpg';
-import image4 from '../assets/HomeGalley/image4.jpg';
-import image5 from '../assets/HomeGalley/image5.jpg';
-import image6 from '../assets/HomeGalley/image6.jpg';
+import image1 from "../assets/HomeGalley/image1.jpg";
+import image2 from "../assets/HomeGalley/image2.jpg";
+import image3 from "../assets/HomeGalley/image3.jpg";
+import image4 from "../assets/HomeGalley/image4.jpg";
+import image5 from "../assets/HomeGalley/image5.jpg";
+import image6 from "../assets/HomeGalley/image6.jpg";
 // **************************************************
 
-
 // Cookoff2024 image import ********************
-import CookOff2024Main from '../assets/Events/CookOff2024/Cookoff2024main.png';
+import CookOff2024Main from "../assets/Events/CookOff2024/Cookoff2024main.png";
 import cookOffImg1 from "../assets/Events/CookOff2024/img1.JPG";
 import cookOffImg2 from "../assets/Events/CookOff2024/img2.JPG";
 import cookOffImg3 from "../assets/Events/CookOff2024/img3.JPG";
@@ -28,13 +27,29 @@ import { faculty } from "../assets/leaders";
 // **************************************************
 
 // Error 404 page image import ********************
-import Error404Img1  from "../assets/Error404/errorImage1.png";
-import Error404Img2  from "../assets/Error404/errorImage2.png";
-import Error404Img3  from "../assets/Error404/errorImage3.png";
-import Error404Img4  from "../assets/Error404/errorImage4.png";
-import error404bg from '../assets/Error404/error404bg.png';
+import Error404Img1 from "../assets/Error404/errorImage1.png";
+import Error404Img2 from "../assets/Error404/errorImage2.png";
+import Error404Img3 from "../assets/Error404/errorImage3.png";
+import Error404Img4 from "../assets/Error404/errorImage4.png";
+import error404bg from "../assets/Error404/error404bg.png";
 // **************************************************
 
+// CompanyLogo images import **************************
+import google from "../assets/CompanyLogo/google.png";
+import jpmorgan from "../assets/CompanyLogo/jpmorgan.png";
+import futurefirst from "../assets/CompanyLogo/futurefirst.png";
+import nutanix from "../assets/CompanyLogo/nutanix.png";
+import ubs from "../assets/CompanyLogo/ubs.png";
+// ************************************
+
+//Exporting CompanyLogo images
+export const CompanyLogoImages = [
+  { url: google, hashCode: "LLO3trS+EV7PtRNNNKj=*Ji^r:vf" },
+  { url: futurefirst, hashCode: "LDNc?1Y+-DK5tRxuRkt7*J9[E0wc" },
+  { url: jpmorgan, hashCode: "LONmvToLtRozofRjj]t7_NRjRPad" },
+  { url: nutanix, hashCode: "LaNAn{RnoxR-t8j[j[jt~pt5V[t5" },
+  { url: ubs, hashCode: "LLOMa21GENn+%2ozkCWB*J#-acaK" },
+];
 
 // import other images here and export accordingly
 
@@ -62,20 +77,19 @@ export const CookOff2024GalleryImages = [
 // exporting Cookoff2024 main image
 export const CookOff2024MainImage = {
   url: CookOff2024Main,
-  hashCode: 'LBIgv94n2,tSg400tSXU2WI9{+Sh',
+  hashCode: "LBIgv94n2,tSg400tSXU2WI9{+Sh",
 };
 
 export const FacultyImage = {
   url: faculty,
-  hashCode: 'LnQu$zVt_4s:Pqoy%gbb$xjbMdae',
-}
+  hashCode: "LnQu$zVt_4s:Pqoy%gbb$xjbMdae",
+};
 
 //exporting Error404 images
-export const Error404bg=error404bg;
+export const Error404bg = error404bg;
 export const Error404Images = [
   { url: Error404Img1, hashCode: "LVG^YOX80=xBpyjbNHWX,ljY#jW?" },
   { url: Error404Img2, hashCode: "LSH3?$n#18s.uPj]WBR+,+S5,Aj?" },
   { url: Error404Img3, hashCode: "LZFtmTtQA0s,7jafoIjYMeRk#jS5" },
   { url: Error404Img4, hashCode: "LNJlaOxt0=t6.mWFNIaxZzM}v}s," },
 ];
-
