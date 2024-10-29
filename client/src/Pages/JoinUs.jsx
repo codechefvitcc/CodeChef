@@ -152,15 +152,8 @@ const JoinUs = () => {
   }, [regNo, setValue]);
   return (
     <>
-      <div className="relative joinarea flex justify-center items-center pt-[80px] sm:pt-[50px] pb-[50px]">
-      <div 
-      className={`absolute flex justify-center items-center z-[10]
-      w-full h-full inset-0 backdrop-blur-md bg-white/30 ${recruiting==="No"?"visible":"hidden"}`}>
-      <div className="closed-thing w-[90%] text-xl font-semibold alert alert-info">
-            <h3>Sorry recruitments are currently closed :(</h3>
-            <p>Follow our social media to get updates regarding recruitments</p>
-          </div>
-      </div>
+      <div className="joinarea flex justify-center items-center pt-[80px] sm:pt-[50px] pb-[50px]">
+      
         {loading ? (
           <div className="flex justify-center items-center">
             <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
@@ -170,7 +163,16 @@ const JoinUs = () => {
             <ErrorBox />
           </div>
         ) :   (
-          <div className="box">
+          <div className="box relative">
+          <div 
+      className={`absolute flex justify-center items-center z-[10]
+      w-full h-full inset-0 backdrop-blur-md bg-white/30 ${recruiting==="No"?"visible":"hidden"}`}>
+      <div className="closed-thing w-[90%] text-xl font-semibold alert alert-info
+      shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <h3>Sorry recruitments are currently closed :(</h3>
+            <p>Follow our social media to get updates regarding recruitments</p>
+          </div>
+      </div>
             <div>
               <h2 className="text-gray-700 outline-none block text-[40px] xl:text-[44px] font-bold mx-auto mb-3 w-full text-center">
                 Recruitment Form
