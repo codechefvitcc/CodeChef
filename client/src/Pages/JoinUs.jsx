@@ -164,6 +164,7 @@ const JoinUs = () => {
           </div>
         ) :   (
           <div className="box relative">
+          {/* Testing */}
           <div 
       className={`absolute flex justify-center items-center z-[10]
       w-full h-full inset-0 backdrop-blur-md bg-white/30 ${recruiting==="No"?"visible":"hidden"}`}>
