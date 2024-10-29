@@ -107,8 +107,8 @@ const JoinUs = () => {
   };
   const handleFormSubmit = async (formData) => {
     setFormFillLoading(true);
-    if (recruiting == "No") {
-      return;
+    if (recruiting === "No") {
+      return console.error("Sorry recruitments are currently closed :(");
     } else {
       try {
         const data = {
@@ -150,10 +150,17 @@ const JoinUs = () => {
   useEffect(() => {
     setValue("reg_no", regNo?.toUpperCase());
   }, [regNo, setValue]);
-
   return (
     <>
-      <div className="joinarea flex justify-center items-center pt-[80px] sm:pt-[50px] pb-[50px]">
+      <div className="relative joinarea flex justify-center items-center pt-[80px] sm:pt-[50px] pb-[50px]">
+      <div 
+      className={`absolute flex justify-center items-center z-[10]
+      w-full h-full inset-0 backdrop-blur-md bg-white/30 ${recruiting==="No"?"visible":"hidden"}`}>
+      <div className="closed-thing w-[90%] text-xl font-semibold alert alert-info">
+            <h3>Sorry recruitments are currently closed :(</h3>
+            <p>Follow our social media to get updates regarding recruitments</p>
+          </div>
+      </div>
         {loading ? (
           <div className="flex justify-center items-center">
             <FaSpinner className="spinner text-center text-xl sm:text-3xl" />
@@ -162,12 +169,7 @@ const JoinUs = () => {
           <div className="flex">
             <ErrorBox />
           </div>
-        ) : recruiting == "No" ? (
-          <div className="closed-thing text-xl font-semibold alert alert-info">
-            <h3>Sorry recruitments are currently closed :(</h3>
-            <p>Follow our social media to get updates regarding recruitments</p>
-          </div>
-        ) : (
+        ) :   (
           <div className="box">
             <div>
               <h2 className="text-gray-700 outline-none block text-[40px] xl:text-[44px] font-bold mx-auto mb-3 w-full text-center">
@@ -198,6 +200,7 @@ const JoinUs = () => {
                         errors.name ? "border-red-500" : ""
                       }`}
                       name="Name"
+                      disabled={recruiting==="Yes"?false:true}
                       type="text"
                       id="name"
                       placeholder="Name eg: Vishal Kumar Yadav"
@@ -229,6 +232,7 @@ const JoinUs = () => {
                         errors.reg_no ? "border-red-500" : ""
                       }`}
                       name="Registration No"
+                      disabled={recruiting==="Yes"?false:true}
                       type="text"
                       id="reg_no"
                       placeholder="Registration No. eg: 21BCE1846"
@@ -260,6 +264,7 @@ const JoinUs = () => {
                         errors.vit_email ? "border-red-500" : ""
                       }`}
                       name="VIT Email"
+                      disabled={recruiting==="Yes"?false:true}
                       type="email"
                       id="vit_email"
                       placeholder="Email eg: shashank.sharma2022@vitstudent.ac.in"
@@ -292,6 +297,7 @@ const JoinUs = () => {
                         errors.phone_no ? "border-red-500" : ""
                       }`}
                       name="Phone No"
+                      disabled={recruiting==="Yes"?false:true}
                       type="tel"
                       id="phone_no"
                       placeholder="Phone number eg: 8072XXXXXX"
@@ -323,6 +329,7 @@ const JoinUs = () => {
                         errors.degree ? "border-red-500" : ""
                       }`}
                       name="Degree"
+                      disabled={recruiting==="Yes"?false:true}
                       type="text"
                       id="degree"
                       placeholder="Degree eg: B.Tech, B.SC, M.Tech etc"
@@ -354,6 +361,7 @@ const JoinUs = () => {
                         errors.branch ? "border-red-500" : ""
                       }`}
                       name="Branch"
+                      disabled={recruiting==="Yes"?false:true}
                       type="text"
                       id="branch"
                       placeholder="Branch eg: CSE"
@@ -386,6 +394,7 @@ const JoinUs = () => {
                       }`}
                       name="Department"
                       id="department"
+                      disabled={recruiting==="Yes"?false:true}
                       {...register("department", {
                         required: "Department is required",
                       })}
@@ -474,6 +483,7 @@ const JoinUs = () => {
                     </label>
                     <textarea
                       className="form-control"
+                      disabled={recruiting==="Yes"?false:true}
                       placeholder="Describe your experience in the department you wish to join and provide links to your work."
                       name="Relevant Experience"
                       id="experience"
@@ -499,6 +509,7 @@ const JoinUs = () => {
                     </label>
                     <textarea
                       className="form-control"
+                      disabled={recruiting==="Yes"?false:true}
                       placeholder="Write some reason for applying for this club"
                       name="Why Join This Club"
                       id="whyJoin"
@@ -518,6 +529,7 @@ const JoinUs = () => {
                   name="Submit"
                   type="submit"
                   onClick={handleSubmit}
+                  disabled={recruiting==="Yes"?false:true}
                   className={`btnSubmit btn-primary ${
                     formFillLoading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
