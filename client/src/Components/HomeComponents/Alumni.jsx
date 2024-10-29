@@ -21,7 +21,6 @@ function Alumni() {
             {/* Mapping CompanyLogoImages to Slider.Slide */}
             {CompanyLogoImages?.map((element, index) => (
               <Slider.Slide key={index}>
-                {/* testing */}
                 <ImageLoaderComponent
                   url={element.url}
                   hashCode={element.hashCode || "LLO3trS+EV7PtRNNNKj=*Ji^r:vf"}
