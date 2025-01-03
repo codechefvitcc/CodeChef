@@ -21,7 +21,7 @@ const contactUsGoogleSheetLink =
   "https://sheet.best/api/sheets/d62f5c63-d82b-4188-9e19-b8711709ef35";
 
 const joinUsGoogleSheetLink =
-  "https://sheet.best/api/sheets/4a530dd9-cd9b-45e7-b01c-1165bb1e747a";
+  "https://api.sheetbest.com/sheets/be02efdc-b4db-4d82-91a8-45243ccb83a5";
 
 // ***************** Contact us APIs Start Here ***********************************
 // reading all the emails from the Contact Us Google Sheet
@@ -112,17 +112,19 @@ const sendWhatsAppJoinEmail = async (req, res) => {
     management:
       "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
     design:
-      "https://chat.whatsapp.com/EjAzaKldne438q2zmMMupx",
+      "https://chat.whatsapp.com/BnwJJghc5khFwTHJZYRzuz",
     competitive_programming:
       "https://chat.whatsapp.com/E2woNYDyh7jKBTstOFdwNJ",
     social_media_and_content:
-      "https://chat.whatsapp.com/GsZjXZ85Z048Cow4gEmh1V",
+      "https://chat.whatsapp.com/Lc8A1ORlw6iBtfZJBFsVSN",
     marketing_and_outreach:
-      "https://chat.whatsapp.com/Ed6WYSCEdmb9CMfG2KjiuW",
+      "https://chat.whatsapp.com/Hmg8fTV4Cta8iwOOTRm14C",
     web_development:
-      "https://chat.whatsapp.com/JoEeiaH559cIs2vtWjggud",
+      "https://chat.whatsapp.com/DAPi9yWLvlj8tD0LJpGUhV",
     finance:
       "https://chat.whatsapp.com/JG3Ct1HieNEEUixCIivGhv",
+    projects:
+      "https://chat.whatsapp.com/DsKkYsXdBM76rpdWq1FwUg"
   };
 
   const { vit_email, department, name } = req.body;
