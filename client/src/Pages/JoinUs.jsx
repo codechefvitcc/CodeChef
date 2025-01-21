@@ -412,7 +412,7 @@
                         <option value="web_development">Web Development</option>
                         <option value="design">Design</option>
                         <option value="marketing_and_outreach">
-                          Outreach & Sponsorship
+                          Marketing & Sponsorship
                         </option>
                         {/* <option value="management">Event Management</option> */}
                         {/* <option value="finance">Finance</option> */}
