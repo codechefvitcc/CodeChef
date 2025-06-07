@@ -11,6 +11,7 @@
   "author": "Vishal Kumar Yadav",
   "license": "ISC",
   "dependencies": {
+    "@sanity/client": "^7.5.0",
     "axios": "^1.7.2",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
