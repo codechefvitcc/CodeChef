@@ -17,6 +17,19 @@ export const getAllTestimonials = async () => {
   }
 };
 
+//Get All Open Departments for Recruitments
+export const getAllOpenDepartments = async () => {
+  const query =
+    '*[_type == "recruitmentSheetLinks"] | order(_createdAt desc)[0]{whatsAppGroupLinks}';
+  try {
+    const response = await client.fetch(query);
+    return response;
+  } catch (error) {
+    console.log("Error fetching open departments: ", error);
+    return { error: "Failed to fetch open departments" };
+  }
+};
+
 // Getting All Departments from sanity backend
 export const getAllDepartments = async () => {
   const query = '*[_type == "departments"]';
@@ -117,7 +130,6 @@ export const addContactUsEmail = async (data) => {
     data
   );
 };
-
 
 // ****************************** Join Us Handling ****************************
 
