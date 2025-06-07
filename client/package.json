@@ -20,6 +20,7 @@
     "blurhash": "^2.0.5",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.2.10",
+    "lucide-react": "^0.513.0",
     "mdb-react-ui-kit": "^8.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

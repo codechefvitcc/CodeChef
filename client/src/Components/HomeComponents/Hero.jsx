@@ -138,9 +138,8 @@ const Hero = () => {
             />
             <button
               onClick={handleAddEmail}
-              className={`btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5] ${
-                emailLoading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`btn primary-button bg-[#4079da] border border-[#d2d9e7] text-white font-normal w-[10rem] text-xs text-center sm:w-[14rem] text-l lg:text-xl leading-[23px] p-2 lg:py-4 max-w-[200px] rounded-r-md hover:bg-[#2e5aa5] ${emailLoading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
             >
               Contact Us
               {emailLoading === true ? (
@@ -195,9 +194,8 @@ const Hero = () => {
 
         {/* Testimonial carousel */}
         <div
-          className={`w-full sm:w-1/2 h-fit ${
-            error ? "flex justify-center items-center" : ""
-          } `}
+          className={`w-full sm:w-1/2 h-fit ${error ? "flex justify-center items-center" : ""
+            } `}
         >
           {loading ? (
             <div className="flex justify-center items-center">

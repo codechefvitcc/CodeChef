@@ -16,6 +16,8 @@ import {
   Error404
 } from "./Pages";
 import JoinUs from "./Pages/JoinUs";
+import Events from "./Pages/Events";
+import EventPage from "./Pages/EventPage";
 
 ReactGA.initialize("G-KNNN0M8KPB");
 
@@ -29,7 +31,8 @@ function App() {
         <Route path="/*" element={<Error404 />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogPage />} />
-        <Route path="/events/Cook-Off-2024" element={<CookOff2024 />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/events/:id" element={<EventPage />} />
         {/* <Route path="/events/Decode-DSA" element={<DecodeDSA />} /> */}
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/our-teams" element={<Batch24 />} />

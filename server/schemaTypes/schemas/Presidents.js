@@ -1,12 +1,12 @@
-export default{
-    name : 'presidentTestimonials',
-    title : 'Presidents',
-    type : 'document',
+export default {
+    name: 'presidentTestimonials',
+    title: 'Presidents',
+    type: 'document',
     fields: [
         {
-            name : 'name',
-            title : 'Name',
-            type : 'string'
+            name: 'name',
+            title: 'Name',
+            type: 'string'
         },
         {
             name: 'imageUrl',
@@ -24,9 +24,9 @@ export default{
             type: "string",
         },
         {
-            name : 'linkedin',
-            title : 'LinkedIn',
-            type : 'url'
+            name: 'linkedin',
+            title: 'LinkedIn',
+            type: 'url'
         },
         {
             name: "year",
@@ -34,9 +34,9 @@ export default{
             type: "string"
         },
         {
-            name : 'testimonial',
-            title : 'Testimonial',
-            type : 'string'
+            name: 'testimonial',
+            title: 'Testimonial',
+            type: 'string'
         }
     ]
 }
