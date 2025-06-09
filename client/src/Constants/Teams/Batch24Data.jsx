@@ -59,14 +59,14 @@ export const Team24 = {
       'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719134137/IMG-20240618-WA0005_-_Amanraj_mourya_ydpdvk.jpg',
     hash: 'L4B3+z_MCI?@00-n%4pc_Kyr-pwZ',
   },
-  'Outreach & Sponsorship1': {
+  'Marketing & Sponsorship1': {
     name: 'Dinesh R',
     linkedIn: 'https://www.linkedin.com/in/dinesh-r-447b88277/',
     image:
       'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719147991/1704982128458_-_Dinesh_R_22BCE1125_ertgti.jpg',
     hash: 'L78N;7MclVkU%gt6OXoz-PcFxCXn',
   },
-  'Outreach & Sponsorship2': {
+  'Marketing & Sponsorship2': {
     name: 'G Achuth',
     linkedIn:
       'https://www.linkedin.com/in/achuth-g-69104a251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
