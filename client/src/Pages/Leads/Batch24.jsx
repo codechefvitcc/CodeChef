@@ -266,16 +266,16 @@ function Batch24() {
             </h3>
             <div className="flex">
               <LeadCard
-                name={Team24["Outreach & Sponsorship1"].name}
-                image={Team24["Outreach & Sponsorship1"].image}
-                hashCode={Team24["Outreach & Sponsorship1"].hash}
-                link={Team24["Outreach & Sponsorship1"].linkedIn}
+                name={Team24["Marketing & Sponsorship1"].name}
+                image={Team24["Marketing & Sponsorship1"].image}
+                hashCode={Team24["Marketing & Sponsorship1"].hash}
+                link={Team24["Marketing & Sponsorship1"].linkedIn}
               />
               <LeadCard
-                name={Team24["Outreach & Sponsorship2"].name}
-                image={Team24["Outreach & Sponsorship2"].image}
-                hashCode={Team24["Outreach & Sponsorship2"].hash}
-                link={Team24["Outreach & Sponsorship2"].linkedIn}
+                name={Team24["Marketing & Sponsorship2"].name}
+                image={Team24["Marketing & Sponsorship2"].image}
+                hashCode={Team24["Marketing & Sponsorship2"].hash}
+                link={Team24["Marketing & Sponsorship2"].linkedIn}
               />
             </div>
           </div>
@@ -523,10 +523,10 @@ function Batch24() {
             </h3>
             <div className="flex">
               <LeadCard
-                name={Team23["Outreach & Sponsorship1"].name}
-                image={Team23["Outreach & Sponsorship1"].image}
-                hashCode={Team23["Outreach & Sponsorship1"].hash}
-                link={Team23["Outreach & Sponsorship1"].linkedIn}
+                name={Team23["Marketing & Sponsorship1"].name}
+                image={Team23["Marketing & Sponsorship1"].image}
+                hashCode={Team23["Marketing & Sponsorship1"].hash}
+                link={Team23["Marketing & Sponsorship1"].linkedIn}
               />
             </div>
           </div>
@@ -799,28 +799,28 @@ function Batch24() {
                 </div>
               )}
 
-              {/* Outreach & Sponsorship */}
-              {(team25["Outreach & Sponsorship"] ||
-                team25["Outreach & Sponsorship1"]) && (
+              {/* Marketing & Sponsorship */}
+              {(team25["Marketing & Sponsorship"] ||
+                team25["Marketing & Sponsorship1"]) && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Marketing & Sponsorship
                   </h3>
                   <div className="flex">
-                    {team25["Outreach & Sponsorship"] && (
+                    {team25["Marketing & Sponsorship"] && (
                       <LeadCard
-                        name={team25["Outreach & Sponsorship"].name}
-                        image={team25["Outreach & Sponsorship"].image}
-                        hashCode={team25["Outreach & Sponsorship"].hash}
-                        link={team25["Outreach & Sponsorship"].linkedIn}
+                        name={team25["Marketing & Sponsorship"].name}
+                        image={team25["Marketing & Sponsorship"].image}
+                        hashCode={team25["Marketing & Sponsorship"].hash}
+                        link={team25["Marketing & Sponsorship"].linkedIn}
                       />
                     )}
-                    {team25["Outreach & Sponsorship1"] && (
+                    {team25["Marketing & Sponsorship1"] && (
                       <LeadCard
-                        name={team25["Outreach & Sponsorship1"].name}
-                        image={team25["Outreach & Sponsorship1"].image}
-                        hashCode={team25["Outreach & Sponsorship1"].hash}
-                        link={team25["Outreach & Sponsorship1"].linkedIn}
+                        name={team25["Marketing & Sponsorship1"].name}
+                        image={team25["Marketing & Sponsorship1"].image}
+                        hashCode={team25["Marketing & Sponsorship1"].hash}
+                        link={team25["Marketing & Sponsorship1"].linkedIn}
                       />
                     )}
                   </div>

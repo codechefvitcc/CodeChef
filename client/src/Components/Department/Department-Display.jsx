@@ -58,7 +58,7 @@ function DeptDisplay() {
     },
 
     {
-      name: "Finance and Outreach",
+      name: "Finance",
       icon: FaHandshake,
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorum cupiditate nam omnis eius, alias id qui eaque molestias harum in aut neque. Minima quae voluptas rerum harum qui similique!",
