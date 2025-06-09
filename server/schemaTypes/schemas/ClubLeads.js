@@ -55,7 +55,7 @@ export default {
           {title: 'Event Management', value: 'Event Management'},
           {title: 'Finance', value: 'Finance'},
           {title: 'Design', value: 'Design'},
-          {title: 'Outreach & Sponsorship', value: 'Outreach & Sponsorship'},
+          {title: 'Marketing & Sponsorship', value: 'Marketing & Sponsorship'},
           {title: 'Social Media & Content', value: 'Social Media & Content'}
         ]
       }
