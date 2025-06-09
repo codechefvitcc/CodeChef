@@ -20,9 +20,9 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: '2023-24', value: '2023'},
-          {title: '2024-25', value: '2024'},
-          {title: '2025-26', value: '2025'}
+          {title: '2023', value: '2023'},
+          {title: '2024', value: '2024'},
+          {title: '2025', value: '2025'}
         ]
       }
     },
