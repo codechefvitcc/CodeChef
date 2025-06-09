@@ -14,19 +14,60 @@ const transporter = nodemailer.createTransport({
 // *****************************************
 
 // ************* Docs to work with Google Sheet Integration ******************
+
+// ************** Sanity Integration to Get the Latest Google Sheets ***********
+
+const sanityClient = require("@sanity/client");
+
+const client = sanityClient.createClient({
+  projectId: "2e6x5erf",
+  dataset: "production",
+  apiVersion: "2022-02-01",
+  useCdn: true,
+  token:
+    "skiwXyd1N4dGbQr3p1GK1d6eENBeWgFLX6DjppkobW3bX8npVtgjnFNKhNbYlydDH3U8EKUxHBRoiU9ROcf8fxzf0XHgZLyCMrHTz6HEAfwmigvqPxnZvTtLlOCFIW5YIiGydFRrsdbPa58XedlykSoRNN35sQEOq1vhC3NbyibJRdvVV1nR",
+});
+
+async function getSheetLinks() {
+  const query = `*[_type == "recruitmentSheetLinks"] | order(_createdAt desc)[0]`;
+
+  try {
+    const result = await client.fetch(query);
+    return result; // { joinUsSheetBest: "...", contactUsSheetBest: "..." }
+  } catch (error) {
+    console.error("Sanity fetch failed:", error);
+    return null;
+  }
+}
+
 // https://docs.sheet.best/#generating-your-rest-api
 // ***************************************************************************
 
-const contactUsGoogleSheetLink =
-  "https://sheet.best/api/sheets/d62f5c63-d82b-4188-9e19-b8711709ef35";
+// const contactUsGoogleSheetLink =
+//   "https://sheet.best/api/sheets/d62f5c63-d82b-4188-9e19-b8711709ef35";
 
-const joinUsGoogleSheetLink =
-  "https://api.sheetbest.com/sheets/be02efdc-b4db-4d82-91a8-45243ccb83a5";
+// const contactUsGoogleSheetLink =
+//   "https://api.sheetbest.com/sheets/286a43cd-cc9b-46ea-88a2-66b8c5fa6b11";
+
+// const joinUsGoogleSheetLink =
+//   "https://api.sheetbest.com/sheets/be02efdc-b4db-4d82-91a8-45243ccb83a5";
+
+// const joinUsGoogleSheetLink =
+//   "https://api.sheetbest.com/sheets/c3b9d284-3ede-4336-a866-13995f8965bf";
 
 // ***************** Contact us APIs Start Here ***********************************
 // reading all the emails from the Contact Us Google Sheet
-const readContactUsGoogleSheet = (req, res) => {
+const readContactUsGoogleSheet = async (req, res) => {
   // Parsed Format
+  let links;
+  try {
+    links = await getSheetLinks();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching latest links" });
+    return;
+  }
+  const contactUsGoogleSheetLink = links?.contactUsSheetBest;
   fetch(contactUsGoogleSheetLink)
     .then((response) => response.json())
     .then((data) => {
@@ -40,9 +81,18 @@ const readContactUsGoogleSheet = (req, res) => {
 };
 
 // adding new email in the contact us google sheet
-const addContactUsEmailInGoogleSheet = (req, res) => {
+const addContactUsEmailInGoogleSheet = async (req, res) => {
   const { data } = req.body;
   //console.log("What we got from frontend:", req.body);
+  let links;
+  try {
+    links = await getSheetLinks();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching latest links" });
+    return;
+  }
+  const contactUsGoogleSheetLink = links?.contactUsSheetBest;
 
   fetch(contactUsGoogleSheetLink, {
     method: "POST",
@@ -67,9 +117,18 @@ const addContactUsEmailInGoogleSheet = (req, res) => {
 // ***************** Contact us APIs Ends Here ***********************************
 
 // ***************** Join us APIs Starts Here ************************************
-const addJoinUsDataInGoogleSheet = (req, res) => {
+const addJoinUsDataInGoogleSheet = async (req, res) => {
   const { data } = req.body;
-  //console.log("What we got from frontend:", req.body);
+  // console.log("What we got from frontend:", req.body);
+  let links;
+  try {
+    links = await getSheetLinks();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching latest links" });
+    return;
+  }
+  const joinUsGoogleSheetLink = links?.joinUsSheetBest;
 
   fetch(joinUsGoogleSheetLink, {
     method: "POST",
@@ -92,12 +151,25 @@ const addJoinUsDataInGoogleSheet = (req, res) => {
     });
 };
 
-const readJoinUsDataFromGoogleSheet = (req, res) => {
-  // Parsed Format
+const readJoinUsDataFromGoogleSheet = async (req, res) => {
+  // Latest Links
+  let links;
+  try {
+    links = await getSheetLinks();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching latest links" });
+    return;
+  }
+  const keys = Object.keys(links.whatsAppGroupLinks);
+  const whatsAppGroupLinks = {};
+  for (let key of keys) {
+    whatsAppGroupLinks[key] = links.whatsAppGroupLinks[key].url;
+  }
+  const joinUsGoogleSheetLink = links.joinUsSheetBest;
   fetch(joinUsGoogleSheetLink)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       res.status(200).json(data);
     })
     .catch((error) => {
@@ -108,26 +180,33 @@ const readJoinUsDataFromGoogleSheet = (req, res) => {
 
 // API to send email to join our whatsapp group
 const sendWhatsAppJoinEmail = async (req, res) => {
-  const whatsAppGroupLinks = {
-    management:
-      "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
-    design:
-      "https://chat.whatsapp.com/BnwJJghc5khFwTHJZYRzuz",
-    competitive_programming:
-      "https://chat.whatsapp.com/E2woNYDyh7jKBTstOFdwNJ",
-    social_media_and_content:
-      "https://chat.whatsapp.com/Lc8A1ORlw6iBtfZJBFsVSN",
-    marketing_and_outreach:
-      "https://chat.whatsapp.com/Hmg8fTV4Cta8iwOOTRm14C",
-    web_development:
-      "https://chat.whatsapp.com/DAPi9yWLvlj8tD0LJpGUhV",
-    finance:
-      "https://chat.whatsapp.com/JG3Ct1HieNEEUixCIivGhv",
-    projects:
-      "https://chat.whatsapp.com/DsKkYsXdBM76rpdWq1FwUg"
-  };
+  // const whatsAppGroupLinks = {
+  //   management: "https://chat.whatsapp.com/KGPTyNobdEo0JLdTGFJUUD",
+  //   design: "https://chat.whatsapp.com/BnwJJghc5khFwTHJZYRzuz",
+  //   competitive_programming: "https://chat.whatsapp.com/E2woNYDyh7jKBTstOFdwNJ",
+  //   social_media_and_content:
+  //     "https://chat.whatsapp.com/Lc8A1ORlw6iBtfZJBFsVSN",
+  //   marketing_and_outreach: "https://chat.whatsapp.com/Hmg8fTV4Cta8iwOOTRm14C",
+  //   web_development: "https://chat.whatsapp.com/DAPi9yWLvlj8tD0LJpGUhV",
+  //   finance: "https://chat.whatsapp.com/JG3Ct1HieNEEUixCIivGhv",
+  //   projects: "https://chat.whatsapp.com/DsKkYsXdBM76rpdWq1FwUg",
+  // };
+  let links;
+  try {
+    links = await getSheetLinks();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching latest links" });
+    return;
+  }
+  const keys = Object.keys(links.whatsAppGroupLinks);
+  const whatsAppGroupLinks = {};
+  for (let key of keys) {
+    whatsAppGroupLinks[key] = links.whatsAppGroupLinks[key].url;
+  }
 
   const { vit_email, department, name } = req.body;
+  console.log("Whatsapp group : ", req.body);
 
   if (!vit_email) {
     return res.status(400).json({ error: "Please Provide Email" });
