@@ -2,10 +2,15 @@ import EventsBackgroundImage from "/Background/EventsBackground.svg";
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getAllEvents } from '../api/apiCall';
+import { urlFor } from "../api/apiConfig";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
 
 const CookOff2024 = () => {
     const { id: eventId } = useParams();
-    const navigate = useNavigate();
     const [event, setEvent] = useState(null); // Changed to null for better conditional checking
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false); // Added missing error state
@@ -27,6 +32,7 @@ const CookOff2024 = () => {
                 if (data.error) {
                     setError(true);
                 } else {
+                    console.log(data);
                     const foundEvent = data.filter((event) => event._id === eventId)[0];
                     setEvent(foundEvent || null); // Handle case where event is not found
                 }
@@ -89,7 +95,7 @@ const CookOff2024 = () => {
                     </div>
                     <Link
                         to="/events"
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center gap-2"
+                        className="px-4 py-2 bg-[#4079da] hover:bg-[#2a67b1]  text-white font-medium rounded-lg transition-colors duration-200 flex items-center gap-2"
                     >
                         <svg
                             className="w-4 h-4"
@@ -112,7 +118,7 @@ const CookOff2024 = () => {
                     {/* Back Button */}
                     <Link
                         to="/events"
-                        className="self-start mb-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center gap-2"
+                        className="self-start mb-4 px-4 py-2 bg-[#4079da] hover:bg-[#2a67b1]  text-white font-medium rounded-lg transition-colors duration-200 flex items-center gap-2"
                     >
                         <svg
                             className="w-4 h-4"
@@ -130,10 +136,11 @@ const CookOff2024 = () => {
                         Back to Events
                     </Link>
 
+
                     {/* Main Image */}
-                    <div className="flex items-center justify-center h-[60vh] w-full bg-red-400 mb-6 rounded-lg">
+                    <div className="flex items-center justify-center mb-6 overflow-hidden">
                         {/* Placeholder for main image */}
-                        <span className="text-white text-lg">Main Event Image</span>
+                        <img className="size-[80%] rounded-xl" src={urlFor(event.imageUrl).url()} alt={event.title} />
                     </div>
 
                     {/* Heading */}
@@ -147,16 +154,71 @@ const CookOff2024 = () => {
                     )}
 
                     {/* Sub heading */}
-                    {event.subtitle && (
+                    {event.subtitle1 && (
                         <h2 className="text-base md:text-3xl font-semibold text-gray-700">
-                            {event.subtitle}
+                            {event.subtitle1}
                         </h2>
                     )}
 
                     {/* Description */}
-                    {event.description && (
+                    {event.description1 && (
+                        <p className="text-black text-sm sm:text-base">
+                            {event.description1}
+                        </p>
+                    )}
+
+                    {/* Gallery Carousel */}
+                    {event.gallery && event.gallery.length > 0 && (
+                        <div className="my-12">
+                            <Slider
+                                lazyLoad="ondemand"
+                                dots={true}
+                                infinite={true}
+                                arrows={false}
+                                speed={500}
+                                slidesToShow={3}
+                                slidesToScroll={1}
+                                autoplay={true}
+                                autoplaySpeed={2000}
+                                responsive={[
+                                    {
+                                        breakpoint: 640,
+                                        settings: {
+                                            slidesToShow: 1,
+                                        },
+                                    },
+                                    {
+                                        breakpoint: 768,
+                                        settings: {
+                                            slidesToShow: 2,
+                                        },
+                                    },
+                                ]}
+                            >
+                                {event.gallery.map((img, index) => (
+                                    <div key={index}>
+                                        <img
+                                            src={urlFor(img).width(800).height(500).url()}
+                                            alt={`gallery-img-${index}`}
+                                            className="w-full h-[250px] px-1 rounded-xl object-cover"
+                                        />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                    )}
+
+                    {/* Sub heading */}
+                    {event.subtitle2 && (
+                        <h2 className="text-base md:text-3xl font-semibold text-gray-700">
+                            {event.subtitle2}
+                        </h2>
+                    )}
+
+                    {/* Description */}
+                    {event.description2 && (
                         <p className="text-black text-sm sm:text-base mb-12">
-                            {event.description}
+                            {event.description2}
                         </p>
                     )}
                 </div>

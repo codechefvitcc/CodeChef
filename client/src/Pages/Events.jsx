@@ -1,7 +1,9 @@
+import EventsBackgroundImage from "/Background/EventsBackground.svg";
 import { useState, useEffect, useMemo } from "react";
 import { getAllEvents } from "../api/apiCall";
 import { Search, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import { urlFor } from "../api/apiConfig";
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -49,11 +51,7 @@ const Events = () => {
         <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200">
             <div className="h-48 overflow-hidden">
                 {event.imageUrl ? (
-                    <img
-                        src={event.imageUrl}
-                        alt={event.name}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
+                    <img className="w-full" src={urlFor(event.imageUrl).url()} alt={event.title} />
                 ) : (
                     <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                         <Calendar className="text-white w-12 h-12" />
@@ -81,7 +79,7 @@ const Events = () => {
                 )}
 
                 <Link className="mt-4 pt-4 border-t border-gray-100" to={`/events/${event._id}`}>
-                    <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200 font-medium">
+                    <button className="w-full bg-gradient-to-r  bg-[#4079da] hover:bg-[#2a67b1] text-white py-2 px-4 rounded-lg transition-all duration-200 font-medium">
                         View Details
                     </button>
                 </Link>
@@ -114,7 +112,7 @@ const Events = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div style={{ backgroundImage: `url(${EventsBackgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="min-h-screen bg-gray-50">
             {/* Header */}
             <div className="bg-white shadow-sm border-b">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
