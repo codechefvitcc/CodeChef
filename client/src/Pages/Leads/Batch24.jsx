@@ -580,164 +580,178 @@ function Batch24() {
           <>
             {/* President, VP, General Secretary */}
             <div className="hidden md:flex md:flex-row justify-center items-center md:items-end">
-              {team25["Vice President"] && (
-                <div className="inline-block scale-125 my-10">
-                  <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-                    Vice President
-                  </h3>
-                  <LeadCard
-                    name={team25["Vice President"].name}
-                    image={team25["Vice President"].image}
-                    hashCode={team25["Vice President"].hash}
-                    link={team25["Vice President"].linkedIn}
-                  />
-                </div>
-              )}
-
-              {team25.President && (
-                <div className="inline-block scale-150 my-20 mx-20">
-                  <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-                    President
-                  </h3>
-                  <LeadCard
-                    name={team25.President.name}
-                    image={team25.President.image}
-                    hashCode={team25.President.hash}
-                    link={team25.President.linkedIn}
-                  />
-                </div>
-              )}
-
-              {team25["General Secretary"] && (
-                <div className="inline-block scale-125 my-10">
-                  <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-                    General Secretary
-                  </h3>
-                  <LeadCard
-                    name={team25["General Secretary"].name}
-                    image={team25["General Secretary"].image}
-                    hashCode={team25["General Secretary"].hash}
-                    link={team25["General Secretary"].linkedIn}
-                  />
-                </div>
-              )}
-            </div>
-
-            {/* Mobile view for top positions */}
-            <div className="flex flex-col block md:hidden md:flex-row justify-center items-center md:items-end max-[440px]:scale-90">
-              {team25.President && (
-                <div className="inline-block scale-150 my-20 mx-20">
-                  <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
-                    President
-                  </h3>
-                  <LeadCard
-                    name={team25.President.name}
-                    image={team25.President.image}
-                    hashCode={team25.President.hash}
-                    link={team25.President.linkedIn}
-                  />
-                </div>
-              )}
-
-              <div className="w-full flex flex-row justify-evenly">
-                {team25["Vice President"] && (
-                  <div className="inline-block scale-105 my-10">
+              {Object.entries(team25)
+                .filter(([key]) => key === "Vice President" || key.startsWith("Vice President"))
+                .map(([key, lead]) => (
+                  <div key={key} className="inline-block scale-125 my-10">
                     <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
                       Vice President
                     </h3>
                     <LeadCard
-                      name={team25["Vice President"].name}
-                      image={team25["Vice President"].image}
-                      hashCode={team25["Vice President"].hash}
-                      link={team25["Vice President"].linkedIn}
+                      name={lead.name}
+                      image={lead.image}
+                      hashCode={lead.hash}
+                      link={lead.linkedIn}
                     />
                   </div>
-                )}
+                ))}
 
-                {team25["General Secretary"] && (
-                  <div className="inline-block scale-105 my-10">
+              {Object.entries(team25)
+                .filter(([key]) => key === "President" || key.startsWith("President"))
+                .map(([key, lead]) => (
+                  <div key={key} className="inline-block scale-150 my-20 mx-20">
+                    <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+                      President
+                    </h3>
+                    <LeadCard
+                      name={lead.name}
+                      image={lead.image}
+                      hashCode={lead.hash}
+                      link={lead.linkedIn}
+                    />
+                  </div>
+                ))}
+
+              {Object.entries(team25)
+                .filter(([key]) => key === "General Secretary" || key.startsWith("General Secretary"))
+                .map(([key, lead]) => (
+                  <div key={key} className="inline-block scale-125 my-10">
                     <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
                       General Secretary
                     </h3>
                     <LeadCard
-                      name={team25["General Secretary"].name}
-                      image={team25["General Secretary"].image}
-                      hashCode={team25["General Secretary"].hash}
-                      link={team25["General Secretary"].linkedIn}
+                      name={lead.name}
+                      image={lead.image}
+                      hashCode={lead.hash}
+                      link={lead.linkedIn}
                     />
                   </div>
-                )}
+                ))}
+            </div>
+
+            {/* Mobile view for top positions */}
+            <div className="flex flex-col block md:hidden md:flex-row justify-center items-center md:items-end max-[440px]:scale-90">
+              {Object.entries(team25)
+                .filter(([key]) => key === "President" || key.startsWith("President"))
+                .map(([key, lead]) => (
+                  <div key={key} className="inline-block scale-150 my-20 mx-20">
+                    <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+                      President
+                    </h3>
+                    <LeadCard
+                      name={lead.name}
+                      image={lead.image}
+                      hashCode={lead.hash}
+                      link={lead.linkedIn}
+                    />
+                  </div>
+                ))}
+
+              <div className="w-full flex flex-row justify-evenly">
+                {Object.entries(team25)
+                  .filter(([key]) => key === "Vice President" || key.startsWith("Vice President"))
+                  .map(([key, lead]) => (
+                    <div key={key} className="inline-block scale-105 my-10">
+                      <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+                        Vice President
+                      </h3>
+                      <LeadCard
+                        name={lead.name}
+                        image={lead.image}
+                        hashCode={lead.hash}
+                        link={lead.linkedIn}
+                      />
+                    </div>
+                  ))}
+
+                {Object.entries(team25)
+                  .filter(([key]) => key === "General Secretary" || key.startsWith("General Secretary"))
+                  .map(([key, lead]) => (
+                    <div key={key} className="inline-block scale-105 my-10">
+                      <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
+                        General Secretary
+                      </h3>
+                      <LeadCard
+                        name={lead.name}
+                        image={lead.image}
+                        hashCode={lead.hash}
+                        link={lead.linkedIn}
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
 
             {/* Department Leads */}
             <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end">
               {/* Competitive Programming */}
-              {(team25["Competitive Programming"] ||
-                team25["Competitive Programming1"]) && (
+              {Object.entries(team25)
+                .filter(([key]) => key.includes("Competitive Programming"))
+                .length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Competitive Programming
                   </h3>
-                  <div className="flex">
-                    {team25["Competitive Programming"] && (
-                      <LeadCard
-                        name={team25["Competitive Programming"].name}
-                        image={team25["Competitive Programming"].image}
-                        hashCode={team25["Competitive Programming"].hash}
-                        link={team25["Competitive Programming"].linkedIn}
-                      />
-                    )}
-                    {team25["Competitive Programming1"] && (
-                      <LeadCard
-                        name={team25["Competitive Programming1"].name}
-                        image={team25["Competitive Programming1"].image}
-                        hashCode={team25["Competitive Programming1"].hash}
-                        link={team25["Competitive Programming1"].linkedIn}
-                      />
-                    )}
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Competitive Programming"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
                   </div>
                 </div>
               )}
 
               {/* Web Development */}
-              {team25["Web Development"] && (
+              {Object.entries(team25)
+                .filter(([key]) => key.includes("Web Development"))
+                .length > 0 && (
                 <div className="inline-block">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Web Development
                   </h3>
-                  <LeadCard
-                    name={team25["Web Development"].name}
-                    image={team25["Web Development"].image}
-                    hashCode={team25["Web Development"].hash}
-                    link={team25["Web Development"].linkedIn}
-                  />
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Web Development"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
+                  </div>
                 </div>
               )}
 
               {/* Finance */}
-              {(team25["Finance"] || team25["Finance1"]) && (
+              {Object.entries(team25)
+                .filter(([key]) => key.includes("Finance"))
+                .length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Finance
                   </h3>
-                  <div className="flex">
-                    {team25["Finance"] && (
-                      <LeadCard
-                        name={team25["Finance"].name}
-                        image={team25["Finance"].image}
-                        hashCode={team25["Finance"].hash}
-                        link={team25["Finance"].linkedIn}
-                      />
-                    )}
-                    {team25["Finance1"] && (
-                      <LeadCard
-                        name={team25["Finance1"].name}
-                        image={team25["Finance1"].image}
-                        hashCode={team25["Finance1"].hash}
-                        link={team25["Finance1"].linkedIn}
-                      />
-                    )}
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Finance"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
                   </div>
                 </div>
               )}
@@ -746,112 +760,99 @@ function Batch24() {
             {/* Other Departments */}
             <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end">
               {/* Event Management */}
-              {(team25["Event Management"] || team25["Event Management1"]) && (
+              {Object.entries(team25)
+                .filter(([key]) => key.includes("Event Management"))
+                .length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Event Management
                   </h3>
-                  <div className="flex">
-                    {team25["Event Management"] && (
-                      <LeadCard
-                        name={team25["Event Management"].name}
-                        image={team25["Event Management"].image}
-                        hashCode={team25["Event Management"].hash}
-                        link={team25["Event Management"].linkedIn}
-                      />
-                    )}
-                    {team25["Event Management1"] && (
-                      <LeadCard
-                        name={team25["Event Management1"].name}
-                        image={team25["Event Management1"].image}
-                        hashCode={team25["Event Management1"].hash}
-                        link={team25["Event Management1"].linkedIn}
-                      />
-                    )}
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Event Management"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
                   </div>
                 </div>
               )}
 
-              {/* Social Media */}
-              {(team25["Social Media & Content"] || team25["SocialMedia1"]) && (
+              {/* Social Media & Content */}
+              {Object.entries(team25)
+                .filter(([key]) => key.includes("Social Media") || key.includes("SocialMedia"))
+                .length > 0 && (
                 <div className="inline-block transform -translate-y-8 pt-8">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Social Media & Content
                   </h3>
-                  <div className="flex">
-                    {team25["Social Media & Content"] && (
-                      <LeadCard
-                        name={team25["Social Media & Content"].name}
-                        image={team25["Social Media & Content"].image}
-                        hashCode={team25["Social Media & Content"].hash}
-                        link={team25["Social Media & Content"].linkedIn}
-                      />
-                    )}
-                    {team25["SocialMedia1"] && (
-                      <LeadCard
-                        name={team25["SocialMedia1"].name}
-                        image={team25["SocialMedia1"].image}
-                        hashCode={team25["SocialMedia1"].hash}
-                        link={team25["SocialMedia1"].linkedIn}
-                      />
-                    )}
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Social Media") || key.includes("SocialMedia"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
                   </div>
                 </div>
               )}
 
               {/* Marketing & Sponsorship */}
-              {(team25["Marketing & Sponsorship"] ||
-                team25["Marketing & Sponsorship1"]) && (
+              {Object.entries(team25)
+                .filter(([key]) => key.includes("Marketing & Sponsorship") || key.includes("Outreach & Sponsorship"))
+                .length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Marketing & Sponsorship
                   </h3>
-                  <div className="flex">
-                    {team25["Marketing & Sponsorship"] && (
-                      <LeadCard
-                        name={team25["Marketing & Sponsorship"].name}
-                        image={team25["Marketing & Sponsorship"].image}
-                        hashCode={team25["Marketing & Sponsorship"].hash}
-                        link={team25["Marketing & Sponsorship"].linkedIn}
-                      />
-                    )}
-                    {team25["Marketing & Sponsorship1"] && (
-                      <LeadCard
-                        name={team25["Marketing & Sponsorship1"].name}
-                        image={team25["Marketing & Sponsorship1"].image}
-                        hashCode={team25["Marketing & Sponsorship1"].hash}
-                        link={team25["Marketing & Sponsorship1"].linkedIn}
-                      />
-                    )}
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Marketing & Sponsorship") || key.includes("Outreach & Sponsorship"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
                   </div>
                 </div>
               )}
             </div>
 
             {/* Design */}
-            {(team25["Design"] || team25["Design1"]) && (
+            {Object.entries(team25)
+              .filter(([key]) => key.includes("Design"))
+              .length > 0 && (
               <div className="flex md:scale-110 md:py-10 lg:scale-100 justify-evenly items-end">
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Design
                   </h3>
-                  <div className="flex">
-                    {team25["Design"] && (
-                      <LeadCard
-                        name={team25["Design"].name}
-                        image={team25["Design"].image}
-                        hashCode={team25["Design"].hash}
-                        link={team25["Design"].linkedIn}
-                      />
-                    )}
-                    {team25["Design1"] && (
-                      <LeadCard
-                        name={team25["Design1"].name}
-                        image={team25["Design1"].image}
-                        hashCode={team25["Design1"].hash}
-                        link={team25["Design1"].linkedIn}
-                      />
-                    )}
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Design"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
                   </div>
                 </div>
               </div>
