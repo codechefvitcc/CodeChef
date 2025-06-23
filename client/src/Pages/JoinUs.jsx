@@ -47,7 +47,7 @@ const JoinUs = () => {
     setFormFillLoading(true);
     try {
       const response = await getAllJoinUsData();
-      //console.log(response);
+      // console.log(response);
       // Set the fetched user data to the component state
       if (response.status === 200) {
         // Extract the emails and ensure uniqueness
@@ -112,12 +112,12 @@ const JoinUs = () => {
   } = useForm();
 
   const onSubmit = async (formData) => {
-    console.log(formData);
+    // console.log(formData);
     const { reg_no, department } = formData;
     let existingEntries = [];
     // Get all entries with the same reg_no
     if (allJoinUsData) {
-      console.log(allJoinUsData);
+      // console.log(allJoinUsData);
       existingEntries = allJoinUsData.filter(
         (entry) => entry.reg_no === reg_no
       );
@@ -151,7 +151,7 @@ const JoinUs = () => {
         // console.log(vit_email, department);
 
         const response = await addJoinUsData(data);
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           ToastMsg("Form filled Successfully!", "success");
           const responseOfEmail = await sendWhatsAppGroupJoinLink({
@@ -159,7 +159,7 @@ const JoinUs = () => {
             department,
             name,
           });
-          console.log(responseOfEmail);
+          // console.log(responseOfEmail);
           reset();
           fetchAllJoinUsData();
         } else {
