@@ -215,7 +215,7 @@ function Blogs() {
                     details={latestBlog.blog[0].children[0].text}
                     blogs={blogs}
                   />
-                  {console.log(latestBlog.blog)}
+                  {/* {console.log(latestBlog.blog)} */}
                   </>
             }
           </div>
