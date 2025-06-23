@@ -52,7 +52,7 @@ export const Team23 = {
         'https://res.cloudinary.com/dxu5hlgvd/image/upload/v1719157372/IMG_6334_-_Aditi_Jha_haeab2.jpg',
       hash: 'LPIN?qroyp#St%i{%3Sxt:o}Mwt8',
     },
-    'Outreach & Sponsorship1': {
+    'Marketing & Sponsorship1': {
       name: 'Dhanush M',
       linkedIn: 'https://www.linkedin.com/in/dhanush-mohan-62359a259/',
       image:

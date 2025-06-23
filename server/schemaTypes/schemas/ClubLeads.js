@@ -1,3 +1,4 @@
+// server/schemaTypes/schemas/ClubLeads.js
 export default {
   name: 'clubLeads',
   title: 'Club Leads',
@@ -17,6 +18,13 @@ export default {
       name: 'batch',
       title: 'Batch',
       type: 'string',
+      options: {
+        list: [
+          {title: '2023', value: '2023'},
+          {title: '2024', value: '2024'},
+          {title: '2025', value: '2025'}
+        ]
+      }
     },
     {
       name: 'imageUrl',
@@ -37,6 +45,20 @@ export default {
       name: 'position',
       title: 'Designation/Position',
       type: 'string',
+      options: {
+        list: [
+          {title: 'President', value: 'President'},
+          {title: 'Vice President', value: 'Vice President'},
+          {title: 'General Secretary', value: 'General Secretary'},
+          {title: 'Web Development', value: 'Web Development'},
+          {title: 'Competitive Programming', value: 'Competitive Programming'},
+          {title: 'Event Management', value: 'Event Management'},
+          {title: 'Finance', value: 'Finance'},
+          {title: 'Design', value: 'Design'},
+          {title: 'Marketing & Sponsorship', value: 'Marketing & Sponsorship'},
+          {title: 'Social Media & Content', value: 'Social Media & Content'}
+        ]
+      }
     },
   ],
 }
