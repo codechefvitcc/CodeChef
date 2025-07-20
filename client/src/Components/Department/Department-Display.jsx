@@ -58,7 +58,7 @@ function DeptDisplay() {
     },
 
     {
-      name: "Finance and Outreach",
+      name: "Finance",
       icon: FaHandshake,
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorum cupiditate nam omnis eius, alias id qui eaque molestias harum in aut neque. Minima quae voluptas rerum harum qui similique!",
@@ -275,7 +275,8 @@ function DeptDisplay() {
     fetchLeads();
   }, []);
 
-  const currentBatch = "2024";
+  const currentBatch = "2025"; //Use this for displaying 2025-2026 leads by default
+  // const currentBatch = "2024"; //Use this for displaying 2024-2025 leads by default
   const currentLeads = allLeads.filter((lead) => lead.batch === currentBatch);
 
   const renderDeptCards = (data) => {
