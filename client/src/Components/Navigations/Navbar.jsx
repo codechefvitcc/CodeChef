@@ -66,44 +66,9 @@ const Navbar = () => {
                   onClick={() => {
                     setEventsClicked(!eventsClicked);
                   }}
-                  className={
-                    eventsClicked
-                      ? "bg-[#2a67b11e] duration-300 flex justify-center items-center px-4 py-2 rounded hover:cursor-pointer"
-                      : "duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded hover:cursor-pointer"
-                  }
+                  className="duration-300 hover:bg-[#2a67b11e] flex items-center px-4 py-2 rounded hover:cursor-pointer"
                 >
-                  <h2 className="mr-2">Events</h2>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={
-                      eventsClicked ? "rotate-180 duration-300" : "duration-300"
-                    }
-                    height="20"
-                    width="12.5"
-                    viewBox="0 0 320 512"
-                  >
-                    <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
-                  </svg>
-                </div>
-                <div
-                  className={
-                    eventsClicked
-                      ? "flex z-50 absolute justify-start text-[0.85rem] bg-white shadow-lg rounded mt-2 flex-col space-y-2"
-                      : "hidden"
-                  }
-                >
-                  <Link
-                    to="/events/Cook-Off-2024"
-                    className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"
-                  >
-                    <button>Cook-Off 2024</button>
-                  </Link>
-                  {/* <Link
-                    to="events/Decode-DSA"
-                    className=" hover:bg-[#2a67b11e] p-2 px-4 rounded"
-                  >
-                    <button>Decode DSA</button>
-                  </Link> */}
+                  <Link className="mr-2" to="/events">Events</Link>
                 </div>
               </div>
               <div className="mx-2 block">

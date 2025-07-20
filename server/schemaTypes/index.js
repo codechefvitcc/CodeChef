@@ -1,4 +1,14 @@
-import {Departments, Blogs, ClubLeads, Testimonials, Members, JoinUs, Presidents} from './schemas'
+import {
+  Departments,
+  Blogs,
+  ClubLeads,
+  Testimonials,
+  Members,
+  JoinUs,
+  Presidents,
+  Events,
+  Recruitments,
+} from './schemas'
 import RecruitmentSheetLinks from './schemas/RecruitmentSheetLinks'
 
 export const schemaTypes = [
@@ -10,4 +20,5 @@ export const schemaTypes = [
   JoinUs,
   Presidents,
   RecruitmentSheetLinks,
+  Events,
 ]

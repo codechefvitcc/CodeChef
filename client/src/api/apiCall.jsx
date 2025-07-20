@@ -5,6 +5,19 @@ import { client } from "./apiConfig";
 
 // ***********************SANITY APIs STARTS HERE****************************
 // Getting All Testimonials from sanity backend
+export const getAllEvents = async () => {
+  const query = '*[_type == "events"]';
+  try {
+    const response = await client.fetch(query);
+    // console.log(response);
+    return response;
+  } catch (error) {
+    console.log("Error fetching testimonials: ", error);
+    return { error: "Failed to fetch testimonials" };
+  }
+};
+
+// Getting All Testimonials from sanity backend
 export const getAllTestimonials = async () => {
   const query = '*[_type == "testimonials"]';
   try {
