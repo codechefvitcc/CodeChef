@@ -535,6 +535,7 @@ function Batch24() {
     );
   } else {
     // Batch 25 view
+    // Batch 25 view
     return (
       <div
         className="py-16 sm:py-8"
@@ -581,7 +582,10 @@ function Batch24() {
             {/* President, VP, General Secretary */}
             <div className="hidden md:flex md:flex-row justify-center items-center md:items-end">
               {Object.entries(team25)
-                .filter(([key]) => key === "Vice President" || key.startsWith("Vice President"))
+                .filter(
+                  ([key]) =>
+                    key === "Vice President" || key.startsWith("Vice President")
+                )
                 .map(([key, lead]) => (
                   <div key={key} className="inline-block scale-125 my-10">
                     <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -597,7 +601,9 @@ function Batch24() {
                 ))}
 
               {Object.entries(team25)
-                .filter(([key]) => key === "President" || key.startsWith("President"))
+                .filter(
+                  ([key]) => key === "President" || key.startsWith("President")
+                )
                 .map(([key, lead]) => (
                   <div key={key} className="inline-block scale-150 my-20 mx-20">
                     <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -613,7 +619,11 @@ function Batch24() {
                 ))}
 
               {Object.entries(team25)
-                .filter(([key]) => key === "General Secretary" || key.startsWith("General Secretary"))
+                .filter(
+                  ([key]) =>
+                    key === "General Secretary" ||
+                    key.startsWith("General Secretary")
+                )
                 .map(([key, lead]) => (
                   <div key={key} className="inline-block scale-125 my-10">
                     <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -632,7 +642,9 @@ function Batch24() {
             {/* Mobile view for top positions */}
             <div className="flex flex-col block md:hidden md:flex-row justify-center items-center md:items-end max-[440px]:scale-90">
               {Object.entries(team25)
-                .filter(([key]) => key === "President" || key.startsWith("President"))
+                .filter(
+                  ([key]) => key === "President" || key.startsWith("President")
+                )
                 .map(([key, lead]) => (
                   <div key={key} className="inline-block scale-150 my-20 mx-20">
                     <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -649,7 +661,11 @@ function Batch24() {
 
               <div className="w-full flex flex-row justify-evenly">
                 {Object.entries(team25)
-                  .filter(([key]) => key === "Vice President" || key.startsWith("Vice President"))
+                  .filter(
+                    ([key]) =>
+                      key === "Vice President" ||
+                      key.startsWith("Vice President")
+                  )
                   .map(([key, lead]) => (
                     <div key={key} className="inline-block scale-105 my-10">
                       <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -665,7 +681,11 @@ function Batch24() {
                   ))}
 
                 {Object.entries(team25)
-                  .filter(([key]) => key === "General Secretary" || key.startsWith("General Secretary"))
+                  .filter(
+                    ([key]) =>
+                      key === "General Secretary" ||
+                      key.startsWith("General Secretary")
+                  )
                   .map(([key, lead]) => (
                     <div key={key} className="inline-block scale-105 my-10">
                       <h3 className="text-[24px] text-center font-bold text-gray-700 py-2">
@@ -682,19 +702,21 @@ function Batch24() {
               </div>
             </div>
 
-            {/* Department Leads */}
+            {/* First Row: Competitive Programming, Web Development, Finance */}
             <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end">
               {/* Competitive Programming */}
-              {Object.entries(team25)
-                .filter(([key]) => key.includes("Competitive Programming"))
-                .length > 0 && (
+              {Object.entries(team25).filter(([key]) =>
+                key.includes("Competitive Programming")
+              ).length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Competitive Programming
                   </h3>
                   <div className="flex flex-wrap justify-center">
                     {Object.entries(team25)
-                      .filter(([key]) => key.includes("Competitive Programming"))
+                      .filter(([key]) =>
+                        key.includes("Competitive Programming")
+                      )
                       .map(([key, lead]) => (
                         <LeadCard
                           key={key}
@@ -709,9 +731,9 @@ function Batch24() {
               )}
 
               {/* Web Development */}
-              {Object.entries(team25)
-                .filter(([key]) => key.includes("Web Development"))
-                .length > 0 && (
+              {Object.entries(team25).filter(([key]) =>
+                key.includes("Web Development")
+              ).length > 0 && (
                 <div className="inline-block">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Web Development
@@ -733,8 +755,7 @@ function Batch24() {
               )}
 
               {/* Finance */}
-              {Object.entries(team25)
-                .filter(([key]) => key.includes("Finance"))
+              {Object.entries(team25).filter(([key]) => key.includes("Finance"))
                 .length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
@@ -757,12 +778,12 @@ function Batch24() {
               )}
             </div>
 
-            {/* Other Departments */}
+            {/* Second Row: Event Management, Social Media & Content, Marketing & Sponsorship */}
             <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-evenly items-center lg:items-end">
               {/* Event Management */}
-              {Object.entries(team25)
-                .filter(([key]) => key.includes("Event Management"))
-                .length > 0 && (
+              {Object.entries(team25).filter(([key]) =>
+                key.includes("Event Management")
+              ).length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Event Management
@@ -784,16 +805,21 @@ function Batch24() {
               )}
 
               {/* Social Media & Content */}
-              {Object.entries(team25)
-                .filter(([key]) => key.includes("Social Media") || key.includes("SocialMedia"))
-                .length > 0 && (
+              {Object.entries(team25).filter(
+                ([key]) =>
+                  key.includes("Social Media") || key.includes("SocialMedia")
+              ).length > 0 && (
                 <div className="inline-block transform -translate-y-8 pt-8">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Social Media & Content
                   </h3>
                   <div className="flex flex-wrap justify-center">
                     {Object.entries(team25)
-                      .filter(([key]) => key.includes("Social Media") || key.includes("SocialMedia"))
+                      .filter(
+                        ([key]) =>
+                          key.includes("Social Media") ||
+                          key.includes("SocialMedia")
+                      )
                       .map(([key, lead]) => (
                         <LeadCard
                           key={key}
@@ -808,16 +834,22 @@ function Batch24() {
               )}
 
               {/* Marketing & Sponsorship */}
-              {Object.entries(team25)
-                .filter(([key]) => key.includes("Marketing & Sponsorship") || key.includes("Outreach & Sponsorship"))
-                .length > 0 && (
+              {Object.entries(team25).filter(
+                ([key]) =>
+                  key.includes("Marketing & Sponsorship") ||
+                  key.includes("Outreach & Sponsorship")
+              ).length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Marketing & Sponsorship
                   </h3>
                   <div className="flex flex-wrap justify-center">
                     {Object.entries(team25)
-                      .filter(([key]) => key.includes("Marketing & Sponsorship") || key.includes("Outreach & Sponsorship"))
+                      .filter(
+                        ([key]) =>
+                          key.includes("Marketing & Sponsorship") ||
+                          key.includes("Outreach & Sponsorship")
+                      )
                       .map(([key, lead]) => (
                         <LeadCard
                           key={key}
@@ -832,12 +864,12 @@ function Batch24() {
               )}
             </div>
 
-            {/* Design */}
-            {Object.entries(team25)
-              .filter(([key]) => key.includes("Design"))
-              .length > 0 && (
-              <div className="flex md:scale-110 md:py-10 lg:scale-100 justify-evenly items-end">
-                <div className="inline-block items-bottom">
+            {/* Third Row: Design and Projects (centered) */}
+            <div className="flex flex-col md:scale-110 md:py-10 lg:scale-100 lg:flex-row justify-center items-center lg:items-end">
+              {/* Design */}
+              {Object.entries(team25).filter(([key]) => key.includes("Design"))
+                .length > 0 && (
+                <div className="inline-block items-bottom mx-4">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
                     Design
                   </h3>
@@ -855,8 +887,32 @@ function Batch24() {
                       ))}
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+
+              {/* Projects */}
+              {Object.entries(team25).filter(([key]) =>
+                key.includes("Projects")
+              ).length > 0 && (
+                <div className="inline-block items-bottom mx-4">
+                  <h3 className="text-24 text-center font-bold text-gray-700 py-2">
+                    Projects
+                  </h3>
+                  <div className="flex flex-wrap justify-center">
+                    {Object.entries(team25)
+                      .filter(([key]) => key.includes("Projects"))
+                      .map(([key, lead]) => (
+                        <LeadCard
+                          key={key}
+                          name={lead.name}
+                          image={lead.image}
+                          hashCode={lead.hash}
+                          link={lead.linkedIn}
+                        />
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </>
         ) : (
           <div className="flex justify-center">
