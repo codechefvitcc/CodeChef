@@ -56,7 +56,8 @@ export default {
           {title: 'Finance', value: 'Finance'},
           {title: 'Design', value: 'Design'},
           {title: 'Marketing & Sponsorship', value: 'Marketing & Sponsorship'},
-          {title: 'Social Media & Content', value: 'Social Media & Content'}
+          {title: 'Social Media & Content', value: 'Social Media & Content'},
+          {title: 'Projects', value: 'Projects'}
         ]
       }
     },
