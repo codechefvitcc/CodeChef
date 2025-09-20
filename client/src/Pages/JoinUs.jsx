@@ -122,7 +122,8 @@ const JoinUs = () => {
         (entry) => entry.reg_no === reg_no
       );
     }
-
+    // Always send cgpa as 10
+    formData.cgpa = "10 Pointer";
     if (existingEntries.length > 0) {
       const sameDepartmentEntry = existingEntries.find(
         (entry) => entry.department === department

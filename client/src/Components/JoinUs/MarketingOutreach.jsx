@@ -4,7 +4,8 @@ import { FaAsterisk } from "react-icons/fa";
 const MarketingOutreach = ({ register, errors }) => {
   return (
     <>
-      {/* CGPA */}
+      {/*
+      CGPA
       <div className="mb-3 w-full md:w-1/2 px-2">
         <label
           className="text-sm font-medium text-gray-700 flex items-center"
@@ -30,6 +31,7 @@ const MarketingOutreach = ({ register, errors }) => {
           <div className="text-red-500 text-sm mt-1">{errors.cgpa.message}</div>
         )}
       </div>
+      */}
       {/* Hosteler/Day Scholar */}
       <div className="mb-3 w-full md:w-1/2 px-2">
         <label
