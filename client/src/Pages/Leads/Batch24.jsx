@@ -519,7 +519,7 @@ function Batch24() {
           </div>
           <div className="inline-block items-bottom">
             <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-              Marketing & Sponsorship
+              Sponsorship & Marketing
             </h3>
             <div className="flex">
               <LeadCard
@@ -841,7 +841,7 @@ function Batch24() {
               ).length > 0 && (
                 <div className="inline-block items-bottom">
                   <h3 className="text-24 text-center font-bold text-gray-700 py-2">
-                    Marketing & Sponsorship
+                    Sponsorship & Marketing
                   </h3>
                   <div className="flex flex-wrap justify-center">
                     {Object.entries(team25)
