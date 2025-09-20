@@ -27,7 +27,7 @@ const DepartmentKeyMap = {
   design: "Design",
   finance: "Finance",
   management: "Event Management",
-  marketing_and_outreach: "Marketing & Sponsorship",
+  marketing_and_outreach: "Sponsorship & Marketing",
   projects: "Projects",
   social_media_and_content: "Social Media & Content",
   web_development: "Web Development",
