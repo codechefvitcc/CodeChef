@@ -525,7 +525,7 @@ const JoinUs = () => {
                       watch={watch}
                     />
                   )}
-                  {/* Projects */}
+              {/* Projects */}
                   {department === "projects" && (
                     <Projects register={register} errors={errors} />
                   )}
@@ -582,7 +582,7 @@ const JoinUs = () => {
                     )}
                   </div>
                 </div>
-                <button
+                {/* <button
                   name="Submit"
                   type="submit"
                   onClick={handleSubmit}
@@ -597,7 +597,23 @@ const JoinUs = () => {
                   ) : (
                     ""
                   )}
-                </button>
+                </button> */}
+                <button
+  name="Submit"
+  type="submit"
+  // onClick={handleSubmit}  <-- DELETE THIS LINE
+  disabled={recruiting === "Yes" ? false : true}
+  className={`btnSubmit btn-primary ${
+    formFillLoading ? "opacity-50 cursor-not-allowed" : ""
+  }`}
+>
+  Submit
+  {formFillLoading ? (
+    <FaSpinner className="ml-3 inline spinner text-center text-sm sm:text-sm" />
+  ) : (
+    ""
+  )}
+</button>
               </form>
             </div>
           </div>
