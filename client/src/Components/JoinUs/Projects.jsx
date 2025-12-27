@@ -14,6 +14,7 @@ const Projects = ({ register, errors }) => {
       {/* *************************************************************** */}
       {/* WHATSAPP GROUP JOINING SECTION (BLUE THEME)          */}
       {/* *************************************************************** */}
+      {/* SECTION COMMENTED OUT 
       <div className="w-full px-2 mb-8">
         <div className="bg-blue-100 border border-blue-300 rounded-xl p-4 shadow-md text-center">
           <h3 className="text-blue-800 font-bold text-xl mb-2 flex justify-center items-center gap-2">
@@ -32,6 +33,7 @@ const Projects = ({ register, errors }) => {
           </a>
         </div>
       </div>
+      */}
       {/* *************************************************************** */}
 
 
