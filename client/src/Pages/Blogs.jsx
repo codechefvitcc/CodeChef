@@ -46,7 +46,7 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) =
   const shortAbout =
     about.length > 240 ? `${about.substring(0, 240)}...` : about;
   const shortDetail =
-    details.length > 350 ? `${details.substring(0, 350)}...` : details;
+    details.length > 450 ? `${details.substring(0, 450)}...` : details;
   const shortTitle = title.length > 25 ? `${title.substring(0, 25)}...` : title;
 
   const handleReadMore = () => {
@@ -103,11 +103,10 @@ const LatestBlogCard = ({ url, hashCode, title, date, about, details, blogs }) =
         </div>
       </div>
 
-      <div className="flex flex-col justify-between text-gray-600">
+      <div className="flex flex-col justify-start gap-3 text-gray-600">
         <p className="font-bold text-[14px]">{shortAbout}</p>
         <p className="text-[14px] break-words">{shortDetail}</p>
-
-        {details.length > 350 && (
+        {details.length > 450 && (
           <div>
             <motion.span 
               className="font-semibold text-[18px] cursor-pointer"
@@ -190,7 +189,7 @@ function Blogs() {
                     title={latestBlog.heading}
                     date={latestBlog.date}
                     about={latestBlog.about}
-                    details={latestBlog.blog[0].children[0].text}
+                    details={latestBlog.blog[0].children.map(child => child.text).join('')}
                     blogs={blogs}
                   /> 
             }
