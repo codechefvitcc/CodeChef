@@ -140,7 +140,18 @@ const Projects = ({ register, errors }) => {
           Hackathon Problem Statement Selection 1
         </h3>
         <p className="text-xs text-gray-500 mt-1">
-          Refer to the CodeChef VITC LinkedIn post dated 26/12/2026.
+          {/* Refer to the CodeChef VITC LinkedIn post dated 26/12/2026. */}
+          Refer to the post here:{" "}
+          <a
+            href="https://www.linkedin.com/posts/codechef-vit-chennai-chapter_codechef-vitcc-activity-7410633157290688515-gsF7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFEk9nEBeyZQ92ZKKWr_xyD4S9nyEfFfrDk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline break-all"
+          >
+            https://www.linkedin.com/posts/codechef-vit-chennai-chapter...
+          </a>
+          <br />
+          From the hackathon statements posted, choose min 1 and max 2  of your choice and answer the below questions.
         </p>
       </div>
 
