@@ -1,42 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { client } from "@/lib/sanityClient";
 
 const alumniCards = [
   {
-    
     translateY: 10,
     float: "float2",
   },
   {
-    
     translateY: -20,
     float: "float1",
   },
   {
-    
     translateY: 10,
     float: "float2",
   },
   {
-    
     translateY: 35,
     float: "float3",
   },
   {
-    
     translateY: 20,
     float: "float4",
   },
   {
-    
     translateY: -10,
     float: "float1",
   },
   {
-    
     translateY: 15,
     float: "float2",
   },
@@ -46,6 +39,9 @@ export default function Alumni() {
   const [testimonials, setTestimonials] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const timeoutRef = useRef<any>(null);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -66,6 +62,83 @@ export default function Alumni() {
     fetchTestimonials();
   }, []);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollLeft = 1;
+    }
+  }, [testimonials]);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastTime = performance.now();
+    const speed = 0.035; // Pixels per millisecond
+
+    const scroll = (time: number) => {
+      const container = containerRef.current;
+      if (container && !isInteracting) {
+        const delta = time - lastTime;
+        container.scrollLeft += speed * delta;
+      }
+      lastTime = time;
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isInteracting, testimonials]);
+
+  const handleScroll = () => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const halfWidth = container.scrollWidth / 2;
+    if (halfWidth <= 0) return;
+
+    if (container.scrollLeft >= halfWidth) {
+      container.scrollLeft -= halfWidth;
+    } else if (container.scrollLeft < 1) {
+      container.scrollLeft += halfWidth;
+    }
+  };
+
+  const startInteraction = () => {
+    setIsInteracting(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  };
+
+  const endInteraction = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 2000); // Resume auto-scroll after 2 seconds of inactivity
+  };
+
+  const startDrag = (e: React.MouseEvent) => {
+    const container = containerRef.current;
+    if (!container) return;
+    
+    startInteraction();
+
+    const startX = e.pageX - container.offsetLeft;
+    const scrollLeft = container.scrollLeft;
+
+    const walkScroll = (moveEvent: MouseEvent) => {
+      const x = moveEvent.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1.5; // Drag speed multiplier
+      container.scrollLeft = scrollLeft - walk;
+    };
+
+    const stopScroll = () => {
+      window.removeEventListener("mousemove", walkScroll);
+      window.removeEventListener("mouseup", stopScroll);
+      endInteraction();
+    };
+
+    window.addEventListener("mousemove", walkScroll);
+    window.addEventListener("mouseup", stopScroll);
+  };
+
   if (loading) {
     return (
       <section className="bg-[#5878AF] py-24">
@@ -76,149 +149,155 @@ export default function Alumni() {
     );
   }
 
+  // Double testimonials to ensure seamless looping marquee
+  const doubleTestimonials = [...testimonials, ...testimonials];
+
   return (
-    <section className="bg-[#5878AF] py-16 md:py-24 overflow-hidden">
+    <section className="bg-[#5878AF] py-16 md:py-24 overflow-hidden select-none">
       <div className="overflow-hidden relative">
         <div
-  className="
-    
-    top-[90px]
-    left-0
-    right-0
-    h-[4px]
-    bg-black/25
-    z-0
-  "
-/>
-        <div className="alumni-track gap-8 flex py-10">
-          {testimonials.map((testimonial, index) => {
+          className="
+            top-[90px]
+            left-0
+            right-0
+            h-[4px]
+            bg-black/25
+            z-0
+          "
+        />
+        <div 
+          ref={containerRef}
+          onScroll={handleScroll}
+          onMouseDown={startDrag}
+          onTouchStart={startInteraction}
+          onTouchEnd={endInteraction}
+          className="alumni-track gap-8 flex py-10 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing"
+        >
+          {doubleTestimonials.map((testimonial, index) => {
             const card =
               alumniCards[index % alumniCards.length];
 
             return (
               <div
-  key={testimonial._id || index}
-  className={card.float}
-    onMouseEnter={() => {
-    document
-      .querySelector(".alumni-track")
-      ?.classList.add("paused");
-  }}
-  onMouseLeave={() => {
-    document
-      .querySelector(".alumni-track")
-      ?.classList.remove("paused");
-  }}
-  style={{
+                key={`${testimonial._id || index}-${index}`}
+                className={card.float}
+                onMouseEnter={() => {
+                  setHoveredCard(index);
+                  startInteraction();
+                }}
+                onMouseLeave={() => {
+                  setHoveredCard(null);
+                  endInteraction();
+                }}
+                style={{
+                  animation:
+                    hoveredCard !== null
+                      ? "none"
+                      : `${card.float} ${
+                          3 + (index % 3)
+                        }s ease-in-out infinite`,
+                  zIndex: hoveredCard === index ? 50 : 1,
+                }}
+              >
+                <div
+                  className="
+                    relative
+                    bg-[#ECE9C7]
+                    w-[calc(100vw-2rem)]
+                    max-w-[320px]
+                    h-[500px]
+                    p-5
+                    sm:p-6
+                    border-2 border-black/15
+                    shadow-[16px_16px_0px_rgba(0,0,0,0.18)]
+                    flex flex-col
+                    transition-all
+                    duration-300
+                    rounded-sm
+                    hover:scale-[1.06]
+                    hover:z-[100]
+                  "
+                  style={{
+                    transform: `
+                      translateY(${card.translateY}px)
+                      scale(${hoveredCard === index ? 1.08 : 1})
+                    `,
+                  }}
+                >
+                  {/* String connector */}
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[2px] h-10 bg-black/30" />
 
-    animation:
-      hoveredCard !== null
-        ? "none"
-        : `${card.float} ${
-            3 + (index % 3)
-          }s ease-in-out infinite`,
-    zIndex: hoveredCard === index ? 50 : 1,
-  }}
->
-<div
-  className="
-    relative
-    bg-[#ECE9C7]
-    w-[calc(100vw-2rem)]
-    max-w-[320px]
-    h-[500px]
-    p-5
-    sm:p-6
-    border-2 border-black/15
-    shadow-[16px_16px_0px_rgba(0,0,0,0.18)]
-    flex flex-col
-    transition-all
-    duration-300
-    rounded-sm
-      hover:scale-[1.06]
-  hover:z-[100]
-  "
-  style={{
-    transform: `
-      translateY(${card.translateY}px)
-      scale(${hoveredCard === index ? 1.08 : 1})
-    `,
-  }}
->
-  {/* String connector */}
-  <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[2px] h-10 bg-black/30" />
+                  {/* Pin */}
+                  <div
+                    className="
+                      absolute
+                      top-4
+                      left-1/2
+                      -translate-x-1/2
+                      w-5
+                      h-5
+                      rounded-full
+                      bg-black
+                      shadow-lg
+                      z-20
+                    "
+                  />
 
-  {/* Pin */}
-<div
-  className="
-    absolute
-    top-4
-    left-1/2
-    -translate-x-1/2
-    w-5
-    h-5
-    rounded-full
-    bg-black
-    shadow-lg
-    z-20
-  "
-/>
+                  {/* Profile */}
+                  <div className="flex flex-col items-center mb-5">
+                    <div className="relative w-28 h-28 rounded-full overflow-hidden border-[3px] border-black shadow-md">
+                      <Image
+                        src={
+                          testimonial.imageUrl ||
+                          "/images/alumni-placeholder.jpg"
+                        }
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
 
-  {/* Profile */}
-  <div className="flex flex-col items-center mb-5">
-    <div className="relative w-28 h-28 rounded-full overflow-hidden border-[3px] border-black shadow-md">
-      <Image
-        src={
-          testimonial.imageUrl ||
-          "/images/alumni-placeholder.jpg"
-        }
-        alt={testimonial.name}
-        fill
-        className="object-cover"
-      />
-    </div>
+                    <h3 className="mt-4 text-2xl font-serif italic text-center text-black">
+                      {testimonial.name}
+                    </h3>
 
-    <h3 className="mt-4 text-2xl font-serif italic text-center text-black">
-      {testimonial.name}
-    </h3>
+                    <p className="text-sm text-black/60 text-center mt-1">
+                      {testimonial.position}
+                    </p>
+                  </div>
 
-    <p className="text-sm text-black/60 text-center mt-1">
-      {testimonial.position}
-    </p>
-  </div>
+                  {/* Divider */}
+                  <div className="w-full h-[2px] bg-black/10 mb-4" />
 
-  {/* Divider */}
-  <div className="w-full h-[2px] bg-black/10 mb-4" />
+                  {/* Scrollable testimonial */}
+                  <div
+                    className="
+                      flex-1
+                      overflow-y-auto
+                      pr-2
+                      text-[14px]
+                      leading-7
+                      text-black/85
+                      scrollbar-thin
+                      no-scrollbar
+                    "
+                  >
+                    <span className="text-4xl leading-none text-black/25">
+                      "
+                    </span>
 
-  {/* Scrollable testimonial */}
-  <div
-    className="
-      flex-1
-      overflow-y-auto
-      pr-2
-      text-[14px]
-      leading-7
-      text-black/85
-      scrollbar-thin
-      no-scrollbar
-    "
-  >
-    <span className="text-4xl leading-none text-black/25">
-      "
-    </span>
+                    {testimonial.testimonial}
 
-    {testimonial.testimonial}
+                    <span className="text-4xl leading-none text-black/25">
+                      "
+                    </span>
+                  </div>
 
-    <span className="text-4xl leading-none text-black/25">
-      "
-    </span>
-  </div>
-
-  {/* Bottom decoration */}
-  <div className="mt-4 flex justify-end">
-    <div className="w-16 h-[3px] bg-black/20 rounded-full" />
-  </div>
-</div>
+                  {/* Bottom decoration */}
+                  <div className="mt-4 flex justify-end">
+                    <div className="w-16 h-[3px] bg-black/20 rounded-full" />
+                  </div>
+                </div>
               </div>
             );
           })}

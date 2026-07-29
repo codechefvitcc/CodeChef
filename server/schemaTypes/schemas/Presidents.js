@@ -14,6 +14,14 @@ export default {
             type: 'url',
         },
         {
+            name: 'image',
+            title: 'Image',
+            type: 'image',
+            options: {
+                hotspot: true,
+            },
+        },
+        {
             name: 'imageHashCode',
             title: 'Image Hash Code',
             type: 'string',

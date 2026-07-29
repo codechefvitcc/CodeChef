@@ -138,8 +138,7 @@
 
 .alumni-track {
   display: flex;
-  width: max-content;
-  animation: alumniScroll 60s linear infinite;
+  width: 100%;
 }
 body {
   background: var(--background);
