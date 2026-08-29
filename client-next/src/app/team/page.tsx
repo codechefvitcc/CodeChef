@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer/Footer";
 import Board from "@/sections/team/Board";
 import Departments from "@/sections/team/Departments";
+import { client, urlFor } from "@/lib/sanityClient";
 
 // Reusable Corner Brackets component for that handcrafted / blueprint design aesthetic
 const CornerBrackets = ({ color = "#000000" }: { color?: string }) => (
@@ -16,7 +17,7 @@ const CornerBrackets = ({ color = "#000000" }: { color?: string }) => (
   </>
 );
 
-const PRESIDENTS = [
+const FALLBACK_PRESIDENTS = [
   {
     name: "—",
     year: "President (2026-27)",
@@ -39,15 +40,82 @@ const PRESIDENTS = [
   },
 ];
 
+interface SanityPresident {
+  name: string;
+  year: string;
+  vision?: string;
+  testimonial?: string;
+  image?: any;
+  imageUrl?: string;
+}
+
+interface SanityFacultyCoordinator {
+  name: string;
+  quote?: string;
+  image?: any;
+  imageUrl?: string;
+}
+
 function LeadershipBoard() {
   const [presIndex, setPresIndex] = useState(0);
+  const [presidents, setPresidents] = useState<SanityPresident[]>(FALLBACK_PRESIDENTS);
+  const [facultyCoordinator, setFacultyCoordinator] = useState<SanityFacultyCoordinator>({
+    name: "—",
+    quote: "The CodeChef Student Chapter at VIT Chennai has rapidly expanded, enhancing programming and competitive coding skills through contests, workshops, and peer learning.",
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        // Fetch presidents from Sanity
+        const presQuery = `*[_type == "presidentTestimonials"] | order(year desc)`;
+        const presData = await client.fetch(presQuery);
+        if (Array.isArray(presData) && presData.length > 0) {
+          const normalizedPres = presData.map((p: any) => ({
+            name: p.name || "—",
+            year: p.year || "",
+            vision: p.testimonial || p.vision || "",
+            image: p.image,
+            imageUrl: p.imageUrl,
+          }));
+          setPresidents(normalizedPres);
+        }
+
+        // Fetch faculty coordinator from Sanity
+        const facQuery = `*[_type == "facultyCoordinator"][0]`;
+        const facData = await client.fetch(facQuery);
+        if (facData) {
+          setFacultyCoordinator({
+            name: facData.name || "—",
+            quote: facData.quote || facData.testimonial || "",
+            image: facData.image,
+            imageUrl: facData.imageUrl,
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching leadership board from Sanity:", err);
+      }
+    }
+    fetchData();
+  }, []);
 
   const prevPres = () => {
-    setPresIndex((prev) => (prev === 0 ? PRESIDENTS.length - 1 : prev - 1));
+    setPresIndex((prev) => (prev === 0 ? presidents.length - 1 : prev - 1));
   };
 
   const nextPres = () => {
-    setPresIndex((prev) => (prev === PRESIDENTS.length - 1 ? 0 : prev + 1));
+    setPresIndex((prev) => (prev === presidents.length - 1 ? 0 : prev + 1));
+  };
+
+  const resolveImage = (item: any) => {
+    if (item.image) {
+      try {
+        return urlFor(item.image).url();
+      } catch (e) {
+        console.error("Error resolving Sanity image:", e);
+      }
+    }
+    return item.imageUrl;
   };
 
   return (
@@ -76,12 +144,12 @@ function LeadershipBoard() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p className="font-sans text-[11px] sm:text-xs font-semibold text-neutral-700 leading-relaxed italic">
-                  The CodeChef Student Chapter at VIT Chennai has rapidly expanded, enhancing programming and competitive coding skills through contests, workshops, and peer learning.
+                  {facultyCoordinator.quote}
                 </p>
               </div>
               <div className="mt-4 pt-2 border-t border-black/10">
                 <h4 className="font-bebas text-xl font-bold uppercase tracking-wider text-black">
-                  —
+                  {facultyCoordinator.name}
                 </h4>
                 <p className="font-sans text-[10px] text-neutral-500 font-bold uppercase">
                   Faculty Coordinator
@@ -90,11 +158,19 @@ function LeadershipBoard() {
             </div>
 
             {/* Avatar Photo */}
-            <div className="w-24 h-24 rounded-lg border-2 border-black bg-neutral-300 flex-shrink-0 flex items-end overflow-hidden">
-              <svg viewBox="0 0 100 100" className="w-full h-full text-white" fill="currentColor">
-                <circle cx="50" cy="38" r="18" />
-                <path d="M 15,85 C 15,62 30,55 50,55 C 70,55 85,62 85,85 Z" />
-              </svg>
+            <div className="w-24 h-24 rounded-lg border-2 border-black bg-neutral-300 flex-shrink-0 overflow-hidden relative">
+              {resolveImage(facultyCoordinator) ? (
+                <img
+                  src={resolveImage(facultyCoordinator)}
+                  alt={facultyCoordinator.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <svg viewBox="0 0 100 100" className="w-full h-full text-white flex items-end" fill="currentColor">
+                  <circle cx="50" cy="38" r="18" />
+                  <path d="M 15,85 C 15,62 30,55 50,55 C 70,55 85,62 85,85 Z" />
+                </svg>
+              )}
             </div>
           </div>
         </div>
@@ -117,11 +193,19 @@ function LeadershipBoard() {
               className="flex-1 flex flex-col sm:flex-row gap-6 items-center sm:items-start"
             >
               {/* Photo Avatar */}
-              <div className="w-24 h-24 rounded-lg border-2 border-black bg-neutral-300 flex-shrink-0 flex items-end overflow-hidden">
-                <svg viewBox="0 0 100 100" className="w-full h-full text-white" fill="currentColor">
-                  <circle cx="50" cy="38" r="18" />
-                  <path d="M 15,85 C 15,62 30,55 50,55 C 70,55 85,62 85,85 Z" />
-                </svg>
+              <div className="w-24 h-24 rounded-lg border-2 border-black bg-neutral-300 flex-shrink-0 overflow-hidden relative">
+                {resolveImage(presidents[presIndex]) ? (
+                  <img
+                    src={resolveImage(presidents[presIndex])}
+                    alt={presidents[presIndex].name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <svg viewBox="0 0 100 100" className="w-full h-full text-white flex items-end" fill="currentColor">
+                    <circle cx="50" cy="38" r="18" />
+                    <path d="M 15,85 C 15,62 30,55 50,55 C 70,55 85,62 85,85 Z" />
+                  </svg>
+                )}
               </div>
 
               {/* Vision and Quote */}
@@ -131,15 +215,15 @@ function LeadershipBoard() {
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="font-sans text-[11px] sm:text-xs font-semibold text-neutral-700 leading-relaxed italic">
-                    {PRESIDENTS[presIndex].vision}
+                    {presidents[presIndex].vision}
                   </p>
                 </div>
                 <div className="mt-4 pt-2 border-t border-black/10">
                   <h4 className="font-bebas text-xl font-bold uppercase tracking-wider text-black">
-                    {PRESIDENTS[presIndex].name}
+                    {presidents[presIndex].name}
                   </h4>
                   <p className="font-sans text-[10px] text-neutral-500 font-bold uppercase">
-                    {PRESIDENTS[presIndex].year}
+                    {presidents[presIndex].year}
                   </p>
                 </div>
               </div>
