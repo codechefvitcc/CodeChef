@@ -8,7 +8,7 @@ export default function Marquee() {
             className="text-black text-3xl tracking-widest mx-8 select-none"
             style={{ fontFamily: "Bebas Neue" }}
           >
-            JOIN US MARQUEE!!! &nbsp;&nbsp;&nbsp; ✦
+            JOIN US !!! &nbsp;&nbsp;&nbsp; ✦
           </span>
         ))}
       </div>
